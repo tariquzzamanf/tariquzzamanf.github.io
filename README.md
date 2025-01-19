@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/tariquzzamanf/tariquzzamanf/blob/main/hi%20im%20tariq.png?raw=true" alt="Banner image" width="700">
+  <img src="https://github.com/tariquzzamanf/tariquzzamanf/blob/main/hi%20im%20tariq.jpg?raw=true" alt="Banner image" width="800">
 
   <br>
   <br>
