@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/your-username/your-username/blob/main/Hey%2C%20I'm%20Tariq.png" alt="Banner image" width="700">
+  <img src="[https://github.com/your-username/your-username/blob/main/Hey%2C%20I'm%20Tariq.png](https://github.com/tariquzzamanf/tariquzzamanf/blob/main/hi%20im%20tariq.png)" alt="Banner image" width="700">
 
   <br>
   <br>
@@ -39,23 +39,3 @@
 ### My Interests 💜
 I am particularly interested in **Natural Language Processing**, **Deep Learning**, and **Language Modeling**. In my free time, I enjoy exploring anime and spending time with cats.
 
-### Languages
-<img height="40" src="https://seeklogo.com/images/P/python-logo-A32636CAA3-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/C/c-logo-43CE78FF9C-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/C/c-programming-language-logo-9B32D017B1-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/J/java-logo-7833D1D21A-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/J/javascript-js-logo-2949701702-seeklogo.com.png">
-
-### Tools
-<img height="40" src="https://seeklogo.com/images/G/git-logo-CD8D6F1C09-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/G/github-logo-5F384D0265-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/T/tensorflow-logo-02FCED4F98-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/P/pytorch-logo-84F95D0AF5-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/J/jupyter-logo-A91705F539-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/S/sqlite-logo-5E9F462E6A-seeklogo.com.png"> &nbsp;
-<img height="40" src="https://seeklogo.com/images/M/MySQL-logo-F6FF285A58-seeklogo.com.png"> &nbsp;
-
----
-
-<!-- ### Stats
-[![Tariq's GitHub stats](https://github-readme-stats.vercel.app/api?username=your-username&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats) -->
