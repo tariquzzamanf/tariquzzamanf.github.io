@@ -50,3 +50,35 @@ $back-to-top-right: 30px;
 $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
+
+
+/* Softer and more readable color palette */
+$muted-blue: #4a90e2;  // Soft blue for headings
+$muted-green: #6dbf6d;  // Soft green for subheadings
+$muted-grey: #666666;  // Muted grey for general text
+$light-grey: #f0f0f0;   // Light grey for backgrounds
+$dark-grey: #2c3e50;    // Dark grey for text in dark mode
+
+/* Apply dynamic colors */
+.accent-heading {
+  color: $muted-blue;
+}
+
+.highlight-muted {
+  color: $muted-grey;
+}
+
+@media (prefers-color-scheme: dark) {
+  .accent-heading {
+    color: $muted-blue; /* Retaining a soft blue in dark mode */
+  }
+
+  .highlight-muted {
+    color: $muted-green; /* A soft green in dark mode for variety */
+  }
+
+  body {
+    background-color: $dark-grey;  /* Dark background in dark mode */
+    color: $light-grey;            /* Light text on dark background */
+  }
+}
