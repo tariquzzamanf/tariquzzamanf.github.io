@@ -4,7 +4,7 @@
 
 title: Tariquzzaman Faisal # the website title (if blank, full name will be used instead)
 first_name: Tariquzzaman
-middle_name: 
+middle_name:
 last_name: Faisal
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
@@ -157,7 +157,6 @@ announcements:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
-
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

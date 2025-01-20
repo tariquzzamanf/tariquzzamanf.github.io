@@ -51,13 +51,12 @@ $back-to-top-diameter: 40px;
 $back-to-top-height: $back-to-top-diameter;
 $back-to-top-width: $back-to-top-diameter;
 
-
 /* Softer and more readable color palette */
-$muted-blue: #4a90e2;  // Soft blue for headings
-$muted-green: #6dbf6d;  // Soft green for subheadings
-$muted-grey: #666666;  // Muted grey for general text
-$light-grey: #f0f0f0;   // Light grey for backgrounds
-$dark-grey: #2c3e50;    // Dark grey for text in dark mode
+$muted-blue: #4a90e2; // Soft blue for headings
+$muted-green: #6dbf6d; // Soft green for subheadings
+$muted-grey: #666666; // Muted grey for general text
+$light-grey: #f0f0f0; // Light grey for backgrounds
+$dark-grey: #2c3e50; // Dark grey for text in dark mode
 
 /* Apply dynamic colors */
 .accent-heading {
@@ -78,7 +77,7 @@ $dark-grey: #2c3e50;    // Dark grey for text in dark mode
   }
 
   body {
-    background-color: $dark-grey;  /* Dark background in dark mode */
-    color: $light-grey;            /* Light text on dark background */
+    background-color: $dark-grey; /* Dark background in dark mode */
+    color: $light-grey; /* Light text on dark background */
   }
 }
