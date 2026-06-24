@@ -2,8 +2,16 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("a[href]").forEach(function (link) {
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noopener noreferrer");
+      var href = link.getAttribute("href");
+      var isExternal = href &&
+        !href.startsWith("/") &&
+        !href.startsWith("#") &&
+        !href.startsWith(window.location.origin) &&
+        /^https?:\/\//.test(href);
+      if (isExternal) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
     });
   });
 </script>
