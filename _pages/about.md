@@ -277,12 +277,18 @@ redirect_from:
 </head>
 </html>
 <p class="justified-text">
-Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" target="_blank" rel="noopener">Md. Tariquzzaman</a>, a Junior Lecturer in the Department of Computer Science and Engineering at <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>.
+I am a Junior Lecturer in the Department of Computer Science and Engineering (CSE) at the <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>. I am an active member of the <a href="https://cse.iutoic-dhaka.edu/ssl" target="_blank" rel="noopener">Systems and Software Lab (SSL)</a> research group at IUT. I worked on my undergraduate thesis under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/mohsinul/education" target="_blank" rel="noopener">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/hasan/education" target="_blank" rel="noopener">Hasan Mahmud</a>.
+</p>
+
+<p class="justified-text">
+My research interests lie broadly in Natural Language Processing. I am working on projects related to low-resource language processing for Bangla language, harmful content and misinformation detection, sign language instruction generation, and benchmarking scenario-induced biases in large language models.
+</p>
 <h2>News and Updates</h2>
 <ul class="news-container">
-  <li class="news-item"><strong>Month 20XX:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-  <li class="news-item"><strong>Month 20XX:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-  <li class="news-item"><strong>Month 20XX:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+  <li class="news-item"><strong>2026:</strong> Paper <em>"Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"</em> accepted to Findings of ACL 2026.</li>
+  <li class="news-item"><strong>Oct 2025:</strong> Paper <em>"Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation"</em> accepted at CV4A11y workshop at ICCV 2025.</li>
+  <li class="news-item"><strong>Dec 2024:</strong> Paper <em>"BDA: Bangla Text Data Augmentation Framework"</em> submitted to arXiv.</li>
+  <li class="news-item"><strong>Dec 2023:</strong> Paper <em>"A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection"</em> received Best Shared Task Paper Award at BLP@EMNLP 2023.</li>
 </ul>
 
 <div id="research-map-section">
@@ -297,35 +303,22 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
 <h1>Research Highlights</h1>
 {% assign all_research_papers = "" | split: "" %}
 {% for topic in site.data.research.topics %}
-  {% if topic.papers %}
-    {% assign all_research_papers = all_research_papers | concat: topic.papers %}
-  {% endif %}
+{% if topic.papers %}
+{% assign all_research_papers = all_research_papers | concat: topic.papers %}
+{% endif %}
 {% endfor %}
 {% assign highlighted_papers = all_research_papers | where: "ishighlight", 1 | sort: "year" | reverse %}
 {% for paper in highlighted_papers %}
-  <h2>{{ paper.title }}</h2>
-
-  {% if paper.links %}
-    <p>
-      {% for link in paper.links %}
-        <a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
-      {% endfor %}
-    </p>
-  {% endif %}
-
-  {% if paper.image %}
-    <img
-      class="research-highlight-image"
-      src="{{ paper.image | relative_url }}"
-      alt="{{ paper.image_alt }}"
-      loading="lazy"
-      style="--highlight-image-width: {{ paper.highlight_image_width | default: 100 }}%;"
-    >
-  {% else %}
-    <div style="height: 240px; margin: 16px 0; border: 1px dashed #ccc; border-radius: 6px; background: linear-gradient(135deg, #f5f6f7 0%, #eaecee 100%); display: flex; align-items: center; justify-content: center; color: #999;">Placeholder image</div>
-  {% endif %}
-
-  <p><strong>tldr.</strong> {{ paper.tldr }}</p>
+<h2>{{ paper.title }}</h2>
+{% if paper.links %}
+<p>{% for link in paper.links %}<a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a> {% endfor %}</p>
+{% endif %}
+{% if paper.image %}
+<img class="research-highlight-image" src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt }}" loading="lazy" style="--highlight-image-width: {{ paper.highlight_image_width | default: 100 }}%;">
+{% else %}
+<div style="height: 240px; margin: 16px 0; border: 1px dashed #ccc; border-radius: 6px; background: linear-gradient(135deg, #f5f6f7 0%, #eaecee 100%); display: flex; align-items: center; justify-content: center; color: #999;">Placeholder image</div>
+{% endif %}
+<p><strong>tldr.</strong> {{ paper.tldr }}</p>
 {% endfor %}
 
 <script src="{{ '/assets/js/research-keywords.js' | relative_url }}"></script>

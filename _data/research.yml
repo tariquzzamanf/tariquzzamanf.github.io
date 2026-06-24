@@ -1,87 +1,4 @@
 topics:
-  - id: topic-1
-    title: "Topic 1"
-    papers:
-      - id: topic-1-placeholder
-        nodename: "P1"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 1"
-          - "Topic 2"
-
-  - id: topic-2
-    title: "Topic 2"
-    papers:
-      - id: topic-2-placeholder
-        nodename: "P2"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 2"
-          - "Topic 4"
-          - "Topic 6"
-
-  - id: topic-3
-    title: "Topic 3"
-    papers:
-      - id: topic-3-placeholder
-        nodename: "P3"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 1"
-          - "Topic 3"
-          - "Topic 5"
-
-  - id: topic-4
-    title: "Topic 4"
-    papers:
-      - id: topic-4-placeholder
-        nodename: "P4"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 3"
-          - "Topic 4"
-
-  - id: topic-5
-    title: "Topic 5"
-    papers:
-      - id: topic-5-placeholder
-        nodename: "P5"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 2"
-          - "Topic 5"
-          - "Topic 7"
-
   - id: accessibility
     title: "Accessibility Technology"
     papers:
@@ -115,6 +32,7 @@ topics:
         keywords:
           - "Accessibility"
           - "Zero-shot Evaluation"
+          - "Bangla NLP"
 
   - id: text-augmentation
     title: "Text Augmentation"
@@ -129,24 +47,19 @@ topics:
         venue: "arXiv"
         authors:
           - name: "Md. Tariquzzaman"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Tariquzzaman,+M"
             highlight: true
           - name: "Audwit Nafi Anam"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Anam,+A+N"
           - name: "Naimul Haque"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Haque,+N"
           - name: "Mohsinul Kabir"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Kabir,+M"
           - name: "Hasan Mahmud"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Mahmud,+H"
           - name: "Md Kamrul Hasan"
-            url: "https://arxiv.org/search/cs?searchtype=author&query=Hasan,+M+K"
         links:
           - label: "Paper"
             url: "https://arxiv.org/abs/2412.08753"
         tldr: "BDA combines multiple augmentation methods (synonym replacement, random swap, back-translation, paraphrasing) with a semantic filtering step to synthetically expand Bangla training data — achieving near full-data performance with significantly less data."
         keywords:
           - "Text Augmentation"
+          - "Bangla NLP"
 
   - id: harmful-content
     title: "Harmful Content"
@@ -183,6 +96,7 @@ topics:
         keywords:
           - "Word embeddings"
           - "Text Classification"
+          - "Bangla NLP"
 
   - id: misinformation-detection
     title: "Misinformation Detection"
@@ -230,24 +144,3 @@ topics:
         tldr: "We introduce MFMD-Scen, a benchmark that tests whether LLMs judge the same financial claim differently depending on who is asking. Across 22 models and four languages (English, Chinese, Greek, Bengali), we show that injecting realistic financial personas, regional contexts, and cultural identities consistently shifts model verdicts — even when the underlying claim stays unchanged — with biases amplified in low-resource languages and smaller models."
         keywords:
           - "LLM Evaluation and Bias"
-
-  - id: topic-6
-    title: "Topic 6"
-    papers:
-      - id: topic-6-placeholder
-        nodename: "P6"
-        ishighlight: 0
-        year: null
-        placeholder: true
-        title: "Lorem ipsum research project"
-        venue: "Placeholder venue"
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        keywords:
-          - "Topic 3"
-          - "Topic 6"
-          - "Topic 7"
-
-  - id: topic-7
-    title: "Topic 7"
-    papers:
