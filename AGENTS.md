@@ -57,8 +57,8 @@ Paths and filenames are case-sensitive on GitHub Pages.
 ## Current public pages
 
 - `/` is generated from `_pages/about.md`.
-- `/publications/` uses `_pages/publications.html` and `_data/research.yml`.
-- `/teaching/` uses `_pages/teaching.html` and is labeled Experience.
+- `/research/` uses `_pages/publications.html` and `_data/research.yml`.
+- `/experience/` uses `_pages/teaching.html` and is labeled Experience.
 - `/cv/` uses `_pages/cv.md`; navigation links directly to `files/tariq.pdf`.
 - `/sitemap/` lists the current public pages.
 - `/404.html` is the not-found page.
@@ -80,7 +80,7 @@ The masthead and page content must share the same horizontal frame:
 - `.masthead__inner-wrap` in `_sass/_masthead.scss` and `#main` in `_sass/_page.scss` both use the Susy container, `1em` horizontal padding, and a 1280px maximum at `$x-large`.
 - `_layouts/single.html` detects whether a page has an author/sidebar. Pages without one receive `page--wide`; pages with one retain the desktop author column.
 - At `$large`, sidebar pages use a 10-of-12 right-aligned page span with a 0.5-column left prefix. There is intentionally no right suffix, so content ends at the same right edge as the navigation.
-- At `$large`, `.page--wide` resets the grid and uses the full content container. `/publications/` depends on this because `author_profile: false`.
+- At `$large`, `.page--wide` resets the grid and uses the full content container. `/research/` depends on this because `author_profile: false`.
 
 Do not restore the old `suffix(2 of 12)` reservation or add page-specific fixed/max-width workarounds to align the right edge. The homepage News box is intentionally uncapped and follows its parent content width.
 
@@ -122,10 +122,11 @@ Add meaningful alt text and use case-correct paths for every image.
 
 The interactive map is implemented inline in `_pages/about.md` with D3 loaded from `https://d3js.org/d3.v7.min.js`.
 
-- `topicColors` and `topicLabels` define placeholder categories.
-- `nodes` define placeholder items.
-- `links` define graph relationships.
-- Node IDs must be unique and every link must reference existing node IDs.
+- `topicColors` and `topicLabels` define the seven keyword categories.
+- Nodes are generated from every paper in `_data/research.yml`.
+- Each paper's required `nodename` field supplies its short graph label and is not rendered on the Research page.
+- Links are generated when two papers share at least one keyword.
+- Paper IDs must be unique, and every paper must have two or three keywords matching `Topic 1` through `Topic 7`.
 
 ## Safe change workflow
 
@@ -138,4 +139,4 @@ The interactive map is implemented inline in `_pages/about.md` with D3 loaded fr
 7. Confirm all referenced local assets exist with exactly matching case.
 8. Verify generated identity and contact details match the intended values in `_config.yml` and page content.
 
-For responsive layout changes, verify both sidebar pages (`/`, `/teaching/`) and the full-width Research page (`/publications/`) around 925px, 1024px, and 1280px. For navigation changes, confirm generated links carry `is-current` and `aria-current="page"` only on their matching route.
+For responsive layout changes, verify both sidebar pages (`/`, `/experience/`) and the full-width Research page (`/research/`) around 925px, 1024px, and 1280px. For navigation changes, confirm generated links carry `is-current` and `aria-current="page"` only on their matching route.

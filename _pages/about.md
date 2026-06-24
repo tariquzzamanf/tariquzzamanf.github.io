@@ -194,6 +194,23 @@ redirect_from:
             font-size: 0.9em;
         }
 
+        .rm-tooltip-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 9px;
+        }
+
+        .rm-tooltip-keyword {
+            padding: 2px 7px;
+            border: 1px solid currentColor;
+            border-radius: 999px;
+            background: #fff;
+            font-size: 0.72em;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
         .rm-tooltip-close {
             position: absolute;
             top: 10px;
@@ -257,7 +274,7 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
 <div id="research-map-section">
   <h2 style="margin-top:0; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid #e0e0e0;">Research Map</h2>
   <p style="font-size:0.85em; color:#999; margin-top:-10px; margin-bottom:12px;">
-    Placeholder research topics and relationships. Click any node for details.
+    The research map will help you navigate through my research portfolio. Click any node for details.
   </p>
   <div id="research-map"></div>
   <div class="rm-legend" id="rm-legend"></div>
@@ -321,26 +338,38 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
     };
 
     var nodes = [
-        { id: 'T1A', full: 'Lorem ipsum research item 1', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic1', venue: 'Placeholder venue' },
-        { id: 'T1B', full: 'Lorem ipsum research item 2', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic1', venue: 'Placeholder venue' },
-        { id: 'T2A', full: 'Lorem ipsum research item 3', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic2', venue: 'Placeholder venue' },
-        { id: 'T3A', full: 'Lorem ipsum research item 4', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic3', venue: 'Placeholder venue' },
-        { id: 'T4A', full: 'Lorem ipsum research item 5', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic4', venue: 'Placeholder venue' },
-        { id: 'T5A', full: 'Lorem ipsum research item 6', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic5', venue: 'Placeholder venue' },
-        { id: 'T6A', full: 'Lorem ipsum research item 7', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic6', venue: 'Placeholder venue' },
-        { id: 'T7A', full: 'Lorem ipsum research item 8', tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', topic: 'topic7', venue: 'Placeholder venue' }
+        {% for topic in site.data.research.topics %}
+          {% for paper in topic.papers %}
+            {
+                id: {{ paper.id | jsonify }},
+                nodename: {{ paper.nodename | jsonify }},
+                full: {{ paper.title | jsonify }},
+                tldr: {{ paper.tldr | default: paper.summary | default: '' | jsonify }},
+                topic: {{ paper.keywords.first | downcase | remove: ' ' | default: 'topic1' | jsonify }},
+                keywords: {{ paper.keywords | default: empty | jsonify }},
+                venue: {{ paper.venue | default: '' | jsonify }},
+                link: {{ '/research/#paper-' | append: paper.id | relative_url | jsonify }}
+            },
+          {% endfor %}
+        {% endfor %}
     ];
 
-    var links = [
-        { source: 'T1A', target: 'T1B' },
-        { source: 'T1A', target: 'T2A' },
-        { source: 'T2A', target: 'T3A' },
-        { source: 'T3A', target: 'T4A' },
-        { source: 'T4A', target: 'T5A' },
-        { source: 'T5A', target: 'T6A' },
-        { source: 'T6A', target: 'T7A' },
-        { source: 'T7A', target: 'T1B' }
-    ];
+    var links = [];
+    for (var sourceIndex = 0; sourceIndex < nodes.length; sourceIndex += 1) {
+        for (var targetIndex = sourceIndex + 1; targetIndex < nodes.length; targetIndex += 1) {
+            var sharedKeywords = nodes[sourceIndex].keywords.filter(function(keyword) {
+                return nodes[targetIndex].keywords.indexOf(keyword) !== -1;
+            });
+
+            if (sharedKeywords.length > 0) {
+                links.push({
+                    source: nodes[sourceIndex].id,
+                    target: nodes[targetIndex].id,
+                    sharedKeywords: sharedKeywords
+                });
+            }
+        }
+    }
 
     var container = document.getElementById('research-map');
     if (!container) return;
@@ -427,7 +456,7 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
         .attr('stroke-width', 2);
 
     node.append('text')
-        .text(function(d) { return d.id; });
+        .text(function(d) { return d.nodename; });
 
     node.on('click', function(event, d) {
         event.stopPropagation();
@@ -464,6 +493,12 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
         var topicDot = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'
             + topicColors[d.topic] + ';margin-right:4px;vertical-align:middle;"></span>';
 
+        var keywordHtml = d.keywords.map(function(keyword) {
+            var keywordKey = keyword.toLowerCase().replace(/\s+/g, '');
+            return '<span class="rm-tooltip-keyword" style="color:' + topicColors[keywordKey] + ';">'
+                + escapeHtml(keyword) + '</span>';
+        }).join('');
+
         var tooltip = d3.select('#research-map')
             .append('div')
             .attr('class', 'rm-tooltip')
@@ -480,10 +515,20 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
         tooltip.html(
             '<button class="rm-tooltip-close" onclick="this.parentElement.remove();event.stopPropagation();">&times;</button>' +
             '<div class="rm-tooltip-title" style="display:flex;align-items:flex-start;gap:4px;">' +
-            '<span>' + d.full + '</span>' + linkIcon + '</div>' +
-            '<div class="rm-tooltip-venue">' + topicDot + d.venue + '</div>' +
-            '<div class="rm-tooltip-tldr"><strong>TL;DR:</strong> ' + d.tldr + '</div>'
+            '<span>' + escapeHtml(d.full) + '</span>' + linkIcon + '</div>' +
+            '<div class="rm-tooltip-venue">' + topicDot + escapeHtml(d.venue) + '</div>' +
+            '<div class="rm-tooltip-tldr"><strong>TL;DR:</strong> ' + escapeHtml(d.tldr) + '</div>' +
+            '<div class="rm-tooltip-keywords">' + keywordHtml + '</div>'
         );
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
     }
 
     simulation.on('tick', function() {

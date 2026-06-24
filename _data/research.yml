@@ -3,56 +3,80 @@ topics:
     title: "Topic 1"
     papers:
       - id: topic-1-placeholder
+        nodename: "P1"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 1"
+          - "Topic 2"
 
   - id: topic-2
     title: "Topic 2"
     papers:
       - id: topic-2-placeholder
+        nodename: "P2"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 2"
+          - "Topic 4"
+          - "Topic 6"
 
   - id: topic-3
     title: "Topic 3"
     papers:
       - id: topic-3-placeholder
+        nodename: "P3"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 1"
+          - "Topic 3"
+          - "Topic 5"
 
   - id: topic-4
     title: "Topic 4"
     papers:
       - id: topic-4-placeholder
+        nodename: "P4"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 3"
+          - "Topic 4"
 
   - id: topic-5
     title: "Topic 5"
     papers:
       - id: topic-5-placeholder
+        nodename: "P5"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 2"
+          - "Topic 5"
+          - "Topic 7"
 
   - id: accessibility
     title: "Accessibility Technology"
     papers:
       - id: sign-parameters
+        nodename: "SPIP"
         title: "Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation"
         image: "/images/bdslig.png"
         image_alt: "Prompting with Sign Language paper figure"
@@ -75,16 +99,25 @@ topics:
           - label: "Video"
             url: "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
         tldr: "A prompting method that uses sign-language parameters to generate instructions for low-resource sign-language education."
+        keywords:
+          - "Topic 1"
+          - "Topic 4"
+          - "Topic 7"
 
   - id: topic-6
     title: "Topic 6"
     papers:
       - id: topic-6-placeholder
+        nodename: "P6"
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
         summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        keywords:
+          - "Topic 3"
+          - "Topic 6"
+          - "Topic 7"
 
   - id: topic-7
     title: "Topic 7"

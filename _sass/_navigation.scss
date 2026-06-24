@@ -197,6 +197,33 @@
     font-weight: 700;
   }
 
+  .site-title,
+  .visible-links a {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 4px;
+      background: mix(#fff, $primary-color, 50%);
+      width: 100%;
+      -webkit-transition: $global-transition;
+      transition: $global-transition;
+      -webkit-transform: scaleX(0);
+          -ms-transform: scaleX(0);
+              transform: scaleX(0); /* hide*/
+    }
+
+    &:hover:before,
+    &.is-current:before {
+      -webkit-transform: scaleX(1);
+          -ms-transform: scaleX(1);
+              transform: scaleX(1); /* reveal*/
+    }
+  }
+
   button {
     position: relative;
     order: 3;
@@ -234,31 +261,6 @@
       }
     }
 
-    a {
-      position: relative;
-
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        background: mix(#fff, $primary-color, 50%);
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: scaleX(0);
-            -ms-transform: scaleX(0);
-                transform: scaleX(0); /* hide*/
-      }
-
-      &:hover:before,
-      &.is-current:before {
-        -webkit-transform: scaleX(1);
-            -ms-transform: scaleX(1);
-                transform: scaleX(1); /* reveal*/
-      }
-    }
   }
 
   .hidden-links {

@@ -1,7 +1,9 @@
 ---
 
 title: ""
-permalink: /publications/
+permalink: /research/
+redirect_from:
+  - /publications/
 author_profile: false
 ---
 
@@ -77,6 +79,7 @@ author_profile: false
           align-items: center;
           gap: 16px;
           margin-bottom: 12px;
+          scroll-margin-top: 90px;
       }
 
       .pub-img-wrap .section-item {
@@ -181,6 +184,41 @@ author_profile: false
           color: inherit;
           border-bottom: 1px solid #000;
       }
+
+      .paper-keywords {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 12px;
+          margin-top: 10px;
+      }
+
+      .paper-keyword {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 0.68em;
+          font-weight: 500;
+          line-height: 1.3;
+          color: #777;
+      }
+
+      .paper-keyword::before {
+          content: "";
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          flex-shrink: 0;
+          background: #999;
+      }
+
+      .paper-keyword--topic-1::before { background: #e74c3c; }
+      .paper-keyword--topic-2::before { background: #9b59b6; }
+      .paper-keyword--topic-3::before { background: #f1c40f; }
+      .paper-keyword--topic-4::before { background: #3498db; }
+      .paper-keyword--topic-5::before { background: #2ecc71; }
+      .paper-keyword--topic-6::before { background: #1abc9c; }
+      .paper-keyword--topic-7::before { background: #e67e22; }
   </style>
 
 </head>
@@ -202,7 +240,7 @@ author_profile: false
         <h2 class="section-title">{{ topic.title }}</h2>
 
         {% for paper in topic.papers %}
-          <div class="pub-img-wrap">
+          <div class="pub-img-wrap" id="paper-{{ paper.id }}">
             {% if paper.placeholder %}
               <div class="pub-img-placeholder" aria-hidden="true"><span>Placeholder</span></div>
             {% elsif paper.image %}
@@ -224,6 +262,14 @@ author_profile: false
               {% for link in paper.links %}
                 <a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
               {% endfor %}
+
+              {% if paper.keywords %}
+                <div class="paper-keywords" aria-label="Research keywords">
+                  {% for keyword in paper.keywords %}
+                    <span class="paper-keyword paper-keyword--{{ keyword | downcase | replace: ' ', '-' }}">{{ keyword }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
           </div>
         {% endfor %}

@@ -12,6 +12,6 @@ A list of the public pages on this site. An [XML version]({{ base_path }}/sitema
 <h2>Pages</h2>
 
 - [Home]({{ base_path }}/)
-- [Research]({{ base_path }}/publications/)
-- [Experience]({{ base_path }}/teaching/)
+- [Research]({{ base_path }}/research/)
+- [Experience]({{ base_path }}/experience/)
 - [Curriculum Vitae]({{ base_path }}/files/tariq.pdf)
