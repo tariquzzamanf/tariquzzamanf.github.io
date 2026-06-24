@@ -281,7 +281,7 @@ redirect_from:
 </head>
 </html>
 <p class="justified-text">
-I am a Junior Lecturer in the Department of Computer Science and Engineering (CSE) at the <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>. I am an active member of the <a href="https://cse.iutoic-dhaka.edu/ssl" target="_blank" rel="noopener">Systems and Software Lab (SSL)</a> research group at IUT. I worked on my undergraduate thesis under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/mohsinul/education" target="_blank" rel="noopener">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/hasan/education" target="_blank" rel="noopener">Hasan Mahmud</a>.
+Hi, I'm Tariq, a <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" target="_blank" rel="noopener">Junior Lecturer</a> in the Department of Computer Science and Engineering (CSE) at the <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>. I am an active member of the <a href="https://cse.iutoic-dhaka.edu/ssl" target="_blank" rel="noopener">Systems and Software Lab (SSL)</a> research group at IUT. I worked on my undergraduate thesis under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/mohsinul/education" target="_blank" rel="noopener">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/hasan/education" target="_blank" rel="noopener">Hasan Mahmud</a>.
 </p>
 
 <p class="justified-text">
