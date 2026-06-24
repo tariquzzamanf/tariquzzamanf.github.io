@@ -1,0 +1,10 @@
+main:
+  - title: "Research"
+    url: /publications/
+
+  - title: "Experience"
+    url: /teaching/
+
+  - title: "CV"
+    url: /files/tariq.pdf
+    target: _blank

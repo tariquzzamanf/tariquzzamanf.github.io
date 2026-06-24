@@ -1,0 +1,86 @@
+# -----------------------------------------------------------------------------
+# Jekyll build output and caches
+# -----------------------------------------------------------------------------
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# -----------------------------------------------------------------------------
+# Ruby and Bundler
+# Keep Gemfile.lock and .ruby-version tracked for reproducible builds.
+# -----------------------------------------------------------------------------
+.bundle/
+vendor/bundle/
+*.gem
+.ruby-lsp/
+.yardoc/
+_yardoc/
+coverage/
+
+# -----------------------------------------------------------------------------
+# Node.js tooling
+# Keep package-lock.json tracked when npm dependencies are installed.
+# -----------------------------------------------------------------------------
+node_modules/
+.npm/
+.yarn/cache/
+.yarn/install-state.gz
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------------------------------------------------------
+# Local development files
+# -----------------------------------------------------------------------------
+local/
+tmp/
+temp/
+log/
+*.log
+*.pid
+*.seed
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# Environment variables and local secrets
+# Keep example files such as .env.example tracked.
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# -----------------------------------------------------------------------------
+# macOS and other operating-system files
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# -----------------------------------------------------------------------------
+# Editors and IDEs
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------------------------------------------------------------
+# Test and tool caches
+# -----------------------------------------------------------------------------
+.cache/
+.pytest_cache/
+.coverage
+

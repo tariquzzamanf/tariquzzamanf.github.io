@@ -1,0 +1,91 @@
+topics:
+  - id: topic-1
+    title: "Topic 1"
+    papers:
+      - id: topic-1-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: topic-2
+    title: "Topic 2"
+    papers:
+      - id: topic-2-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: topic-3
+    title: "Topic 3"
+    papers:
+      - id: topic-3-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: topic-4
+    title: "Topic 4"
+    papers:
+      - id: topic-4-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: topic-5
+    title: "Topic 5"
+    papers:
+      - id: topic-5-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: accessibility
+    title: "Accessibility Technology"
+    papers:
+      - id: sign-parameters
+        title: "Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation"
+        image: "/images/bdslig.png"
+        image_alt: "Prompting with Sign Language paper figure"
+        venue: "CV4A11y@ICCV'25"
+        venue_url: "https://cv4a11y.github.io/ICCV2025/index.html"
+        authors:
+          - name: "Md. Tariquzzaman"
+            highlight: true
+          - name: "Md Farhan Ishmam"
+          - name: "Saiyma Sittul Muna"
+          - name: "Md Kamrul Hasan"
+          - name: "Hasan Mahmud"
+        links:
+          - label: "Paper"
+            url: "https://openreview.net/forum?id=KkVMBkjbra"
+          - label: "Code"
+            url: "https://github.com/tariquzzamanf/SPIP"
+          - label: "Dataset"
+            url: "https://huggingface.co/datasets/aplycaebous/BdSLIG"
+          - label: "Video"
+            url: "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
+        tldr: "A prompting method that uses sign-language parameters to generate instructions for low-resource sign-language education."
+
+  - id: topic-6
+    title: "Topic 6"
+    papers:
+      - id: topic-6-placeholder
+        placeholder: true
+        title: "Lorem ipsum research project"
+        venue: "Placeholder venue"
+        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        tldr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+  - id: topic-7
+    title: "Topic 7"
+    papers:

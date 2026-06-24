@@ -1,0 +1,265 @@
+---
+
+title: ""
+permalink: /publications/
+author_profile: false
+---
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications</title>
+  <style>
+      /* ── Two-column layout ── */
+      .pub-layout {
+          display: flex;
+          gap: 36px;
+          align-items: flex-start;
+      }
+
+      /* ── Sticky topic nav ── */
+      .pub-nav {
+          width: 190px;
+          flex-shrink: 0;
+          position: sticky;
+          top: 80px;
+      }
+
+      .pub-nav-title {
+          font-size: 0.7em;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #aaa;
+          margin: 0 0 10px 10px;
+      }
+
+      .pub-nav a {
+          display: block;
+          padding: 6px 10px;
+          font-size: 0.82em;
+          color: #666;
+          text-decoration: none;
+          border-left: 2px solid #e8e8e8;
+          transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+          line-height: 1.4;
+      }
+
+      .pub-nav a:hover {
+          color: #3498db;
+          border-left-color: #3498db;
+          background: rgba(52, 152, 219, 0.05);
+          text-decoration: none;
+      }
+
+      .pub-nav a.active {
+          color: #3498db;
+          border-left-color: #3498db;
+          font-weight: 600;
+          background: rgba(52, 152, 219, 0.07);
+      }
+
+      /* Hide nav on mobile */
+      @media screen and (max-width: 1023px) {
+          .pub-nav { display: none; }
+      }
+
+      /* ── Main content area ── */
+      .pub-content {
+          flex: 1;
+          min-width: 0;
+      }
+
+      /* ── Paper image / placeholder ── */
+      .pub-img-wrap {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 12px;
+      }
+
+      .pub-img-wrap .section-item {
+          flex: 1;
+          min-width: 0;
+          margin-bottom: 0;
+      }
+
+      .pub-img-wrap img {
+          width: 360px;
+          max-height: 210px;
+          object-fit: cover;
+          border-radius: 6px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+          display: block;
+          flex-shrink: 0;
+      }
+
+      .pub-img-placeholder {
+          width: 360px;
+          height: 210px;
+          flex-shrink: 0;
+          background: linear-gradient(135deg, #f5f6f7 0%, #eaecee 100%);
+          border-radius: 6px;
+          border: 1px dashed #ccc;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          color: #bbb;
+      }
+
+      .pub-img-placeholder svg {
+          width: 36px;
+          height: 36px;
+          opacity: 0.4;
+      }
+
+      .pub-img-placeholder span {
+          font-size: 0.68em;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+      }
+
+      /* ── Paper cards ── */
+      .transparent-button {
+          display: inline-block;
+          background-color: transparent;
+          border: 1px solid #3498db;
+          color: #3498db;
+          padding: 6px 14px;
+          margin-top: 6px;
+          font-size: 12px;
+          font-weight: 500;
+          cursor: pointer;
+          border-radius: 999px;
+          text-decoration: none;
+          line-height: 1.4;
+          transition:
+              background-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.2s ease,
+              border-color 0.2s ease;
+      }
+
+      .transparent-button:hover {
+          background-color: #3498db;
+          color: #ffffff;
+          border-color: #3498db;
+          box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+          transform: translateY(-1px);
+      }
+
+      .section-item {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          padding: 16px 20px;
+          margin-bottom: 12px;
+          background-color: #fafafa;
+          transition: box-shadow 0.2s ease;
+      }
+
+      .section-item:hover {
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+          margin-top: 28px;
+          margin-bottom: 16px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #e0e0e0;
+      }
+
+      .pub-section:first-child .section-title {
+          margin-top: 0;
+      }
+
+      .author-name {
+          font-weight: normal;
+          color: inherit;
+          border-bottom: 1px solid #000;
+      }
+  </style>
+
+</head>
+
+<div class="pub-layout">
+
+  <nav class="pub-nav" aria-label="Research topics">
+    <div class="pub-nav-title">Research Topics</div>
+    {% for topic in site.data.research.topics %}
+      <a href="#{{ topic.id }}">{{ topic.title }}</a>
+    {% endfor %}
+  </nav>
+
+  <div class="pub-content">
+    <p class="justified-text">Research projects are grouped by topic.</p>
+
+    {% for topic in site.data.research.topics %}
+      <div class="pub-section" id="{{ topic.id }}">
+        <h2 class="section-title">{{ topic.title }}</h2>
+
+        {% for paper in topic.papers %}
+          <div class="pub-img-wrap">
+            {% if paper.placeholder %}
+              <div class="pub-img-placeholder" aria-hidden="true"><span>Placeholder</span></div>
+            {% elsif paper.image %}
+              <a href="{{ paper.image | relative_url }}" style="flex-shrink: 0;">
+                <img src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt }}">
+              </a>
+            {% endif %}
+
+            <div class="section-item">
+              <strong>{{ paper.title }}</strong><br>
+              <em>{% if paper.venue_url %}<a href="{{ paper.venue_url }}" target="_blank" rel="noopener">{{ paper.venue }}</a>{% else %}{{ paper.venue }}{% endif %}</em><br>
+
+              {% if paper.authors %}
+                {% for author in paper.authors %}{% if author.highlight %}<strong class="author-name">{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}<br>
+              {% elsif paper.summary %}
+                {{ paper.summary }}
+              {% endif %}
+
+              {% for link in paper.links %}
+                <a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+(function () {
+    var sections = document.querySelectorAll('.pub-section');
+    var navLinks = document.querySelectorAll('.pub-nav a');
+
+    function setActive() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var current = '';
+
+        sections.forEach(function (section) {
+            var top = section.getBoundingClientRect().top + scrollY - 120;
+            if (scrollY >= top) {
+                current = section.id;
+            }
+        });
+
+        navLinks.forEach(function (link) {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+})();
+</script>
+
+</body>
+</html>
