@@ -37,7 +37,7 @@ Restart the server after changing `_config.yml`.
 | Navigation labels, order, and URLs | `_data/navigation.yml` |
 | Homepage biography, placeholder news, highlight layout, and research map | `_pages/about.md` |
 | Research topics and paper metadata | `_data/research.yml` |
-| Homepage highlight selection and order | `_data/research_highlights.yml` |
+| Homepage highlight selection and order | Each paper's `ishighlight` and `year` values in `_data/research.yml` |
 | Research page layout | `_pages/publications.html` |
 | Education and experience | `_pages/teaching.html` |
 | CV landing page | `_pages/cv.md` |
@@ -103,7 +103,7 @@ Do not restore the old `suffix(2 of 12)` reservation or add page-specific fixed/
 
 `_data/research.yml` is the shared source for the Research page and homepage highlights. Keep topic and paper IDs unique.
 
-`_data/research_highlights.yml` contains an ordered `paper_ids` list. Every selected ID must match a paper in `_data/research.yml`.
+Each paper in `_data/research.yml` has `ishighlight` and `year` values. Papers with `ishighlight: 1` appear in homepage Research Highlights sorted by `year` in descending order; papers with `ishighlight: 0` do not. Real publications use a numeric year, while placeholder records use `year: null`. Highlighted papers with images may set `highlight_image_width` to a numeric percentage from 1 to 100; it defaults to 100 and becomes full-width on small screens for readability.
 
 ## Assets
 

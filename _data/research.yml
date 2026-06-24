@@ -4,6 +4,8 @@ topics:
     papers:
       - id: topic-1-placeholder
         nodename: "P1"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
@@ -18,6 +20,8 @@ topics:
     papers:
       - id: topic-2-placeholder
         nodename: "P2"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
@@ -33,6 +37,8 @@ topics:
     papers:
       - id: topic-3-placeholder
         nodename: "P3"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
@@ -48,6 +54,8 @@ topics:
     papers:
       - id: topic-4-placeholder
         nodename: "P4"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
@@ -62,6 +70,8 @@ topics:
     papers:
       - id: topic-5-placeholder
         nodename: "P5"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"
@@ -77,9 +87,12 @@ topics:
     papers:
       - id: sign-parameters
         nodename: "SPIP"
+        ishighlight: 1
+        year: 2025
         title: "Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation"
         image: "/images/bdslig.png"
         image_alt: "Prompting with Sign Language paper figure"
+        highlight_image_width: 100
         venue: "CV4A11y@ICCV'25"
         venue_url: "https://cv4a11y.github.io/ICCV2025/index.html"
         authors:
@@ -100,15 +113,131 @@ topics:
             url: "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
         tldr: "A prompting method that uses sign-language parameters to generate instructions for low-resource sign-language education."
         keywords:
-          - "Topic 1"
-          - "Topic 4"
-          - "Topic 7"
+          - "Accessibility"
+          - "Zero-shot Evaluation"
+
+  - id: text-augmentation
+    title: "Text Augmentation"
+    papers:
+      - id: bangla-text-data-augmentation-framework
+        nodename: "BDA"
+        ishighlight: 0
+        year: 2024
+        title: "BDA: Bangla Text Data Augmentation Framework"
+        image: "/images/bda-bangla-text-data-augmentation-framework.png"
+        image_alt: "BDA workflow for generating and filtering synthetic Bangla text samples"
+        venue: "arXiv"
+        authors:
+          - name: "Md. Tariquzzaman"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Tariquzzaman,+M"
+            highlight: true
+          - name: "Audwit Nafi Anam"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Anam,+A+N"
+          - name: "Naimul Haque"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Haque,+N"
+          - name: "Mohsinul Kabir"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Kabir,+M"
+          - name: "Hasan Mahmud"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Mahmud,+H"
+          - name: "Md Kamrul Hasan"
+            url: "https://arxiv.org/search/cs?searchtype=author&query=Hasan,+M+K"
+        links:
+          - label: "Paper"
+            url: "https://arxiv.org/abs/2412.08753"
+        tldr: "BDA combines multiple augmentation methods (synonym replacement, random swap, back-translation, paraphrasing) with a semantic filtering step to synthetically expand Bangla training data — achieving near full-data performance with significantly less data."
+        keywords:
+          - "Text Augmentation"
+
+  - id: harmful-content
+    title: "Harmful Content"
+    papers:
+      - id: bangla-fasttext-violence-detection
+        nodename: "BIFT"
+        ishighlight: 1
+        year: 2023
+        title: "A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection"
+        image: "/images/bangla-fasttext-violence-detection.png"
+        image_alt: "Training workflow for the informal Bangla FastText embedding and violence-inciting text classifier"
+        highlight_image_width: 70
+        venue: "BLP@EMNLP'23 | Best Shared Task Paper Award"
+        venue_url: "https://blp-workshop.github.io/2023/"
+        authors:
+          - name: "Md. Tariquzzaman"
+            highlight: true
+          - name: "Md. Wasif Kader"
+          - name: "Audwit Nafi Anam"
+          - name: "Naimul Haque"
+          - name: "Mohsinul Kabir"
+          - name: "Hasan Mahmud"
+          - name: "Md Kamrul Hasan"
+        links:
+          - label: "Paper"
+            url: "https://aclanthology.org/2023.banglalp-1.26/"
+          - label: "Code"
+            url: "https://github.com/tariquzzamanf/VITD"
+          - label: "Dataset"
+            url: "https://github.com/blp-workshop/blp_task1"
+          - label: "Video"
+            url: "https://aclanthology.org/2023.banglalp-1.26.mp4"
+        tldr: "Trained a custom FastText embedding on informal Bangla social media texts for violence detection. When paired with a BiLSTM, it matched near-transformer-level accuracy while being significantly faster and cheaper than BanglaBERT."
+        keywords:
+          - "Word embeddings"
+          - "Text Classification"
+
+  - id: misinformation-detection
+    title: "Misinformation Detection"
+    papers:
+      - id: scenario-induced-financial-misinformation-bias
+        nodename: "MFMD"
+        ishighlight: 1
+        year: 2026
+        title: "Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"
+        image: "/images/multilingual-financial-misinformation-bias.png"
+        image_alt: "Financial misinformation claims evaluated by language models under different role, region, personality, and identity scenarios"
+        highlight_image_width: 50
+        venue: "Findings of ACL'26"
+        venue_url: "https://2026.aclweb.org/"
+        authors:
+          - name: "Zhiwei Liu"
+          - name: "Yupen Cao"
+          - name: "Yuechen Jiang"
+          - name: "Mohsinul Kabir"
+          - name: "Polydoros Giannouris"
+          - name: "Chen Xu"
+          - name: "Ziyang Xu"
+          - name: "Tianlei Zhu"
+          - name: "Md. Tariquzzaman"
+            highlight: true
+          - name: "Triantafillos Papadopoulos"
+          - name: "Yan Wang"
+          - name: "Lingfei Qian"
+          - name: "Xueqing Peng"
+          - name: "Zhuohan Xie"
+          - name: "Ye Yuan"
+          - name: "Saeed Almheiri"
+          - name: "Abdulrazzaq Alnajjar"
+          - name: "Mingbin Chen"
+          - name: "Harry Stuart"
+          - name: "Paul Thompson"
+          - name: "Prayag Tiwari"
+          - name: "Alejandro Lopez-Lira"
+          - name: "Xue Liu"
+          - name: "Jimin Huang"
+          - name: "Sophia Ananiadou"
+        links:
+          - label: "Paper"
+            url: "https://arxiv.org/abs/2601.05403"
+        tldr: "We introduce MFMD-Scen, a benchmark that tests whether LLMs judge the same financial claim differently depending on who is asking. Across 22 models and four languages (English, Chinese, Greek, Bengali), we show that injecting realistic financial personas, regional contexts, and cultural identities consistently shifts model verdicts — even when the underlying claim stays unchanged — with biases amplified in low-resource languages and smaller models."
+        keywords:
+          - "LLM Evaluation and Bias"
 
   - id: topic-6
     title: "Topic 6"
     papers:
       - id: topic-6-placeholder
         nodename: "P6"
+        ishighlight: 0
+        year: null
         placeholder: true
         title: "Lorem ipsum research project"
         venue: "Placeholder venue"

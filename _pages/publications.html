@@ -194,13 +194,14 @@ author_profile: false
       }
 
       .paper-keyword {
+          --keyword-color: #777;
           display: inline-flex;
           align-items: center;
           gap: 5px;
           font-size: 0.68em;
           font-weight: 500;
           line-height: 1.3;
-          color: #777;
+          color: var(--keyword-color);
       }
 
       .paper-keyword::before {
@@ -209,16 +210,8 @@ author_profile: false
           height: 9px;
           border-radius: 50%;
           flex-shrink: 0;
-          background: #999;
+          background: var(--keyword-color);
       }
-
-      .paper-keyword--topic-1::before { background: #e74c3c; }
-      .paper-keyword--topic-2::before { background: #9b59b6; }
-      .paper-keyword--topic-3::before { background: #f1c40f; }
-      .paper-keyword--topic-4::before { background: #3498db; }
-      .paper-keyword--topic-5::before { background: #2ecc71; }
-      .paper-keyword--topic-6::before { background: #1abc9c; }
-      .paper-keyword--topic-7::before { background: #e67e22; }
   </style>
 
 </head>
@@ -254,7 +247,7 @@ author_profile: false
               <em>{% if paper.venue_url %}<a href="{{ paper.venue_url }}" target="_blank" rel="noopener">{{ paper.venue }}</a>{% else %}{{ paper.venue }}{% endif %}</em><br>
 
               {% if paper.authors %}
-                {% for author in paper.authors %}{% if author.highlight %}<strong class="author-name">{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}<br>
+                {% for author in paper.authors %}{% if author.url %}<a href="{{ author.url }}" target="_blank" rel="noopener">{% endif %}{% if author.highlight %}<strong class="author-name">{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% if author.url %}</a>{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}<br>
               {% elsif paper.summary %}
                 {{ paper.summary }}
               {% endif %}
@@ -266,7 +259,7 @@ author_profile: false
               {% if paper.keywords %}
                 <div class="paper-keywords" aria-label="Research keywords">
                   {% for keyword in paper.keywords %}
-                    <span class="paper-keyword paper-keyword--{{ keyword | downcase | replace: ' ', '-' }}">{{ keyword }}</span>
+                    <span class="paper-keyword" data-keyword="{{ keyword | escape }}">{{ keyword }}</span>
                   {% endfor %}
                 </div>
               {% endif %}
@@ -278,8 +271,23 @@ author_profile: false
   </div>
 </div>
 
+<script src="{{ '/assets/js/research-keywords.js' | relative_url }}"></script>
 <script>
 (function () {
+    var keywordElements = Array.prototype.slice.call(document.querySelectorAll('.paper-keyword'));
+    var keywordRegistry = window.ResearchKeywords.createRegistry(
+        keywordElements.map(function (element) {
+            return [element.getAttribute('data-keyword')];
+        })
+    );
+
+    keywordElements.forEach(function (element) {
+        element.style.setProperty(
+            '--keyword-color',
+            keywordRegistry.colorFor(element.getAttribute('data-keyword'))
+        );
+    });
+
     var sections = document.querySelectorAll('.pub-section');
     var navLinks = document.querySelectorAll('.pub-nav a');
 

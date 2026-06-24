@@ -251,11 +251,25 @@ redirect_from:
             flex-shrink: 0;
         }
 
+        .research-highlight-image {
+            display: block;
+            width: var(--highlight-image-width, 100%);
+            max-width: 100%;
+            height: auto;
+            margin: 16px auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        }
+
         @media screen and (max-width: 600px) {
             .rm-tooltip {
                 max-width: 240px;
                 min-width: 160px;
                 font-size: 0.82em;
+            }
+
+            .research-highlight-image {
+                width: 100%;
             }
         }
     </style>
@@ -281,62 +295,43 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
 </div>
 
 <h1>Research Highlights</h1>
-{% for highlight_id in site.data.research_highlights.paper_ids %}
-  {% assign highlighted_paper = nil %}
-  {% for topic in site.data.research.topics %}
-    {% for paper in topic.papers %}
-      {% if paper.id == highlight_id %}
-        {% assign highlighted_paper = paper %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-
-  {% if highlighted_paper %}
-    <h2>{{ highlighted_paper.title }}</h2>
-
-    {% if highlighted_paper.links %}
-      <p>
-        {% for link in highlighted_paper.links %}
-          <a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
-        {% endfor %}
-      </p>
-    {% endif %}
-
-    {% if highlighted_paper.image %}
-      <div style="margin: 16px 0;">
-        <img src="{{ highlighted_paper.image | relative_url }}" alt="{{ highlighted_paper.image_alt }}" loading="lazy" style="width: 100%; display: block; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.10);">
-      </div>
-    {% else %}
-      <div style="height: 240px; margin: 16px 0; border: 1px dashed #ccc; border-radius: 6px; background: linear-gradient(135deg, #f5f6f7 0%, #eaecee 100%); display: flex; align-items: center; justify-content: center; color: #999;">Placeholder image</div>
-    {% endif %}
-
-    <p><strong>tldr.</strong> {{ highlighted_paper.tldr }}</p>
+{% assign all_research_papers = "" | split: "" %}
+{% for topic in site.data.research.topics %}
+  {% if topic.papers %}
+    {% assign all_research_papers = all_research_papers | concat: topic.papers %}
   {% endif %}
 {% endfor %}
+{% assign highlighted_papers = all_research_papers | where: "ishighlight", 1 | sort: "year" | reverse %}
+{% for paper in highlighted_papers %}
+  <h2>{{ paper.title }}</h2>
 
+  {% if paper.links %}
+    <p>
+      {% for link in paper.links %}
+        <a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+      {% endfor %}
+    </p>
+  {% endif %}
+
+  {% if paper.image %}
+    <img
+      class="research-highlight-image"
+      src="{{ paper.image | relative_url }}"
+      alt="{{ paper.image_alt }}"
+      loading="lazy"
+      style="--highlight-image-width: {{ paper.highlight_image_width | default: 100 }}%;"
+    >
+  {% else %}
+    <div style="height: 240px; margin: 16px 0; border: 1px dashed #ccc; border-radius: 6px; background: linear-gradient(135deg, #f5f6f7 0%, #eaecee 100%); display: flex; align-items: center; justify-content: center; color: #999;">Placeholder image</div>
+  {% endif %}
+
+  <p><strong>tldr.</strong> {{ paper.tldr }}</p>
+{% endfor %}
+
+<script src="{{ '/assets/js/research-keywords.js' | relative_url }}"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 (function () {
-    var topicColors = {
-        topic1: '#e74c3c',
-        topic2: '#9b59b6',
-        topic3: '#f1c40f',
-        topic4: '#3498db',
-        topic5: '#2ecc71',
-        topic6: '#1abc9c',
-        topic7: '#e67e22'
-    };
-
-    var topicLabels = {
-        topic1: 'Topic 1',
-        topic2: 'Topic 2',
-        topic3: 'Topic 3',
-        topic4: 'Topic 4',
-        topic5: 'Topic 5',
-        topic6: 'Topic 6',
-        topic7: 'Topic 7'
-    };
-
     var nodes = [
         {% for topic in site.data.research.topics %}
           {% for paper in topic.papers %}
@@ -345,7 +340,6 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
                 nodename: {{ paper.nodename | jsonify }},
                 full: {{ paper.title | jsonify }},
                 tldr: {{ paper.tldr | default: paper.summary | default: '' | jsonify }},
-                topic: {{ paper.keywords.first | downcase | remove: ' ' | default: 'topic1' | jsonify }},
                 keywords: {{ paper.keywords | default: empty | jsonify }},
                 venue: {{ paper.venue | default: '' | jsonify }},
                 link: {{ '/research/#paper-' | append: paper.id | relative_url | jsonify }}
@@ -353,6 +347,15 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
           {% endfor %}
         {% endfor %}
     ];
+
+    var keywordRegistry = window.ResearchKeywords.createRegistry(
+        nodes.map(function(node) { return node.keywords; })
+    );
+
+    nodes.forEach(function(node) {
+        node.primaryKeyword = node.keywords.length > 0 ? node.keywords[0] : '';
+        node.keywordIndex = keywordRegistry.indexFor(node.primaryKeyword);
+    });
 
     var links = [];
     for (var sourceIndex = 0; sourceIndex < nodes.length; sourceIndex += 1) {
@@ -383,11 +386,12 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
         .style('cursor', 'grab');
 
     var defs = svg.append('defs');
-    Object.keys(topicColors).forEach(function(key) {
+    keywordRegistry.labels.forEach(function(keyword, index) {
+        var color = keywordRegistry.colorFor(keyword);
         var grad = defs.append('radialGradient')
-            .attr('id', 'grad-' + key);
-        grad.append('stop').attr('offset', '0%').attr('stop-color', d3.color(topicColors[key]).brighter(0.4));
-        grad.append('stop').attr('offset', '100%').attr('stop-color', topicColors[key]);
+            .attr('id', 'grad-keyword-' + index);
+        grad.append('stop').attr('offset', '0%').attr('stop-color', d3.color(color).brighter(0.4));
+        grad.append('stop').attr('offset', '100%').attr('stop-color', color);
     });
 
 
@@ -450,7 +454,9 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
     node.append('circle')
         .attr('r', 24)
         .attr('fill', function(d) {
-            return 'url(#grad-' + d.topic + ')';
+            return d.keywordIndex >= 0
+                ? 'url(#grad-keyword-' + d.keywordIndex + ')'
+                : '#7f8c8d';
         })
         .attr('stroke', '#fff')
         .attr('stroke-width', 2);
@@ -491,11 +497,10 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
         if (y < 8) y = 8;
 
         var topicDot = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'
-            + topicColors[d.topic] + ';margin-right:4px;vertical-align:middle;"></span>';
+            + keywordRegistry.colorFor(d.primaryKeyword) + ';margin-right:4px;vertical-align:middle;"></span>';
 
         var keywordHtml = d.keywords.map(function(keyword) {
-            var keywordKey = keyword.toLowerCase().replace(/\s+/g, '');
-            return '<span class="rm-tooltip-keyword" style="color:' + topicColors[keywordKey] + ';">'
+            return '<span class="rm-tooltip-keyword" style="color:' + keywordRegistry.colorFor(keyword) + ';">'
                 + escapeHtml(keyword) + '</span>';
         }).join('');
 
@@ -563,10 +568,11 @@ Hi, I'm <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" ta
 
     var legendEl = document.getElementById('rm-legend');
     if (legendEl) {
-        Object.keys(topicLabels).forEach(function(key) {
+        keywordRegistry.labels.forEach(function(keyword) {
             var item = document.createElement('span');
             item.className = 'rm-legend-item';
-            item.innerHTML = '<span class="rm-legend-dot" style="background:' + topicColors[key] + '"></span>' + topicLabels[key];
+            item.innerHTML = '<span class="rm-legend-dot" style="background:'
+                + keywordRegistry.colorFor(keyword) + '"></span>' + escapeHtml(keyword);
             legendEl.appendChild(item);
         });
     }
