@@ -289,7 +289,7 @@ My research interests lie broadly in Natural Language Processing. I am working o
 </p>
 <h2>News and Updates</h2>
 <ul class="news-container">
-  <li class="news-item"><strong>2026:</strong> Paper <em>"Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"</em> accepted to Findings of ACL 2026.</li>
+  <li class="news-item"><strong>Mar 2026:</strong> Paper <em>"Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"</em> accepted to Findings of ACL 2026.</li>
   <li class="news-item"><strong>Oct 2025:</strong> Paper <em>"Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation"</em> accepted at CV4A11y workshop at ICCV 2025.</li>
   <li class="news-item"><strong>Dec 2024:</strong> Paper <em>"BDA: Bangla Text Data Augmentation Framework"</em> submitted to arXiv.</li>
   <li class="news-item"><strong>Dec 2023:</strong> Paper <em>"A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection"</em> received Best Shared Task Paper Award at BLP@EMNLP 2023.</li>
