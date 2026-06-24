@@ -106,11 +106,15 @@ redirect_from:
             border-radius: 8px;
             background: linear-gradient(135deg, #fafbfc 0%, #f5f6f8 100%);
             overflow: hidden;
+            aspect-ratio: 4 / 3;
+            width: 66.66%;
+            margin: 0 auto;
         }
 
         #research-map svg {
             display: block;
             width: 100%;
+            height: 100%;
         }
 
         .rm-node {
@@ -369,13 +373,15 @@ My research interests lie broadly in Natural Language Processing. I am working o
 
     var container = document.getElementById('research-map');
     if (!container) return;
-    var width = container.clientWidth || 760;
-    var height = 430;
+    var W = 800;
+    var H = 600;
 
     var svg = d3.select('#research-map')
         .append('svg')
-        .attr('width', width)
-        .attr('height', height)
+        .attr('viewBox', '0 0 ' + W + ' ' + H)
+        .attr('preserveAspectRatio', 'xMidYMid meet')
+        .style('width', '100%')
+        .style('height', '100%')
         .style('cursor', 'grab');
 
     var defs = svg.append('defs');
@@ -391,10 +397,10 @@ My research interests lie broadly in Natural Language Processing. I am working o
     var simulation = d3.forceSimulation(nodes)
         .force('link', d3.forceLink(links).id(function(d) { return d.id; }).distance(90))
         .force('charge', d3.forceManyBody().strength(-260))
-        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('center', d3.forceCenter(W / 2, H / 2))
         .force('collision', d3.forceCollide().radius(30))
-        .force('x', d3.forceX(width / 2).strength(0.06))
-        .force('y', d3.forceY(height / 2).strength(0.06));
+        .force('x', d3.forceX(W / 2).strength(0.06))
+        .force('y', d3.forceY(H / 2).strength(0.06));
 
     var zoomGroup = svg.append('g');
     var linkGroup = zoomGroup.append('g');
@@ -402,6 +408,7 @@ My research interests lie broadly in Natural Language Processing. I am working o
 
     var zoom = d3.zoom()
         .scaleExtent([0.3, 4])
+        .filter(function(event) { return event.type !== 'wheel'; })
         .on('zoom', function(event) {
             zoomGroup.attr('transform', event.transform);
             svg.style('cursor', event.sourceEvent && event.sourceEvent.type === 'mousemove' ? 'grabbing' : 'grab');
@@ -409,7 +416,11 @@ My research interests lie broadly in Natural Language Processing. I am working o
 
     svg.call(zoom);
 
-    container.addEventListener('wheel', function(e) { e.preventDefault(); }, { passive: false });
+    var initialScale = 1.4;
+    var initialTransform = d3.zoomIdentity
+        .translate(W / 2 * (1 - initialScale), H / 2 * (1 - initialScale))
+        .scale(initialScale);
+    svg.call(zoom.transform, initialTransform);
 
     var controls = d3.select('#research-map')
         .append('div')
@@ -428,7 +439,7 @@ My research interests lie broadly in Natural Language Processing. I am working o
     controls.append('button').attr('style', btnStyle).text('−')
         .on('click', function() { svg.transition().duration(250).call(zoom.scaleBy, 1 / 1.4); });
     controls.append('button').attr('style', btnStyle + 'font-size:10px;').text('⟳')
-        .on('click', function() { svg.transition().duration(350).call(zoom.transform, d3.zoomIdentity); });
+        .on('click', function() { svg.transition().duration(350).call(zoom.transform, initialTransform); });
 
     var link = linkGroup.selectAll('line')
         .data(links)
@@ -483,9 +494,11 @@ My research interests lie broadly in Natural Language Processing. I am working o
         var rect = container.getBoundingClientRect();
         var x = event.clientX - rect.left + 14;
         var y = event.clientY - rect.top - 10;
+        var cw = container.clientWidth;
+        var ch = container.clientHeight;
 
-        if (x + 330 > width) x = x - 350;
-        if (y + 140 > height) y = y - 130;
+        if (x + 330 > cw) x = x - 350;
+        if (y + 140 > ch) y = y - 130;
         if (x < 8) x = 8;
         if (y < 8) y = 8;
 
