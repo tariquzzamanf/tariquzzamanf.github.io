@@ -232,7 +232,8 @@ author_profile: false
       <div class="pub-section" id="{{ topic.id }}">
         <h2 class="section-title">{{ topic.title }}</h2>
 
-        {% for paper in topic.papers %}
+        {% assign sorted_papers = topic.papers | sort: "year" | reverse %}
+        {% for paper in sorted_papers %}
           <div class="pub-img-wrap" id="paper-{{ paper.id }}">
             {% if paper.placeholder %}
               <div class="pub-img-placeholder" aria-hidden="true"><span>Placeholder</span></div>

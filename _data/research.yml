@@ -1,4 +1,51 @@
 topics:
+  - id: misinformation-detection
+    title: "Misinformation Detection"
+    papers:
+      - id: scenario-induced-financial-misinformation-bias
+        nodename: "MFMD"
+        ishighlight: 1
+        year: 2026
+        title: "Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"
+        image: "/images/multilingual-financial-misinformation-bias.png"
+        image_alt: "Financial misinformation claims evaluated by language models under different role, region, personality, and identity scenarios"
+        highlight_image_width: 50
+        venue: "Findings of ACL'26"
+        venue_url: "https://2026.aclweb.org/"
+        authors:
+          - name: "Zhiwei Liu"
+          - name: "Yupen Cao"
+          - name: "Yuechen Jiang"
+          - name: "Mohsinul Kabir"
+          - name: "Polydoros Giannouris"
+          - name: "Chen Xu"
+          - name: "Ziyang Xu"
+          - name: "Tianlei Zhu"
+          - name: "Md. Tariquzzaman"
+            highlight: true
+          - name: "Triantafillos Papadopoulos"
+          - name: "Yan Wang"
+          - name: "Lingfei Qian"
+          - name: "Xueqing Peng"
+          - name: "Zhuohan Xie"
+          - name: "Ye Yuan"
+          - name: "Saeed Almheiri"
+          - name: "Abdulrazzaq Alnajjar"
+          - name: "Mingbin Chen"
+          - name: "Harry Stuart"
+          - name: "Paul Thompson"
+          - name: "Prayag Tiwari"
+          - name: "Alejandro Lopez-Lira"
+          - name: "Xue Liu"
+          - name: "Jimin Huang"
+          - name: "Sophia Ananiadou"
+        links:
+          - label: "Paper"
+            url: "https://arxiv.org/abs/2601.05403"
+        tldr: "We introduce MFMD-Scen, a benchmark that tests whether LLMs judge the same financial claim differently depending on who is asking. Across 22 models and four languages (English, Chinese, Greek, Bengali), we show that injecting realistic financial personas, regional contexts, and cultural identities consistently shifts model verdicts — even when the underlying claim stays unchanged — with biases amplified in low-resource languages and smaller models."
+        keywords:
+          - "LLM Evaluation and Bias"
+
   - id: accessibility
     title: "Accessibility Technology"
     papers:
@@ -97,50 +144,3 @@ topics:
           - "Word embeddings"
           - "Text Classification"
           - "Bangla NLP"
-
-  - id: misinformation-detection
-    title: "Misinformation Detection"
-    papers:
-      - id: scenario-induced-financial-misinformation-bias
-        nodename: "MFMD"
-        ishighlight: 1
-        year: 2026
-        title: "Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection"
-        image: "/images/multilingual-financial-misinformation-bias.png"
-        image_alt: "Financial misinformation claims evaluated by language models under different role, region, personality, and identity scenarios"
-        highlight_image_width: 50
-        venue: "Findings of ACL'26"
-        venue_url: "https://2026.aclweb.org/"
-        authors:
-          - name: "Zhiwei Liu"
-          - name: "Yupen Cao"
-          - name: "Yuechen Jiang"
-          - name: "Mohsinul Kabir"
-          - name: "Polydoros Giannouris"
-          - name: "Chen Xu"
-          - name: "Ziyang Xu"
-          - name: "Tianlei Zhu"
-          - name: "Md. Tariquzzaman"
-            highlight: true
-          - name: "Triantafillos Papadopoulos"
-          - name: "Yan Wang"
-          - name: "Lingfei Qian"
-          - name: "Xueqing Peng"
-          - name: "Zhuohan Xie"
-          - name: "Ye Yuan"
-          - name: "Saeed Almheiri"
-          - name: "Abdulrazzaq Alnajjar"
-          - name: "Mingbin Chen"
-          - name: "Harry Stuart"
-          - name: "Paul Thompson"
-          - name: "Prayag Tiwari"
-          - name: "Alejandro Lopez-Lira"
-          - name: "Xue Liu"
-          - name: "Jimin Huang"
-          - name: "Sophia Ananiadou"
-        links:
-          - label: "Paper"
-            url: "https://arxiv.org/abs/2601.05403"
-        tldr: "We introduce MFMD-Scen, a benchmark that tests whether LLMs judge the same financial claim differently depending on who is asking. Across 22 models and four languages (English, Chinese, Greek, Bengali), we show that injecting realistic financial personas, regional contexts, and cultural identities consistently shifts model verdicts — even when the underlying claim stays unchanged — with biases amplified in low-resource languages and smaller models."
-        keywords:
-          - "LLM Evaluation and Bias"
