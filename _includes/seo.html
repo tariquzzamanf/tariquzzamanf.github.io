@@ -74,6 +74,8 @@
     {% assign seo_image_url = seo_image | prepend: "/images/" | prepend: seo_url %}
   {% endif %}
   <meta property="og:image" content="{{ seo_image_url }}">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
 {% endif %}
 
 {% assign seo_author_twitter = page.twitter | default: site.author.twitter | default: site.twitter.username %}
