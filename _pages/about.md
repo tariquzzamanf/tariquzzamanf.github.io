@@ -1,18 +1,14 @@
 ---
 permalink: /
-title: ""
+title: "Md. Tariquzzaman"
+description: "Md. Tariquzzaman is a Junior Lecturer in CSE at Islamic University of Technology (IUT), researching natural language processing, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation."
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparent Button</title>
-    <style>
+<style>
         .transparent-button {
             display: inline-block;
             background-color: transparent;
@@ -278,10 +274,8 @@ redirect_from:
         }
     </style>
 
-</head>
-</html>
 <p class="justified-text">
-Hi, I'm Tariq, a <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" target="_blank" rel="noopener">Junior Lecturer</a> in the Department of Computer Science and Engineering (CSE) at the <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>. I am an active member of the <a href="https://cse.iutoic-dhaka.edu/ssl" target="_blank" rel="noopener">Systems and Software Lab (SSL)</a> research group at IUT. I worked on my undergraduate thesis under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/mohsinul/education" target="_blank" rel="noopener">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/hasan/education" target="_blank" rel="noopener">Hasan Mahmud</a>.
+Hi, I'm Md. Tariquzzaman (Tariq), a <a href="https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education" target="_blank" rel="noopener">Junior Lecturer</a> in the Department of Computer Science and Engineering (CSE) at the <a href="https://www.iutoic-dhaka.edu/" target="_blank" rel="noopener">Islamic University of Technology (IUT)</a>. I am an active member of the <a href="https://cse.iutoic-dhaka.edu/ssl" target="_blank" rel="noopener">Systems and Software Lab (SSL)</a> research group at IUT. I worked on my undergraduate thesis under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/mohsinul/education" target="_blank" rel="noopener">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href="https://cse.iutoic-dhaka.edu/profile/hasan/education" target="_blank" rel="noopener">Hasan Mahmud</a>.
 </p>
 
 <p class="justified-text">
@@ -304,7 +298,7 @@ My research interests lie broadly in Natural Language Processing. I am working o
   <div class="rm-legend" id="rm-legend"></div>
 </div>
 
-<h1>Research Highlights</h1>
+<h2>Research Highlights</h2>
 {% assign all_research_papers = "" | split: "" %}
 {% for topic in site.data.research.topics %}
 {% if topic.papers %}
@@ -313,7 +307,7 @@ My research interests lie broadly in Natural Language Processing. I am working o
 {% endfor %}
 {% assign highlighted_papers = all_research_papers | where: "ishighlight", 1 | sort: "year" | reverse %}
 {% for paper in highlighted_papers %}
-<h2>{{ paper.title }}</h2>
+<h3>{{ paper.title }}</h3>
 {% if paper.links %}
 <p>{% for link in paper.links %}<a class="transparent-button" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a> {% endfor %}</p>
 {% endif %}

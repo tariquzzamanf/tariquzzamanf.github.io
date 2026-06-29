@@ -1,18 +1,13 @@
 ---
-
-title: ""
+title: "Research"
+description: "Research by Md. Tariquzzaman in natural language processing, Bangla NLP, misinformation detection, sign language instruction generation, text augmentation, and LLM evaluation."
 permalink: /research/
 redirect_from:
   - /publications/
 author_profile: false
 ---
 
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publications</title>
-  <style>
+<style>
       /* ── Two-column layout ── */
       .pub-layout {
           display: flex;
@@ -168,6 +163,12 @@ author_profile: false
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
 
+      .paper-title {
+          margin: 0 0 4px;
+          font-size: 1em;
+          line-height: 1.35;
+      }
+
       .section-title {
           margin-top: 28px;
           margin-bottom: 16px;
@@ -214,8 +215,6 @@ author_profile: false
       }
   </style>
 
-</head>
-
 <div class="pub-layout">
 
   <nav class="pub-nav" aria-label="Research topics">
@@ -226,7 +225,7 @@ author_profile: false
   </nav>
 
   <div class="pub-content">
-    <p class="justified-text">Research projects are grouped by topic.</p>
+    <p class="justified-text">Research by Md. Tariquzzaman spans natural language processing, Bangla NLP, misinformation detection, accessibility technology, text augmentation, and LLM evaluation.</p>
 
     {% for topic in site.data.research.topics %}
       <div class="pub-section" id="{{ topic.id }}">
@@ -239,12 +238,12 @@ author_profile: false
               <div class="pub-img-placeholder" aria-hidden="true"><span>Placeholder</span></div>
             {% elsif paper.image %}
               <a href="{{ paper.image | relative_url }}" style="flex-shrink: 0;">
-                <img src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt }}">
+                <img src="{{ paper.image | relative_url }}" alt="{{ paper.image_alt }}" loading="lazy">
               </a>
             {% endif %}
 
             <div class="section-item">
-              <strong>{{ paper.title }}</strong><br>
+              <h3 class="paper-title">{{ paper.title }}</h3>
               <em>{% if paper.venue_url %}<a href="{{ paper.venue_url }}" target="_blank" rel="noopener">{{ paper.venue }}</a>{% else %}{{ paper.venue }}{% endif %}</em><br>
 
               {% if paper.authors %}
@@ -316,5 +315,3 @@ author_profile: false
 })();
 </script>
 
-</body>
-</html>

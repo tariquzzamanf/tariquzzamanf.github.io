@@ -11,7 +11,7 @@ locale                   : "en-BD"
 title                    : "Md. Tariquzzaman"
 title_separator          : "-"
 name                     : &name "Md. Tariquzzaman"
-description              : &description "Junior Lecturer, CSE, Islamic University of Technology (IUT)"
+description              : &description "Md. Tariquzzaman is a Junior Lecturer in CSE at Islamic University of Technology (IUT), researching NLP, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation."
 url                      : https://tariquzzamanf.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "tariquzzamanf/tariquzzamanf.github.io"
@@ -25,10 +25,10 @@ author:
   name             : "Md. Tariquzzaman"
   pronouns         : # example: "she/her"  
   bio              : "Junior Lecturer, CSE, IUT"
-  location         : # "Dhaka, Bangladesh"
-  employer         :
-  employer_url     :
-  uri              : # URL
+  location         : "Dhaka, Bangladesh"
+  employer         : "Islamic University of Technology (IUT)"
+  employer_url     : "https://www.iutoic-dhaka.edu/"
+  uri              : "https://tariquzzamanf.github.io"
   email            : "tariquzzaman@iut-dhaka.edu"
 
   # Academic websites
@@ -130,17 +130,20 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : "tariq.jpg" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
   type                   : Person
   name                   : "Md. Tariquzzaman"
   links:
+    - "https://tariquzzamanf.github.io"
+    - "https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education"
     - "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ"
     - "https://www.linkedin.com/in/tariquzzamanf/"
     - "https://github.com/tariquzzamanf"
     - "https://x.com/tariquzzamanf"
+    - "https://mastodon.social/@tariquzzamanf"
 
 
 # Analytics

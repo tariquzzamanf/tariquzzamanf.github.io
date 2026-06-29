@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Curriculum Vitae"
+description: "Curriculum vitae of Md. Tariquzzaman, Junior Lecturer in Computer Science and Engineering at Islamic University of Technology (IUT)."
 permalink: /cv/
 author_profile: true
 redirect_from:
