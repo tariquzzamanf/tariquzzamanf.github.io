@@ -117,10 +117,28 @@ staticman:
 
 
 # SEO Related
-google_site_verification :
+google_site_verification : "google0c557bfe88cac07c"
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
+seo:
+  title                   : "Md. Tariquzzaman - CSE Lecturer and NLP Researcher at IUT"
+  description             : "Md. Tariquzzaman is a Junior Lecturer in Computer Science and Engineering at Islamic University of Technology (IUT), researching natural language processing, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation."
+  alternate_name          : "Tariq"
+  profile_type            : "ProfilePage"
+  profile_id              : "tariquzzaman"
+  knows_about:
+    - "Natural Language Processing"
+    - "Bangla NLP"
+    - "Low-resource language processing"
+    - "Misinformation detection"
+    - "Harmful content detection"
+    - "Sign language instruction generation"
+    - "LLM evaluation"
+    - "Human-Centered AI"
+  alumni_of:
+    - name: "Islamic University of Technology (IUT)"
+      url: "https://www.iutoic-dhaka.edu/"
 
 
 # Social Sharing
@@ -138,7 +156,7 @@ social:
   name                   : "Md. Tariquzzaman"
   links:
     - "https://tariquzzamanf.github.io"
-    - "https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education"
+    - "https://cse.iutoic-dhaka.edu/profile/tariquzzaman"
     - "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ"
     - "https://www.linkedin.com/in/tariquzzamanf/"
     - "https://github.com/tariquzzamanf"
@@ -219,6 +237,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+  - scope:
+      path: "google0c557bfe88cac07c.html"
+    values:
+      sitemap: false
 
 
 # Sass/SCSS

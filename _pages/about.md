@@ -2,6 +2,9 @@
 permalink: /
 title: "Md. Tariquzzaman"
 description: "Md. Tariquzzaman is a Junior Lecturer in CSE at Islamic University of Technology (IUT), researching natural language processing, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation."
+seo_title: "Md. Tariquzzaman - CSE Lecturer and NLP Researcher at IUT"
+seo_description: "Official academic website of Md. Tariquzzaman, Junior Lecturer in Computer Science and Engineering at Islamic University of Technology (IUT), with research in NLP, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation."
+last_modified_at: 2026-07-03
 author_profile: true
 redirect_from:
   - /about/
