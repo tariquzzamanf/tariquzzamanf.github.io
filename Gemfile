@@ -23,6 +23,5 @@ gem 'public_suffix', '3.0.1'
 group :jekyll_plugins do
   # gem "jekyll-archives"
   gem 'jekyll-sitemap'
-  gem 'hawkins'
   gem "webrick", "~> 1.8"
 end
