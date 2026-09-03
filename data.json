@@ -1,0 +1,1055 @@
+{
+  "site": {
+    "name": "Md. Tariquzzaman",
+    "url": "https://tariquzzamanf.github.io",
+    "shortUrl": "tariquzzamanf.github.io",
+    "copyright": "© 2026 Md. Tariquzzaman",
+    "cv": "files/tariq.pdf",
+    "email": "tariquzzaman@iut-dhaka.edu",
+    "scholar": "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ"
+  },
+  "seo": {
+    "alternateName": "Tariq",
+    "jobTitle": "Junior Lecturer, Computer Science and Engineering",
+    "worksFor": {
+      "name": "Islamic University of Technology (IUT)",
+      "url": "https://www.iutoic-dhaka.edu/"
+    },
+    "alumniOf": [
+      {
+        "name": "Islamic University of Technology (IUT)",
+        "url": "https://www.iutoic-dhaka.edu/"
+      }
+    ],
+    "knowsAbout": [
+      "Natural Language Processing",
+      "Bangla NLP",
+      "Low-resource language processing",
+      "Misinformation detection",
+      "Harmful content detection",
+      "Sign language instruction generation",
+      "LLM evaluation",
+      "Human-Centered AI"
+    ],
+    "sameAs": [
+      "https://tariquzzamanf.github.io",
+      "https://cse.iutoic-dhaka.edu/profile/tariquzzaman",
+      "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ",
+      "https://www.linkedin.com/in/tariquzzamanf/",
+      "https://github.com/tariquzzamanf"
+    ]
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "index.html",
+      "page": "index"
+    },
+    {
+      "label": "Research",
+      "href": "research.html",
+      "page": "research"
+    },
+    {
+      "label": "Publications",
+      "href": "publications.html",
+      "page": "publications"
+    },
+    {
+      "label": "CV",
+      "href": "cv.html",
+      "page": "cv"
+    },
+    {
+      "label": "Personal",
+      "href": "personal.html",
+      "page": "personal"
+    }
+  ],
+  "profile": {
+    "photo": "media/profile.jpg",
+    "name": "Md. Tariquzzaman",
+    "role": "Junior Lecturer",
+    "institution": {
+      "logo": "media/logos/iut.jpg",
+      "name": "Islamic University of Technology",
+      "url": "https://www.iutoic-dhaka.edu/",
+      "dept": "Dept. of Computer Science &amp; Engineering"
+    },
+    "affiliation": [
+      "<a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">Systems and Software Lab (SSL)</a>",
+      "Board Bazar, Gazipur 1704, Bangladesh",
+      "<span class=\"muted\">Graduate supervisor:</span> <a href=\"https://cse.iutoic-dhaka.edu/profile/hasan/education\" target=\"_blank\" rel=\"noopener\">Hasan Mahmud</a>",
+      "<span class=\"muted\">M.Sc. in CSE, IUT (in progress). B.Sc. in CSE, IUT, 2024.</span>"
+    ],
+    "socials": [
+      {
+        "icon": "mail",
+        "label": "Email",
+        "href": "mailto:tariquzzaman@iut-dhaka.edu"
+      },
+      {
+        "icon": "scholar",
+        "label": "Scholar",
+        "href": "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ"
+      },
+      {
+        "icon": "github",
+        "label": "GitHub",
+        "href": "https://github.com/tariquzzamanf"
+      },
+      {
+        "icon": "hf",
+        "label": "HF",
+        "href": "https://huggingface.co/aplycaebous"
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/tariquzzamanf/"
+      }
+    ]
+  },
+  "pages": {
+    "index": {
+      "layout": "home",
+      "title": "Md. Tariquzzaman - CSE Lecturer and NLP Researcher at IUT",
+      "description": "Official academic website of Md. Tariquzzaman, Junior Lecturer in Computer Science and Engineering at Islamic University of Technology (IUT), with research in NLP, Bangla NLP, misinformation detection, sign language instruction generation, and LLM evaluation.",
+      "canonical": "https://tariquzzamanf.github.io/",
+      "sections": [
+        {
+          "type": "prose",
+          "icon": "user",
+          "eyebrow": "About me",
+          "justify": true,
+          "lead": "I work on natural language processing for low-resource settings&#8212;Bangla first&#8212;building the embeddings, datasets, and evaluations that make under-served languages and under-served users measurable.",
+          "paragraphs": [
+            "I am a <a href=\"https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education\" target=\"_blank\" rel=\"noopener\"><strong>Junior Lecturer</strong></a> in the Department of Computer Science and Engineering at the <a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">Islamic University of Technology (IUT)</a>, and an active member of the <a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">Systems and Software Lab (SSL)</a>. I wrote my undergraduate thesis under the supervision of <a href=\"https://cse.iutoic-dhaka.edu/profile/mohsinul/education\" target=\"_blank\" rel=\"noopener\">Mohsinul Kabir</a>, and I am pursuing my graduate studies under the supervision of <a href=\"https://cse.iutoic-dhaka.edu/profile/hasan/education\" target=\"_blank\" rel=\"noopener\">Hasan Mahmud</a>. My work spans low-resource language processing for Bangla, harmful content and misinformation detection, sign language instruction generation, and benchmarking scenario-induced bias in large language models. My open releases include the informal Bangla FastText embedding, the BdSLIG sign language dataset, and the BDA augmentation framework."
+          ],
+          "buttons": [
+            {
+              "label": "Download CV",
+              "href": "files/tariq.pdf",
+              "icon": "download",
+              "external": true
+            },
+            {
+              "label": "Google Scholar",
+              "href": "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ",
+              "icon": "scholarOutline",
+              "ghost": true,
+              "external": true
+            },
+            {
+              "label": "Email me",
+              "href": "mailto:tariquzzaman@iut-dhaka.edu",
+              "icon": "mailOutline",
+              "ghost": true
+            }
+          ]
+        },
+        {
+          "type": "interests",
+          "icon": "flask",
+          "eyebrow": "Research interests",
+          "items": [
+            {
+              "icon": "sparkle",
+              "title": "Low-resource &amp; Bangla NLP",
+              "text": "Embeddings, augmentation, and modeling for informal Bangla, where clean labelled data is scarce.",
+              "tags": [
+                "BLP @ EMNLP 2023",
+                "arXiv 2024"
+              ],
+              "href": "research.html#bangla-nlp"
+            },
+            {
+              "icon": "alert",
+              "title": "Misinformation &amp; harmful content",
+              "text": "Detecting violence-inciting text and financial misinformation across languages and platforms.",
+              "tags": [
+                "ACL 2026",
+                "BLP @ EMNLP 2023"
+              ],
+              "href": "research.html#misinformation"
+            },
+            {
+              "icon": "accessibility",
+              "title": "Accessibility &amp; sign language",
+              "text": "Sign language instruction generation for learners of low-resource sign languages.",
+              "tags": [
+                "CV4A11y @ ICCV 2025",
+                "BdSLIG"
+              ],
+              "href": "research.html#accessibility"
+            },
+            {
+              "icon": "cube",
+              "title": "LLM evaluation &amp; bias",
+              "text": "Benchmarks that surface how model judgments shift with persona, region, and identity.",
+              "tags": [
+                "MFMD-Scen",
+                "22 models",
+                "4 languages"
+              ],
+              "href": "research.html#evaluation"
+            }
+          ]
+        },
+        {
+          "type": "news",
+          "icon": "megaphone",
+          "eyebrow": "Recent news",
+          "items": [
+            {
+              "when": "Mar 2026",
+              "html": "<a href=\"https://arxiv.org/abs/2601.05403\" target=\"_blank\" rel=\"noopener\"><b>Same Claim, Different Judgment</b></a> accepted to Findings of <b>ACL 2026</b>."
+            },
+            {
+              "when": "Oct 2025",
+              "html": "<a href=\"https://openreview.net/forum?id=KkVMBkjbra\" target=\"_blank\" rel=\"noopener\"><b>Prompting with Sign Parameters</b></a> accepted at the <a href=\"https://cv4a11y.github.io/ICCV2025/index.html\" target=\"_blank\" rel=\"noopener\">CV4A11y</a> workshop at <b>ICCV 2025</b>."
+            },
+            {
+              "when": "Dec 2024",
+              "html": "<a href=\"https://arxiv.org/abs/2412.08753\" target=\"_blank\" rel=\"noopener\"><b>BDA: Bangla Text Data Augmentation Framework</b></a> released on arXiv."
+            },
+            {
+              "when": "Sep 2024",
+              "html": "Joined <a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">IUT</a> as a <b>Junior Lecturer</b> in CSE and started my <b>M.Sc.</b> in CSE."
+            },
+            {
+              "when": "Jun 2024",
+              "html": "Completed my <b>B.Sc. in CSE</b> at <a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">IUT</a>."
+            },
+            {
+              "when": "Dec 2023",
+              "html": "<a href=\"https://aclanthology.org/2023.banglalp-1.26/\" target=\"_blank\" rel=\"noopener\"><b>A Novel Informal Bangla FastText Embedding</b></a> received the <b>Best Shared Task Paper Award</b> at <a href=\"https://blp-workshop.github.io/2023/\" target=\"_blank\" rel=\"noopener\">BLP @ EMNLP 2023</a>."
+            }
+          ],
+          "buttons": [
+            {
+              "label": "All publications",
+              "href": "publications.html",
+              "ghost": true
+            },
+            {
+              "label": "Research overview",
+              "href": "research.html",
+              "ghost": true
+            }
+          ]
+        }
+      ]
+    },
+    "research": {
+      "layout": "sections",
+      "title": "Research by Md. Tariquzzaman - NLP, Bangla NLP, LLM Evaluation",
+      "description": "Research by Md. Tariquzzaman, CSE Junior Lecturer at Islamic University of Technology (IUT), covering NLP, Bangla NLP, misinformation detection, sign language instruction generation, text augmentation, and LLM evaluation.",
+      "canonical": "https://tariquzzamanf.github.io/research.html",
+      "head": {
+        "icon": "flask",
+        "eyebrow": "What I work on",
+        "h1": "Research",
+        "intro": "My work centers on language technology for people the field tends to under-serve: speakers of low-resource languages, users of low-resource sign languages, and readers exposed to harmful or misleading text in languages that benchmarks rarely cover."
+      },
+      "sections": [
+        {
+          "type": "team",
+          "id": "group",
+          "icon": "users",
+          "eyebrow": "Group &amp; Mentors",
+          "intro": "I work within the <a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\"><strong>Systems and Software Lab (SSL)</strong></a> in the Department of Computer Science and Engineering at the Islamic University of Technology. The people below are the mentors and collaborators I have written papers with.",
+          "members": [
+            {
+              "name": "Hasan Mahmud",
+              "url": "https://cse.iutoic-dhaka.edu/profile/hasan/education",
+              "role": "Graduate supervisor",
+              "initials": "HM",
+              "pi": true
+            },
+            {
+              "name": "Mohsinul Kabir",
+              "url": "https://cse.iutoic-dhaka.edu/profile/mohsinul/education",
+              "role": "Undergraduate thesis supervisor",
+              "initials": "MK"
+            },
+            {
+              "name": "Md. Tariquzzaman",
+              "role": "Junior Lecturer · M.Sc. student",
+              "photo": "media/profile.jpg"
+            },
+            {
+              "name": "Md Kamrul Hasan",
+              "role": "SSL faculty · co-author",
+              "initials": "KH"
+            },
+            {
+              "name": "Md Farhan Ishmam",
+              "role": "Collaborator",
+              "initials": "FI"
+            },
+            {
+              "name": "Saiyma Sittul Muna",
+              "role": "Collaborator",
+              "initials": "SM"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "experience",
+          "icon": "briefcase",
+          "eyebrow": "Experience",
+          "one": true,
+          "items": [
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Junior Lecturer, Computer Science &amp; Engineering",
+              "when": "Sep 2024 &#8211; Present",
+              "org": "<a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">Islamic University of Technology</a> · Gazipur, Bangladesh",
+              "meta": "Teaching programming, databases, and software engineering, and supervising software project and design courses. See <a href=\"cv.html#teaching\">teaching</a> for the full course list."
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Graduate Researcher, Systems and Software Lab",
+              "when": "Sep 2024 &#8211; Present",
+              "org": "<a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">SSL, Islamic University of Technology</a> · M.Sc. in CSE",
+              "meta": "Supervisor: <a href=\"https://cse.iutoic-dhaka.edu/profile/hasan/education\" target=\"_blank\" rel=\"noopener\">Hasan Mahmud</a>. Sign language instruction generation and multilingual LLM evaluation."
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Undergraduate Thesis, Systems and Software Lab",
+              "when": "2023 &#8211; Jun 2024",
+              "org": "<a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">SSL, Islamic University of Technology</a> · B.Sc. in CSE",
+              "meta": "Supervisor: <a href=\"https://cse.iutoic-dhaka.edu/profile/mohsinul/education\" target=\"_blank\" rel=\"noopener\">Mohsinul Kabir</a>. Informal Bangla embeddings, violence-inciting text detection, and Bangla text augmentation."
+            },
+            {
+              "crest": "media/logos/reddot.png",
+              "crestAlt": "RedDot Digital Ltd.",
+              "title": "Machine Learning Intern",
+              "when": "May 2023 &#8211; Sep 2023",
+              "org": "<a href=\"https://www.reddotdigitalit.com/\" target=\"_blank\" rel=\"noopener\">RedDot Digital Ltd.</a> · Dhaka, Bangladesh"
+            }
+          ],
+          "note": "I am always glad to collaborate on Bangla and low-resource language resources, accessibility technology, and multilingual evaluation. <strong>Interested in working together? Reach out: <a href=\"mailto:tariquzzaman@iut-dhaka.edu\">tariquzzaman@iut-dhaka.edu</a>.</strong>"
+        },
+        {
+          "type": "directions",
+          "id": "directions",
+          "icon": "flask",
+          "eyebrow": "Research Directions",
+          "groups": [
+            {
+              "id": "bangla-nlp",
+              "title": "Low-resource &amp; Bangla NLP",
+              "intro": "Bangla is spoken by over 230 million people and still lacks the clean, labelled, in-domain data that modern methods assume. I build the pieces that close that gap: embeddings trained on the informal Bangla people actually write, and augmentation that stretches small datasets further.",
+              "pubs": [
+                {
+                  "vkey": "BLP 2023",
+                  "title": "A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection",
+                  "url": "https://aclanthology.org/2023.banglalp-1.26/",
+                  "desc": "A custom FastText embedding trained on informal Bangla social media text. Paired with a BiLSTM it reaches near-transformer accuracy while being far faster and cheaper than BanglaBERT. <b>Best Shared Task Paper Award</b> at BLP @ EMNLP 2023.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://aclanthology.org/2023.banglalp-1.26/"
+                    },
+                    {
+                      "label": "Code",
+                      "href": "https://github.com/tariquzzamanf/VITD"
+                    },
+                    {
+                      "label": "Dataset",
+                      "href": "https://github.com/blp-workshop/blp_task1"
+                    },
+                    {
+                      "label": "Video",
+                      "href": "https://aclanthology.org/2023.banglalp-1.26.mp4"
+                    }
+                  ]
+                },
+                {
+                  "vkey": "arXiv 2024",
+                  "title": "BDA: Bangla Text Data Augmentation Framework",
+                  "url": "https://arxiv.org/abs/2412.08753",
+                  "desc": "Combines synonym replacement, random swap, back-translation, and paraphrasing with a semantic filtering step, reaching near full-data performance from significantly less labelled Bangla text.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://arxiv.org/abs/2412.08753"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "misinformation",
+              "title": "Misinformation &amp; harmful content",
+              "intro": "Two sides of the same problem: text that incites harm, and text that misleads. Both are studied mostly in English, and both behave differently once you leave it.",
+              "pubs": [
+                {
+                  "vkey": "ACL 2026",
+                  "title": "Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection",
+                  "url": "https://arxiv.org/abs/2601.05403",
+                  "desc": "MFMD-Scen tests whether LLMs judge the same financial claim differently depending on who is asking. Across 22 models and four languages, injecting financial personas, regional contexts, and cultural identities consistently shifts verdicts, with bias amplified in low-resource languages and smaller models.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://arxiv.org/abs/2601.05403"
+                    }
+                  ]
+                },
+                {
+                  "vkey": "BLP 2023",
+                  "title": "Violence Inciting Text Detection in Informal Bangla",
+                  "url": "https://aclanthology.org/2023.banglalp-1.26/",
+                  "desc": "The shared task side of the FastText embedding work: classifying violence-inciting Bangla social media text under real-world, noisy, code-mixed conditions.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://aclanthology.org/2023.banglalp-1.26/"
+                    },
+                    {
+                      "label": "Code",
+                      "href": "https://github.com/tariquzzamanf/VITD"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "accessibility",
+              "title": "Accessibility &amp; sign language",
+              "intro": "Sign languages are low-resource twice over: little data, and little attention. My work here targets instruction generation, so that learners of Bangla Sign Language get usable written guidance for producing a sign.",
+              "pubs": [
+                {
+                  "vkey": "ICCV 2025",
+                  "title": "Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation",
+                  "url": "https://openreview.net/forum?id=KkVMBkjbra",
+                  "desc": "A prompting method that conditions on sign-language parameters — handshape, orientation, location, movement — to generate instructions for low-resource sign language education, released with the BdSLIG dataset. CV4A11y workshop at ICCV 2025.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://openreview.net/forum?id=KkVMBkjbra"
+                    },
+                    {
+                      "label": "Code",
+                      "href": "https://github.com/tariquzzamanf/SPIP"
+                    },
+                    {
+                      "label": "Dataset",
+                      "href": "https://huggingface.co/datasets/aplycaebous/BdSLIG"
+                    },
+                    {
+                      "label": "Video",
+                      "href": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "evaluation",
+              "title": "LLM evaluation &amp; bias",
+              "intro": "Benchmarks decide what the field optimizes for. I am interested in benchmarks that hold the claim fixed and vary the context around it, because that is where model judgment quietly breaks.",
+              "pubs": [
+                {
+                  "vkey": "ACL 2026",
+                  "title": "MFMD-Scen: Scenario-Induced Bias Across 22 Models and 4 Languages",
+                  "url": "https://arxiv.org/abs/2601.05403",
+                  "desc": "English, Chinese, Greek, and Bengali, evaluated under role, region, personality, and identity scenarios. The gap between a model's verdict on a claim and its verdict on the <em>same</em> claim with a persona attached is the measurement.",
+                  "links": [
+                    {
+                      "label": "Paper",
+                      "href": "https://arxiv.org/abs/2601.05403"
+                    }
+                  ]
+                },
+                {
+                  "vkey": "ICCV 2025",
+                  "title": "Zero-shot Evaluation for Sign Language Instruction Generation",
+                  "desc": "How well do general-purpose vision-language models describe a sign they have never been trained on? BdSLIG provides the evaluation setting.",
+                  "links": [
+                    {
+                      "label": "Dataset",
+                      "href": "https://huggingface.co/datasets/aplycaebous/BdSLIG"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "publications": {
+      "layout": "sections",
+      "title": "Publications · Md. Tariquzzaman",
+      "description": "Peer-reviewed publications and preprints by Md. Tariquzzaman on Bangla NLP, misinformation detection, sign language instruction generation, text augmentation, and LLM evaluation.",
+      "canonical": "https://tariquzzamanf.github.io/publications.html",
+      "head": {
+        "icon": "doc",
+        "eyebrow": "Research output",
+        "h1": "Publications",
+        "intro": "My name appears in <strong>bold</strong>. The colored pill on each paper gives its research area, matching the directions on my <a href=\"research.html#directions\">research page</a>.",
+        "stats": [
+          {
+            "num": "4",
+            "lab": "Publications"
+          },
+          {
+            "num": "3",
+            "lab": "Peer-reviewed"
+          },
+          {
+            "num": "1",
+            "lab": "Best paper award"
+          },
+          {
+            "num": "3",
+            "lab": "Code &amp; data releases"
+          }
+        ],
+        "buttons": [
+          {
+            "label": "Google Scholar",
+            "href": "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ",
+            "external": true
+          },
+          {
+            "label": "Full CV (PDF)",
+            "href": "files/tariq.pdf",
+            "ghost": true,
+            "external": true
+          }
+        ]
+      },
+      "sections": [
+        {
+          "type": "pubs",
+          "id": "conference",
+          "icon": "conference",
+          "eyebrow": "Conference papers",
+          "items": [
+            {
+              "vkey": "C1",
+              "title": "Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection",
+              "url": "https://arxiv.org/abs/2601.05403",
+              "authors": "Zhiwei Liu, Yupen Cao, Yuechen Jiang, Mohsinul Kabir, Polydoros Giannouris, Chen Xu, Ziyang Xu, Tianlei Zhu, <span class=\"me\">Md. Tariquzzaman</span>, Triantafillos Papadopoulos, Yan Wang, Lingfei Qian, Xueqing Peng, Zhuohan Xie, Ye Yuan, Saeed Almheiri, Abdulrazzaq Alnajjar, Mingbin Chen, Harry Stuart, Paul Thompson, Prayag Tiwari, Alejandro Lopez-Lira, Xue Liu, Jimin Huang, Sophia Ananiadou",
+              "venue": "Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<a href=\"https://2026.aclweb.org/\" target=\"_blank\" rel=\"noopener\">ACL 2026</a>)",
+              "cats": [
+                {
+                  "label": "LLM Evaluation",
+                  "cls": "cat-mltest"
+                },
+                {
+                  "label": "Misinformation",
+                  "cls": "cat-safety"
+                }
+              ],
+              "links": [
+                {
+                  "label": "Paper",
+                  "href": "https://arxiv.org/abs/2601.05403"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "pubs",
+          "id": "workshops",
+          "icon": "workshop",
+          "eyebrow": "Workshop papers",
+          "items": [
+            {
+              "vkey": "W2",
+              "title": "Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation",
+              "url": "https://openreview.net/forum?id=KkVMBkjbra",
+              "authors": "<span class=\"me\">Md. Tariquzzaman</span>, Md Farhan Ishmam, Saiyma Sittul Muna, Md Kamrul Hasan, Hasan Mahmud",
+              "venue": "4th Workshop on Computer Vision for Accessibility (<a href=\"https://cv4a11y.github.io/ICCV2025/index.html\" target=\"_blank\" rel=\"noopener\">CV4A11y</a>) at ICCV 2025",
+              "cats": [
+                {
+                  "label": "Accessibility",
+                  "cls": "cat-vision"
+                },
+                {
+                  "label": "Bangla NLP",
+                  "cls": "cat-nlp"
+                }
+              ],
+              "links": [
+                {
+                  "label": "Paper",
+                  "href": "https://openreview.net/forum?id=KkVMBkjbra"
+                },
+                {
+                  "label": "Code",
+                  "href": "https://github.com/tariquzzamanf/SPIP"
+                },
+                {
+                  "label": "Dataset",
+                  "href": "https://huggingface.co/datasets/aplycaebous/BdSLIG"
+                },
+                {
+                  "label": "Video",
+                  "href": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
+                }
+              ]
+            },
+            {
+              "vkey": "W1",
+              "title": "A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection",
+              "url": "https://aclanthology.org/2023.banglalp-1.26/",
+              "authors": "<span class=\"me\">Md. Tariquzzaman</span>, Md. Wasif Kader, Audwit Nafi Anam, Naimul Haque, Mohsinul Kabir, Hasan Mahmud, Md Kamrul Hasan",
+              "venue": "1st Workshop on Bangla Language Processing (<a href=\"https://blp-workshop.github.io/2023/\" target=\"_blank\" rel=\"noopener\">BLP</a>) at EMNLP 2023",
+              "badge": "Best Shared Task Paper Award",
+              "cats": [
+                {
+                  "label": "Harmful Content",
+                  "cls": "cat-safety"
+                },
+                {
+                  "label": "Bangla NLP",
+                  "cls": "cat-nlp"
+                }
+              ],
+              "links": [
+                {
+                  "label": "Paper",
+                  "href": "https://aclanthology.org/2023.banglalp-1.26/"
+                },
+                {
+                  "label": "Code",
+                  "href": "https://github.com/tariquzzamanf/VITD"
+                },
+                {
+                  "label": "Dataset",
+                  "href": "https://github.com/blp-workshop/blp_task1"
+                },
+                {
+                  "label": "Video",
+                  "href": "https://aclanthology.org/2023.banglalp-1.26.mp4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "pubs",
+          "id": "preprints",
+          "icon": "preprint",
+          "eyebrow": "Preprints",
+          "items": [
+            {
+              "vkey": "P1",
+              "title": "BDA: Bangla Text Data Augmentation Framework",
+              "url": "https://arxiv.org/abs/2412.08753",
+              "authors": "<span class=\"me\">Md. Tariquzzaman</span>, Audwit Nafi Anam, Naimul Haque, Mohsinul Kabir, Hasan Mahmud, Md Kamrul Hasan",
+              "venue": "arXiv preprint arXiv:2412.08753 (2024)",
+              "cats": [
+                {
+                  "label": "Text Augmentation",
+                  "cls": "cat-edu"
+                },
+                {
+                  "label": "Bangla NLP",
+                  "cls": "cat-nlp"
+                }
+              ],
+              "links": [
+                {
+                  "label": "Paper",
+                  "href": "https://arxiv.org/abs/2412.08753"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "resources",
+          "icon": "database",
+          "eyebrow": "Code &amp; datasets",
+          "one": true,
+          "items": [
+            {
+              "title": "BdSLIG",
+              "when": "2025",
+              "org": "Bangla Sign Language instruction generation dataset",
+              "meta": "Released on Hugging Face alongside the CV4A11y @ ICCV 2025 paper.",
+              "links": [
+                {
+                  "label": "Dataset",
+                  "href": "https://huggingface.co/datasets/aplycaebous/BdSLIG"
+                }
+              ]
+            },
+            {
+              "title": "SPIP",
+              "when": "2025",
+              "org": "Sign Parameter Informed Prompting",
+              "meta": "Reference implementation for prompting with sign parameters.",
+              "links": [
+                {
+                  "label": "Code",
+                  "href": "https://github.com/tariquzzamanf/SPIP"
+                }
+              ]
+            },
+            {
+              "title": "VITD",
+              "when": "2023",
+              "org": "Violence Inciting Text Detection",
+              "meta": "Informal Bangla FastText embedding and BiLSTM classifier from the BLP 2023 shared task.",
+              "links": [
+                {
+                  "label": "Code",
+                  "href": "https://github.com/tariquzzamanf/VITD"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "cv": {
+      "layout": "sections",
+      "wrapClass": "cv-page",
+      "title": "Curriculum Vitae - Md. Tariquzzaman, CSE Lecturer and NLP Researcher",
+      "description": "Curriculum vitae of Md. Tariquzzaman, Junior Lecturer in Computer Science and Engineering at Islamic University of Technology (IUT), focused on NLP, Bangla NLP, and LLM evaluation.",
+      "canonical": "https://tariquzzamanf.github.io/cv.html",
+      "head": {
+        "icon": "doc",
+        "eyebrow": "Curriculum vitae",
+        "h1": "CV",
+        "intro": "The full record on one page: appointments, education, awards, teaching, research, and industry experience. Publications live on <a href=\"publications.html\">their own page</a>.",
+        "buttons": [
+          {
+            "label": "Download CV (PDF)",
+            "href": "files/tariq.pdf",
+            "icon": "download",
+            "external": true
+          },
+          {
+            "label": "Google Scholar",
+            "href": "https://scholar.google.com/citations?hl=en&user=LWB_NzwAAAAJ",
+            "ghost": true,
+            "external": true
+          }
+        ]
+      },
+      "sections": [
+        {
+          "type": "entries",
+          "id": "appointments",
+          "icon": "building",
+          "eyebrow": "Appointments",
+          "items": [
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Junior Lecturer, Computer Science &amp; Engineering",
+              "when": "Sep 2024 &#8211; Present",
+              "org": "<a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">Islamic University of Technology</a>",
+              "meta": "Gazipur, Bangladesh. Member of the <a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">Systems and Software Lab (SSL)</a>. <a href=\"https://cse.iutoic-dhaka.edu/profile/tariquzzaman/education\" target=\"_blank\" rel=\"noopener\">Department profile</a>."
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "education",
+          "icon": "cap",
+          "eyebrow": "Education",
+          "items": [
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "M.Sc. in Computer Science &amp; Engineering",
+              "when": "Sep 2024 &#8211; Present",
+              "org": "<a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">Islamic University of Technology</a>",
+              "meta": "Supervisor: <a href=\"https://cse.iutoic-dhaka.edu/profile/hasan/education\" target=\"_blank\" rel=\"noopener\">Hasan Mahmud</a>. Gazipur, Bangladesh."
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "B.Sc. in Computer Science &amp; Engineering",
+              "when": "Jan 2020 &#8211; Jun 2024",
+              "org": "<a href=\"https://www.iutoic-dhaka.edu/\" target=\"_blank\" rel=\"noopener\">Islamic University of Technology</a>",
+              "meta": "Undergraduate thesis supervised by <a href=\"https://cse.iutoic-dhaka.edu/profile/mohsinul/education\" target=\"_blank\" rel=\"noopener\">Mohsinul Kabir</a>. Gazipur, Bangladesh."
+            },
+            {
+              "crest": "media/logos/gccc.png",
+              "crestAlt": "Govt. City College, Chattogram",
+              "title": "Higher Secondary Certificate (HSC)",
+              "when": "Jul 2017 &#8211; Jul 2019",
+              "org": "<a href=\"https://gccc.edu.bd/\" target=\"_blank\" rel=\"noopener\">Govt. City College, Chattogram</a>"
+            },
+            {
+              "crest": "media/logos/splacid.png",
+              "crestAlt": "Saint Placid's School and College",
+              "title": "Secondary School Certificate (SSC)",
+              "when": "Jan 2007 &#8211; Jun 2017",
+              "org": "<a href=\"https://stplacid.edu.bd/\" target=\"_blank\" rel=\"noopener\">Saint Placid's School and College</a>"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "awards",
+          "icon": "trophy",
+          "eyebrow": "Honors &amp; awards",
+          "items": [
+            {
+              "title": "Best Shared Task Paper Award",
+              "when": "Dec 2023",
+              "org": "1st Workshop on Bangla Language Processing (BLP) at EMNLP 2023",
+              "meta": "For <a href=\"https://aclanthology.org/2023.banglalp-1.26/\" target=\"_blank\" rel=\"noopener\"><em>A Novel Informal Bangla FastText Embedding for Violence Inciting Text Detection</em></a>."
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "teaching",
+          "icon": "book",
+          "eyebrow": "Teaching",
+          "subhead": "Courses taught as Junior Lecturer at the Islamic University of Technology.",
+          "one": true,
+          "items": [
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Summer 2024&#8211;2025",
+              "when": "IUT · CSE",
+              "list": [
+                "CSE 4271 Computer Programming",
+                "CSE 4272 Computer Programming Lab",
+                "CSE 4404 Software Project Lab II <em>(Supervisor)</em>",
+                "CSE 4600 Design Project <em>(Co-Supervisor)</em>"
+              ]
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Winter 2024&#8211;2025",
+              "when": "IUT · CSE",
+              "list": [
+                "CSE 4307 Database Management Systems",
+                "CSE 4308 Database Management Systems Lab",
+                "CSE 4593 Software Engineering",
+                "SWE 4304 Software Project Lab I <em>(Supervisor)</em>"
+              ]
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Summer 2023&#8211;2024",
+              "when": "IUT · CSE",
+              "list": [
+                "CSE 4271 Computer Programming",
+                "CSE 4272 Computer Programming Lab",
+                "CSE 4404 Software Project Lab II <em>(Supervisor)</em>",
+                "SWE 4800 Thesis <em>(Co-Supervisor)</em>"
+              ]
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Winter 2023&#8211;2024",
+              "when": "IUT · CSE",
+              "list": [
+                "CSE 4508 RDBMS Lab",
+                "CSE 4308 Database Management Systems Lab"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "research-experience",
+          "icon": "flask",
+          "eyebrow": "Research experience",
+          "one": true,
+          "items": [
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Graduate Researcher, Systems and Software Lab",
+              "when": "Sep 2024 &#8211; Present",
+              "org": "<a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">SSL, Islamic University of Technology</a>",
+              "meta": "Sign language instruction generation for Bangla Sign Language, and multilingual benchmarking of scenario-induced bias in large language models."
+            },
+            {
+              "crest": "media/logos/iut.jpg",
+              "crestAlt": "Islamic University of Technology",
+              "title": "Undergraduate Thesis Researcher",
+              "when": "2023 &#8211; Jun 2024",
+              "org": "<a href=\"https://cse.iutoic-dhaka.edu/ssl\" target=\"_blank\" rel=\"noopener\">SSL, Islamic University of Technology</a>",
+              "meta": "Informal Bangla FastText embeddings, violence-inciting text detection, and the BDA text augmentation framework."
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "id": "industry",
+          "icon": "briefcase",
+          "eyebrow": "Industry",
+          "one": true,
+          "items": [
+            {
+              "crest": "media/logos/reddot.png",
+              "crestAlt": "RedDot Digital Ltd.",
+              "title": "Machine Learning Intern",
+              "when": "May 2023 &#8211; Sep 2023",
+              "org": "<a href=\"https://www.reddotdigitalit.com/\" target=\"_blank\" rel=\"noopener\">RedDot Digital Ltd.</a>",
+              "meta": "Dhaka, Bangladesh."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "id": "skills",
+          "icon": "code",
+          "eyebrow": "Skills",
+          "subhead": "Areas I work in day to day, in research and in the classroom.",
+          "items": [
+            "Natural language processing: word embeddings, text classification, data augmentation, prompting and zero-shot evaluation",
+            "Low-resource language processing, with a focus on Bangla and informal / code-mixed text",
+            "Large language model evaluation, benchmark design, and bias analysis",
+            "Accessibility technology and sign language datasets",
+            "Teaching: computer programming, database management systems, software engineering, and project supervision"
+          ]
+        }
+      ]
+    },
+    "personal": {
+      "layout": "tabs",
+      "title": "Personal · Md. Tariquzzaman",
+      "description": "A few things about Md. Tariquzzaman that the CV does not cover: books, films, anime, sports, and writing.",
+      "canonical": "https://tariquzzamanf.github.io/personal.html",
+      "head": {
+        "icon": "sparkle",
+        "eyebrow": "Beyond the CV",
+        "h1": "Personal",
+        "intro": "A few things about me that the CV does not cover. Pick a topic on the left."
+      },
+      "tabs": [
+        {
+          "id": "books",
+          "icon": "book",
+          "label": "Books",
+          "h2": "Books",
+          "lead": "What I am reading, and the ones I keep coming back to.",
+          "groups": [
+            {
+              "h3": "Currently reading",
+              "list": [
+                "<b>Add a title here</b> — author"
+              ],
+              "note": "This page is a work in progress. Edit <code>data.json</code> to fill it in."
+            }
+          ]
+        },
+        {
+          "id": "movies",
+          "icon": "film",
+          "label": "Films",
+          "h2": "Films",
+          "lead": "Films worth the trip to the cinema.",
+          "groups": [
+            {
+              "h3": "Favourites",
+              "ranklist": [
+                {
+                  "title": "Add a film here"
+                }
+              ],
+              "note": "This page is a work in progress. Edit <code>data.json</code> to fill it in."
+            }
+          ]
+        },
+        {
+          "id": "anime",
+          "icon": "anime",
+          "label": "Anime",
+          "h2": "Anime",
+          "lead": "Series I would recommend without hesitation.",
+          "groups": [
+            {
+              "h3": "Top 10, all time",
+              "ranklist": [
+                {
+                  "title": "Add a title here"
+                }
+              ],
+              "note": "This page is a work in progress. Edit <code>data.json</code> to fill it in."
+            }
+          ]
+        },
+        {
+          "id": "sports",
+          "icon": "sports",
+          "label": "Sports",
+          "h2": "Sports",
+          "lead": "What I play, and what I follow.",
+          "groups": [
+            {
+              "h3": "I follow",
+              "list": [
+                "<b>Add a sport or team here</b>"
+              ],
+              "note": "This page is a work in progress. Edit <code>data.json</code> to fill it in."
+            }
+          ]
+        },
+        {
+          "id": "writing",
+          "icon": "pen",
+          "label": "Writing",
+          "h2": "Writing",
+          "lead": "Notes and posts outside the papers.",
+          "groups": [
+            {
+              "h3": "Posts",
+              "list": [
+                "<b>Add a post here</b> — a sentence about what it covers"
+              ],
+              "note": "This page is a work in progress. Edit <code>data.json</code> to fill it in."
+            }
+          ]
+        }
+      ]
+    },
+    "404": {
+      "layout": "simple",
+      "title": "Page not found · Md. Tariquzzaman",
+      "description": "That page does not exist.",
+      "noindex": true,
+      "head": {
+        "icon": "alert",
+        "eyebrow": "404",
+        "h1": "Page not found",
+        "intro": "That page does not exist, or it moved when the site was rebuilt. Try one of these instead.",
+        "buttons": [
+          {
+            "label": "Home",
+            "href": "/index.html"
+          },
+          {
+            "label": "Publications",
+            "href": "/publications.html",
+            "ghost": true
+          },
+          {
+            "label": "CV",
+            "href": "/cv.html",
+            "ghost": true
+          }
+        ]
+      }
+    }
+  }
+}
