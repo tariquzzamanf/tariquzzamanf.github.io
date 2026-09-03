@@ -1,0 +1,59 @@
+# Renders data.json into static HTML and publishes it to GitHub Pages.
+#
+# Requires Settings → Pages → Source = "GitHub Actions". Until that is set,
+# Pages keeps serving the HTML committed to main, which build.js also writes,
+# so the site stays correct either way.
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Render pages from data.json
+        run: node build.js
+
+      - name: Check the committed HTML matches data.json
+        # Informational: the deploy uses the freshly built output either way.
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::warning::The committed HTML is behind data.json. Run 'node build.js' and commit the result to keep the repo in sync."
+            git status --porcelain
+          else
+            echo "Committed HTML is up to date with data.json."
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
