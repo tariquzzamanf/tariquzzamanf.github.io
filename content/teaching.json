@@ -1,0 +1,36 @@
+[
+  {
+    "term": "Summer 2024–2025",
+    "courses": [
+      "CSE 4271 Computer Programming",
+      "CSE 4272 Computer Programming Lab",
+      "CSE 4404 Software Project Lab II (Supervisor)",
+      "CSE 4600 Design Project (Co-Supervisor)"
+    ]
+  },
+  {
+    "term": "Winter 2024–2025",
+    "courses": [
+      "CSE 4307 Database Management Systems",
+      "CSE 4308 Database Management Systems Lab",
+      "CSE 4593 Software Engineering",
+      "SWE 4304 Software Project Lab I (Supervisor)"
+    ]
+  },
+  {
+    "term": "Summer 2023–2024",
+    "courses": [
+      "CSE 4271 Computer Programming",
+      "CSE 4272 Computer Programming Lab",
+      "CSE 4404 Software Project Lab II (Supervisor)",
+      "SWE 4800 Thesis (Co-Supervisor)"
+    ]
+  },
+  {
+    "term": "Winter 2023–2024",
+    "courses": [
+      "CSE 4508 Relational Database Management Systems Lab",
+      "CSE 4308 Database Management Systems Lab"
+    ]
+  }
+]

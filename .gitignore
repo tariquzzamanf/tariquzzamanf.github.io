@@ -1,0 +1,27 @@
+.DS_Store
+__pycache__/
+.preview/
+node_modules/
+
+# Python tooling
+.pytest_cache/
+*.py[cod]
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+
+# Editor and local workspace files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
