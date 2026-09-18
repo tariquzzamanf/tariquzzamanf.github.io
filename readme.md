@@ -1,0 +1,58 @@
+# Md. Tariquzzaman · Academic website
+
+Source for [tariquzzamanf.github.io](https://tariquzzamanf.github.io/), my academic website covering research, publications, teaching, and interests beyond the CV.
+
+I am a Junior Lecturer in Computer Science and Engineering at the Islamic University of Technology, Bangladesh, and a member of the Systems and Software Lab. My research spans low-resource Bangla NLP, harmful content and misinformation detection, sign language instruction generation, and large language model evaluation.
+
+## About the site
+
+The site has five pages: **Home**, **Research**, **Publications**, **CV**, and **Personal**. It uses a warm cream palette, muted green accents, and serif typography, with locally hosted Literata and Bookerly when available on the visitor’s device.
+
+Pages are generated with Python’s standard library and served as plain HTML and CSS. Content and navigation work without JavaScript; optional JavaScript provides theme switching and mobile-menu controls. No package installation or external font service is required.
+
+## Preview locally
+
+With Python 3 installed, run these commands from the repository root:
+
+```sh
+python3 scripts/build.py
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Open [localhost:8765](http://127.0.0.1:8765). Stop the server with `Ctrl+C`. The generated `index.html` can also be opened directly.
+
+## Editing
+
+| File or directory | Purpose |
+| --- | --- |
+| `content/home.html` | Biography, research interests, and homepage links |
+| `content/research.html` | Research themes and related work |
+| `content/publications.json` | Publication records, author order, status, and resource links |
+| `content/cv.html` | Professional and academic record |
+| `content/teaching.json` | Courses and academic terms |
+| `content/personal.html` | Personal topics and clearly marked placeholders |
+| `content/news.json` | Historical updates; currently not displayed on the homepage |
+| `scripts/build.py` | Shared layout, metadata, and publication rendering |
+| `assets/style.css` | Typography and page layouts |
+| `assets/interactions.css` | Theme colors, buttons, and interaction states |
+| `assets/app.js` | Theme and mobile-menu controls |
+| `files/cv/` | Downloadable PDF and editable CV source |
+| `profile.jpg` | Portrait |
+
+After changing content or the build script, run `python3 scripts/build.py` and include the generated root-level HTML files with the source changes. CSS-only edits do not require rebuilding. Check affected pages at desktop and mobile widths.
+
+See [agents.md](agents.md) for the maintained content and design decisions. The current CV and approved page sources govern factual updates; preserve publication status and author order.
+
+## GitHub Pages
+
+The generated HTML and `.nojekyll` support publishing from the `main` branch and repository root. Rebuild before publishing so the committed pages match their sources. Publishing is a separate, explicit step.
+
+## GitHub profile README
+
+[github-profile/readme.md](github-profile/readme.md) contains the profile README prepared for the separate `tariquzzamanf/tariquzzamanf` repository. Copy that file to the root of the profile repository as `README.md` when ready to publish it.
+
+## Fonts and contact
+
+Bundled Literata is distributed under the [SIL Open Font License](assets/fonts/OFL.txt).
+
+[Email](mailto:tariquzzaman@iut-dhaka.edu) · [Google Scholar](https://scholar.google.com/citations?user=LWB_NzwAAAAJ) · [LinkedIn](https://www.linkedin.com/in/tariquzzamanf/)

@@ -63,7 +63,9 @@ After editing content or templates, run `python3 scripts/build.py`. Commit the g
 
 The generated HTML and `.nojekyll` support branch-based publishing without a build service. URLs are relative so the draft also works from a local folder. No deployment has been performed.
 
-This folder was found inside a parent Git working tree rather than its own repository. Before publishing, establish this directory as the dedicated website repository; do not stage or push the parent home-directory repository.
+This folder is now a dedicated Git repository with origin `git@github.com:tariquzzamanf/tariquzzamanf.github.io.git`. Verify the Git root before staging or publishing; do not stage or push the parent home-directory repository.
+
+The user-requested `readme.md` documents this website. `github-profile/readme.md` is the prepared README for the separate `tariquzzamanf/tariquzzamanf` profile repository; copy it to that repository's root as `README.md` when publication is requested. Keep its biography and research descriptions consistent with the approved website sources.
 
 ### Content provenance and remaining details
 
