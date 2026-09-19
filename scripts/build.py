@@ -13,8 +13,9 @@ def publication(p, compact=False, label=None):
     links = ' '.join(f'<a href="{escape(v)}">{escape(k)} <span aria-hidden="true">↗</span></a>' for k,v in p['links'].items())
     award = f'<p class="award">{escape(p["award"])}</p>' if p['award'] else ''
     marker = escape(label) if label else p['year']
+    status = f'<p class="pub-status">{escape(p["status"])}</p>' if p['status'] else ''
     tags = '<div class="tags">'+''.join(f'<span class="tag">{escape(area)}</span>' for area in p.get('areas', []))+'</div>' if label else ''
-    return f'''<article class="publication" id="{p['id']}"><div class="pub-year">{marker}</div><div><p class="pub-status">{p['status']}</p><h3><a href="{p['links']['Paper']}">{escape(p['title'])}</a></h3><p class="authors">{authors}</p><p class="venue">{escape(p['venue'])}</p>{award}{tags}<div class="link-row paper-links">{links}</div></div></article>'''
+    return f'''<article class="publication" id="{p['id']}"><div class="pub-year">{marker}</div><div>{status}<h3><a href="{p['links']['Paper']}">{escape(p['title'])}</a></h3><p class="authors">{authors}</p><p class="venue">{escape(p['venue'])}</p>{award}{tags}<div class="link-row paper-links">{links}</div></div></article>'''
 news=json.loads(read('news.json'))
 def news_list(items): return '<dl class="news">'+''.join(f'<div><dt>{x["date"]}</dt><dd>{x["text"]}</dd></div>' for x in items)+'</dl>'
 news_html=news_list(news[:3])+'<details class="older-news"><summary>Earlier milestones</summary>'+news_list(news[3:])+'</details>'
@@ -23,8 +24,8 @@ for term in json.loads(read('teaching.json')):
     for course in term['courses']:
         course_terms.setdefault(course, []).append(term['term'])
 teaching=''.join('<article class="record"><h3>'+escape(course)+'</h3><p class="detail">['+'; '.join(escape(term) for term in terms)+']</p></article>' for course,terms in course_terms.items())
-groups = [('journal', 'journal-articles', 'Journal articles', 'Journal Articles', 'J'),
-          ('conference', 'conference-papers', 'Conference papers', 'Conference Papers', 'C'),
+groups = [('conference', 'conference-papers', 'Conference papers', 'Conference Papers', 'C'),
+          ('journal', 'journal-articles', 'Journal articles', 'Journal Articles', 'J'),
           ('workshop', 'workshop-papers', 'Workshop & shared-task papers', 'Workshop Papers', 'W'),
           ('preprint', 'preprints', 'Preprints', 'Preprints', 'P')]
 metrics = json.loads(read('scholar-metrics.json'))

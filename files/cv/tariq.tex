@@ -1,9 +1,19 @@
-% Single-file academic CV. Compile with: lualatex tariq.tex
+% Single-file academic CV. Compile from this directory (files/cv): lualatex tariq.tex
 % Layout and typography are defined locally for this CV.
+% Body font is Literata, the same variable font bundled for the website (../../assets/fonts).
 \documentclass[letterpaper,11pt]{article}
 \usepackage[left=45bp,right=27bp,top=25bp,bottom=36bp]{geometry}
 \usepackage{fontspec}
-\setmainfont{Latin Modern Roman}[SmallCapsFont=lmromancaps10-regular.otf]
+\setmainfont{Literata}[
+  Path = ../../assets/fonts/,
+  Extension = .ttf,
+  UprightFont = literata,
+  BoldFont = literata,
+  ItalicFont = literata-light,
+  BoldItalicFont = literata-light,
+  BoldFeatures = {RawFeature={axis={wght=550}}},
+  BoldItalicFeatures = {RawFeature={axis={wght=550}}},
+]
 \setmonofont{Latin Modern Mono}
 \usepackage{fontawesome5}
 \usepackage{academicons}
@@ -65,40 +75,36 @@ Low-resource NLP, LLM Evaluation and Bias, Human-Centered AI, Sign Language and 
   \cvEntry{Islamic University of Technology (IUT)}{Gazipur, Bangladesh}
     {M.Sc. in Computer Science and Engineering (in progress)}{Sep 2024 - Present}
   \begin{details}
-    \item \textbf{Research:} [Graduate research topic]
-    \item \textbf{Advisor:} Hasan Mahmud
+    \item \textbf{Thesis:} [Graduate research topic]
+    \item \textbf{Supervisor:} Hasan Mahmud
   \end{details}
   \cvEntry{Islamic University of Technology (IUT)}{Gazipur, Bangladesh}
     {Bachelor of Science in Computer Science and Engineering; GPA: 3.94/4.00}{Jan 2020 - Jun 2024}
   \begin{details}
     \item \textbf{Thesis:} Bangla Text Data Augmentation Framework
+    \item \textbf{Supervisor:} Mohsinul Kabir
   \end{details}
   \cvEntry{Govt. City College, Chattogram (GCCC)}{Chattogram, Bangladesh}
     {Higher Secondary Certificate (HSC), Science}{Jul 2017 - Jul 2019}
   \begin{details}
-    \item \textbf{GPA:} 5.00/5.00 (\textbf{17th} in Chattogram Board)
+    \item \textbf{GPA:} 5.00/5.00
+    \item Talent Pool Scholarship (17th in Chattogram Board)
   \end{details}
   \cvEntry{Saint Placid's School and College (SPSC)}{Chattogram, Bangladesh}
     {Secondary School Certificate (SSC), Science}{Jan 2007 - Jun 2017}
   \begin{details}
     \item \textbf{GPA:} 5.00/5.00
-    \item \textbf{Best Student Award:} 2018
+    \item Best Student Award (2018)
   \end{details}
 \end{entries}
 
 \vspace{-2.5pt}
 \section[Research]{Research \hfill C:Conference, J:Journal, W:Workshop, S:Submission}
 % S includes the available preprint; its submission venue is not supplied.
-\publication{S1}
-  {BDA: Bangla Text Data Augmentation Framework}
-  {\textbf{M Tariquzzaman}, AN Anam, N Haque, M Kabir, H Mahmud, MK Hasan
-    \href{https://arxiv.org/abs/2412.08753}{[Preprint]}}
-  {}
-\categoryrule
 \publication{C1}
   {Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection}
   {Z Liu, Y Cao, Y Jiang, M Kabir, P Giannouris, C Xu, Z Xu, T Zhu, \textbf{M Tariquzzaman}, et al.}
-  {\textit{Findings of ACL 2026 (accepted)} \href{https://arxiv.org/abs/2601.05403}{[Paper]}}
+  {\textit{Findings of ACL 2026} \href{https://arxiv.org/abs/2601.05403}{[Paper]}}
 \categoryrule
 \publication{W2}
   {Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation}
@@ -111,6 +117,12 @@ Low-resource NLP, LLM Evaluation and Bias, Human-Centered AI, Sign Language and 
   {\textbf{M Tariquzzaman}, MW Kader, A Anam, N Haque, M Kabir, H Mahmud, MK Hasan}
   {\textit{Best Shared Task Paper at Bangla Language Processing (BLP) Workshop at EMNLP 2023}
     \href{https://aclanthology.org/2023.banglalp-1.26/}{[Paper]}}
+\categoryrule
+\publication{S1}
+  {BDA: Bangla Text Data Augmentation Framework}
+  {\textbf{M Tariquzzaman}, AN Anam, N Haque, M Kabir, H Mahmud, MK Hasan
+    \href{https://arxiv.org/abs/2412.08753}{[Preprint]}}
+  {}
 
 \vspace{-10pt}
 \section{Teaching Experience}
