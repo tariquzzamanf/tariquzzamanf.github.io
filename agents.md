@@ -20,9 +20,10 @@ This is the single maintained Markdown guide for this project. Read it before ma
 - Home: keep research-interest cards and the personal section. Do not add a milestones/news section or a selected-publications section.
 - Research: use exactly “Low-resource NLP”, “Evaluation & bias”, “Accessibility”, and “Research community” for the contents links and matching section headings. Organize the work around concrete papers using the CV, with brief descriptions and resource links. Avoid redundant subtitles; paper titles must be smaller than section headings.
 - Research: keep all sticky contents links visible below the sticky site header while scrolling.
-- Publications: place Google Scholar ↗, Peer-reviewed work, Preprints, and Code & data in one horizontal desktop action row; allow wrapping on narrow screens.
-- CV: retain only the approved appointments in the current CV; do not restore removed employment entries from older sources. Group teaching by course with semesters in brackets. Spell out “Relational Database Management Systems Lab”.
-- Personal: use Books, Movie Theatre, Anime, Sports, and Writing, with topic navigation and the introduction “A few things about me that the CV does not cover. Pick a topic on the left.” Keep unknown preferences as clearly identified placeholders.
+- Publications: use large metrics in four columns (publication count, citations, h-index, i10-index) directly below the page title and lead, with Google Scholar and Full CV (PDF) actions. Keep the metrics on the page background without a surrounding box, border, or surface fill. Never invent metrics; maintain verified values in `content/scholar-metrics.json` and display unavailable values as dashes with an explanatory note. Group papers into Journal articles, Conference papers, Workshop & shared-task papers, and Preprints, using J/C/W/P numbering, area tags, and a sticky contents sidebar with scroll-driven active highlighting. Keep Code & data and existing paper anchors. On phones, use compact sticky section links below the header.
+- Research, Publications, CV, and Personal: share the “On this page” navigation style, sticky placement below the site header, scroll-driven active-section highlighting, and compact sticky links on phones.
+- CV: retain only the approved appointments in the current CV; do not restore removed employment entries from older sources. Group teaching by course with semesters in brackets; keep course names at a restrained 16px, smaller than section headings. Spell out “Relational Database Management Systems Lab”.
+- Personal: use Anime, Movies, Books, and Sports in that order, with topic navigation and the introduction “A few things about me that the CV does not cover. Pick a topic on the left.” Display the owner’s supplied favorites in their given order, with remotely hosted artwork and source links. Anime is “Top 10, all time”; Movies is “All-time favorites · 8 picks,” with a note that it is not a complete watch history. Do not invent additional picks.
 - Keep documentation and site content self-contained, without references or attribution to an external design-inspiration website.
 
 ## Project and development workflow
@@ -44,6 +45,7 @@ Open http://127.0.0.1:8765. Stop the server with Ctrl+C. If the port is occupied
 
 - `content/home.html`, `content/research.html`, `content/cv.html`, `content/personal.html`: page content.
 - `content/publications.json`: publication metadata, author order, status, and resource links.
+- `content/personal.json`: ordered personal favorites, artwork URLs, and source links.
 - `content/news.json`: dated updates; the text field allows HTML links.
 - `content/teaching.json`: courses grouped by academic term.
 - `scripts/build.py`: shared layout, publication rendering, metadata, and publications page introduction.
@@ -73,7 +75,7 @@ The PDF and LaTeX CV in `files/cv/` are primary; The content inventory below sup
 
 The source CV contains placeholders for the SSL start date and graduate research topic. Those placeholders are omitted from the HTML and remain only where present in the editable source. Academic teaching terms are retained as supplied, including 2023–2024; they have not been inferred from the appointment date.
 
-The Personal page now provides the five requested topics—Books, Movie Theatre, Anime, Sports, and Writing—with clearly marked placeholders. Replace those short placeholder paragraphs with your own entries when you are ready; no preferences were inferred from the source inventory.
+The Personal page lists the owner’s supplied favorites in `content/personal.json`, rendered through `content/personal.html`. Artwork URLs point directly to Kitsu, Wikimedia, and Open Library; do not store cover binaries in the repository. Remote hosting does not imply a copyright license. Keep the source links and rights-holder note. Fullmetal Alchemist currently uses the original series cover.
 
 ## Design philosophy
 
@@ -471,9 +473,13 @@ Snapshot counts from the source; recalculate when the publication record changes
 - Jun 2024: Completed my B.Sc. in CSE at [IUT](https://www.iutoic-dhaka.edu/).
 - Dec 2023: [A Novel Informal Bangla FastText Embedding](https://aclanthology.org/2023.banglalp-1.26/) received the Best Shared Task Paper Award at [BLP @ EMNLP 2023](https://blp-workshop.github.io/2023/).
 
-### Personal interests — information still to supply
+### Personal interests — owner-supplied favorites
 
-The source contains topic labels for Books, Movie Theatre, Anime, Sports, and Writing, but every actual entry is a placeholder. No book titles, film preferences, anime rankings, sports or teams, or writing samples are supplied. These labels alone should not be treated as confirmed personal preferences. Populate them only from information supplied by the owner.
+- Anime (ranked): Attack on Titan; Monster; Death Note; Naruto; Dragon Ball Z; One Piece; Jujutsu Kaisen; Tokyo Ghoul; Ace of Diamond; Fullmetal Alchemist.
+- Movies (ranked favorites, not a complete watch history): Fight Club; The Matrix; Interstellar; Avengers: Infinity War; Spider-Man: Into the Spider-Verse; Coherence; Your Name; Gone Girl.
+- Books: Meditations by Marcus Aurelius.
+- Sports: Bayern Munich.
+- Preserve this order and do not infer further preferences. Titles use standard spelling. The book cover is illustrative; no particular edition was specified.
 
 ### Existing page metadata and addresses
 
@@ -506,7 +512,7 @@ Text and addresses retained for continuity and search metadata. These do not pre
 #### Personal
 
 - Title: Personal · Md. Tariquzzaman
-- Description: A few things about Md. Tariquzzaman that the CV does not cover: books, films, anime, sports, and writing.
+- Description: A few things about Md. Tariquzzaman that the CV does not cover: anime, movies, books, and sports.
 - Canonical: https://tariquzzamanf.github.io/personal.html
 
 ### Documents and image assets

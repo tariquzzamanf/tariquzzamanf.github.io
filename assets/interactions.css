@@ -185,3 +185,90 @@ html[data-theme="dark"] a:hover { color: var(--ink); }
   .site-header, .contents, .personal-nav { display: none; }
   .button, .link-row a, .interest-grid > a, .contact-note { box-shadow: none; background: none; color: #000; }
 }
+
+/* Publication catalog: summary, numbered records, and reading navigation. */
+.publications-heading { margin-bottom: 30px; }
+.publications-summary { display: flex; align-items: center; gap: 32px; padding: 0; }
+.publication-metrics { display: grid; grid-template-columns: repeat(4, 1fr); flex: 1; gap: 24px; margin: 0; }
+.publication-metrics > div { display: flex; flex-direction: column-reverse; }
+.publication-metrics dt { font: 12px/1.6 var(--sans); color: var(--muted); }
+.publication-metrics dd { margin: 0 0 5px; font-size: 35px; line-height: 1.2; color: var(--green); font-variant-numeric: tabular-nums; }
+.publications-summary .publication-actions { margin: 0; gap: 9px; }
+.publications-summary .button { white-space: nowrap; }
+.publications-summary .button-primary { background: var(--button-fill); color: var(--button-ink); }
+.metrics-note { font: 11px/1.7 var(--sans); color: var(--muted); margin: 12px 0 35px; }
+.publications-layout { grid-template-columns: 185px minmax(0, 1fr); gap: 42px; }
+.page-contents a[aria-current="location"] { background: var(--wash); border-left-color: var(--green); color: var(--green); font-weight: 600; }
+.publication-group { margin-bottom: 44px; scroll-margin-top: 20px; }
+.publication-group h2 { display: flex; align-items: baseline; gap: 14px; margin-bottom: 0; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+.group-count { font: 12px var(--sans); color: var(--muted); }
+.empty-publications { font-size: 14px; color: var(--muted); padding-top: 20px; }
+.publication-sections .publication { grid-template-columns: 36px minmax(0, 1fr); gap: 18px; padding: 26px 0; }
+.publication-sections .pub-year { color: var(--green); font-weight: 600; font-size: 12px; }
+.publication-sections .publication h3 { font-size: 18px; line-height: 1.6; }
+.publication-sections .tags { margin: 12px 0; }
+.publication-sections .tag { color: var(--green); }
+.publication-sections #resources { scroll-margin-top: 20px; }
+.publication-sections .resource-list { gap: 20px; }
+.legacy-anchor { display: block; }
+@media (max-width: 1000px) {
+  .publications-summary { flex-wrap: wrap; gap: 22px; }
+  .publication-metrics { flex-basis: 100%; }
+}
+@media (max-width: 600px) {
+  .publications-summary { padding: 0; }
+  .publication-metrics { gap: 10px; }
+  .publication-metrics dd { font-size: 28px; }
+  .publication-metrics dt { font-size: 10px; }
+  .publications-layout { display: block; padding-top: 0; }
+  .page-contents { position: sticky; top: 78px; margin: 0 0 28px; padding: 10px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; border-bottom: 1px solid var(--rule); }
+  .page-contents .eyebrow { grid-column: 1 / -1; margin: 0 0 3px; font-size: 9px; }
+  .page-contents a { padding: 7px 5px; font-size: 10px; line-height: 1.5; min-height: 44px; display: flex; align-items: center; }
+  .page-publications .publication-group, .page-publications #resources, .page-publications .publication, .legacy-anchor { scroll-margin-top: 135px; }
+  .publication-sections .publication { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; }
+  .publication-group h2 { font-size: 23px; }
+  .publication-sections .publication h3 { font-size: 17px; }
+  html:not(.js) .page-contents { position: static; }
+}
+@media print {
+  .publications-summary { display: block; }
+  .publications-layout { display: block; }
+  .page-contents, .publications-summary .publication-actions { display: none; }
+}
+
+/* Shared section navigation across Publications, CV, and Personal. */
+.page-contents { top: 120px; background: var(--paper); padding: 10px 0 16px; z-index: 2; }
+.page-cv .reading-layout, .page-personal .personal-layout { grid-template-columns: 185px minmax(0, 1fr); gap: 42px; }
+.page-research .chapter, .page-cv .chapter, .page-personal .personal-panel { scroll-margin-top: 20px; }
+@media (max-width: 600px) {
+  .page-research .reading-layout, .page-cv .reading-layout, .page-personal .personal-layout { padding-top: 0; }
+  .page-contents { top: 78px; padding: 10px 0; }
+  .page-research .chapter, .page-cv .chapter, .page-personal .personal-panel { scroll-margin-top: 135px; }
+}
+
+/* Course names are entry labels within the Teaching section. */
+.page-cv #teaching .record h3 { font-size: 16px; line-height: 1.6; }
+
+/* Personal favorites: remotely hosted covers with readable ranked captions. */
+.personal-panel > .favorites-label { margin: -4px 0 13px; color: var(--green); font: 11px/1.6 var(--sans); letter-spacing: .09em; text-transform: uppercase; }
+.favorites-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 20px; list-style: none; padding: 0; margin: 25px 0 0; }
+.favorite-card { min-width: 0; }
+.favorite-link { color: var(--ink); text-decoration: none; display: block; }
+.favorite-art { aspect-ratio: 2 / 3; background: var(--wash); border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; }
+.favorite-art img { display: block; width: 100%; height: 100%; object-fit: cover; color: var(--muted); font: 12px/1.6 var(--sans); }
+.favorite-title { display: flex; gap: 9px; align-items: baseline; margin-top: 12px; }
+.favorite-title h3 { font-size: 15px; line-height: 1.5; margin: 0; }
+.favorite-rank { flex-shrink: 0; font: 11px/1.5 var(--sans); color: var(--green); font-variant-numeric: tabular-nums; }
+.favorite-link:hover { color: var(--green); text-decoration: none; }
+.favorite-link:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.favorite-card .favorite-author { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+.artwork-source { display: inline-block; padding: 5px 0; font: 10px/1.6 var(--sans); color: var(--muted); text-decoration: none; }
+.favorites-sports .favorite-art { aspect-ratio: 1; padding: 25px; }
+.favorites-sports .favorite-art img, .favorites-books .favorite-art img { object-fit: contain; }
+.personal-content > .artwork-note { margin: 0; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--muted); font: 11px/1.8 var(--sans); }
+@media (max-width: 800px) { .favorites-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .favorites-grid { gap: 24px 16px; }
+  .favorite-title h3 { font-size: 14px; }
+  .artwork-source { min-height: 44px; display: inline-flex; align-items: center; }
+}

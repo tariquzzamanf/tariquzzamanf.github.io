@@ -35,7 +35,12 @@
     "links": {
       "Paper": "https://arxiv.org/abs/2601.05403"
     },
-    "award": ""
+    "award": "",
+    "type": "conference",
+    "areas": [
+      "LLM evaluation",
+      "Misinformation"
+    ]
   },
   {
     "id": "sign-parameters",
@@ -56,7 +61,11 @@
       "Dataset": "https://huggingface.co/datasets/aplycaebous/BdSLIG",
       "Video": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
     },
-    "award": ""
+    "award": "",
+    "type": "workshop",
+    "areas": [
+      "Accessibility"
+    ]
   },
   {
     "id": "informal-bangla",
@@ -79,7 +88,11 @@
       "Dataset": "https://github.com/blp-workshop/blp_task1",
       "Video": "https://aclanthology.org/2023.banglalp-1.26.mp4"
     },
-    "award": "Best Shared Task Paper Award"
+    "award": "Best Shared Task Paper Award",
+    "type": "workshop",
+    "areas": [
+      "Bangla NLP"
+    ]
   },
   {
     "id": "bda",
@@ -98,6 +111,10 @@
     "links": {
       "Paper": "https://arxiv.org/abs/2412.08753"
     },
-    "award": ""
+    "award": "",
+    "type": "preprint",
+    "areas": [
+      "Text augmentation"
+    ]
   }
 ]
