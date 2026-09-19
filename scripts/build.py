@@ -46,7 +46,7 @@ for kind, anchor, heading, _, prefix in groups:
     legacy_anchor = '<span id="peer-reviewed" class="legacy-anchor"></span>' if kind == 'conference' else ''
     sections += f'{legacy_anchor}<section class="publication-group" id="{anchor}" aria-labelledby="{anchor}-heading"><h2 id="{anchor}-heading">{escape(heading)} <span class="group-count">{len(entries)}</span></h2>{listing}</section>'
 pub_body = f'''<header class="page-heading publications-heading"><p class="eyebrow">Research output</p><h1>Publications</h1><p class="lead">A record of my research, in print and in progress.</p></header>
-<div class="publications-summary"><dl class="publication-metrics">{metric_html}</dl><div class="publication-actions"><a class="button button-primary" href="https://scholar.google.com/citations?user=LWB_NzwAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a><a class="button" href="files/cv/tariq.pdf">Full CV (PDF) <span aria-hidden="true">↗</span></a></div></div><p class="metrics-note">{metric_note}</p>
+<div class="publications-summary"><dl class="publication-metrics">{metric_html}</dl><div class="publication-actions"><a class="button button-primary" href="https://scholar.google.com/citations?user=LWB_NzwAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a><a class="button" href="files/cv/tariq.pdf" download>Download CV <span aria-hidden="true">↓</span></a></div></div><p class="metrics-note">{metric_note}</p>
 <div class="reading-layout publications-layout"><nav class="contents page-contents" aria-label="On this page"><p class="eyebrow">On this page</p>{contents}<a href="#resources">Code &amp; data</a></nav><div class="publication-sections">{sections}''' + '''<section class="section" id="resources"><h2>Code &amp; data</h2><div class="resource-list"><article><h3><a href="https://huggingface.co/datasets/aplycaebous/BdSLIG">BdSLIG ↗</a></h3><p>Bangla Sign Language instruction generation dataset.</p></article><article><h3><a href="https://github.com/tariquzzamanf/SPIP">SPIP ↗</a></h3><p>Sign Parameter Informed Prompting: reference implementation.</p></article><article><h3><a href="https://github.com/tariquzzamanf/VITD">VITD ↗</a></h3><p>Informal Bangla embeddings and violence-inciting text detection.</p></article></div></section></div></div>'''
 
 personal_data = json.loads(read('personal.json'))
@@ -56,12 +56,12 @@ for category, entries in personal_data.items():
     cards = []
     for index, entry in enumerate(entries, 1):
         title = escape(entry['title'])
-        source = escape(entry['source'], quote=True)
+        destination = escape(entry['url'], quote=True)
         artwork = escape(entry['image'], quote=True)
         rank = f'<span class="favorite-rank" aria-hidden="true">{index:02}</span>' if ranked else ''
         author = f'<p class="favorite-author">{escape(entry["author"])}</p>' if entry.get('author') else ''
         alt = f'{title} club crest' if category == 'sports' else f'Cover of {title}'
-        cards.append(f'<li class="favorite-card"><a class="favorite-link" href="{source}"><div class="favorite-art"><img src="{artwork}" alt="{alt}" loading="lazy" decoding="async" width="300" height="450" referrerpolicy="no-referrer"></div><div class="favorite-title">{rank}<h3>{title}</h3></div></a>{author}<a class="artwork-source" href="{source}">{escape(entry["provider"])} <span aria-hidden="true">↗</span></a></li>')
+        cards.append(f'<li class="favorite-card"><a class="favorite-link" href="{destination}"><div class="favorite-art"><img src="{artwork}" alt="{alt}" loading="lazy" decoding="async" width="300" height="450" referrerpolicy="no-referrer"></div><div class="favorite-title">{rank}<h3>{title}</h3></div>{author}</a></li>')
     tag = 'ol' if ranked else 'ul'
     gallery = f'<{tag} class="favorites-grid favorites-{category}" role="list">'+''.join(cards)+f'</{tag}>'
     personal_body = personal_body.replace('{{'+category.upper()+'}}', gallery)

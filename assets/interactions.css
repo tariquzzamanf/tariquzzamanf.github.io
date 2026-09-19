@@ -163,7 +163,9 @@ html[data-theme="dark"] a:hover { color: var(--ink); }
   .page-index .intro-copy > p:not(.eyebrow):not(.affiliation):not(.lead) { font-size: 16px; line-height: 1.85; margin-bottom: 20px; }
   .page-index .intro-copy { min-height: 0; display: block; }
   .page-index .intro-copy .link-row { margin-top: 26px; }
-  .page-index .portrait img { height: 220px; }
+  .page-index .portrait { flex-direction: column; align-items: center; gap: 14px; }
+  .page-index .portrait img { width: min(200px, 100%); height: auto; object-fit: contain; flex-shrink: 0; }
+  .page-index .portrait figcaption { text-align: center; max-width: 320px; }
   .publication-actions { margin-top: -8px; }
   .site-header nav { display: flex; position: static; flex-direction: row; flex-wrap: wrap; padding: 0; border: 0; }
   .site-header { height: auto; min-height: 78px; flex-wrap: wrap; gap: 8px; }
@@ -253,8 +255,8 @@ html[data-theme="dark"] a:hover { color: var(--ink); }
 .personal-panel > .favorites-label { margin: -4px 0 13px; color: var(--green); font: 11px/1.6 var(--sans); letter-spacing: .09em; text-transform: uppercase; }
 .favorites-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 20px; list-style: none; padding: 0; margin: 25px 0 0; }
 .favorite-card { min-width: 0; }
-.favorite-link { color: var(--ink); text-decoration: none; display: block; }
-.favorite-art { aspect-ratio: 2 / 3; background: var(--wash); border: 1px solid var(--rule); border-radius: 5px; overflow: hidden; }
+.favorite-link { color: var(--ink); text-decoration: none; display: block; height: 100%; padding: 8px; border-radius: 6px; transition: box-shadow var(--motion), transform var(--motion); }
+.favorite-art { aspect-ratio: 2 / 3; background: var(--wash); border-radius: 5px; overflow: hidden; }
 .favorite-art img { display: block; width: 100%; height: 100%; object-fit: cover; color: var(--muted); font: 12px/1.6 var(--sans); }
 .favorite-title { display: flex; gap: 9px; align-items: baseline; margin-top: 12px; }
 .favorite-title h3 { font-size: 15px; line-height: 1.5; margin: 0; }
@@ -262,7 +264,6 @@ html[data-theme="dark"] a:hover { color: var(--ink); }
 .favorite-link:hover { color: var(--green); text-decoration: none; }
 .favorite-link:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
 .favorite-card .favorite-author { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
-.artwork-source { display: inline-block; padding: 5px 0; font: 10px/1.6 var(--sans); color: var(--muted); text-decoration: none; }
 .favorites-sports .favorite-art { aspect-ratio: 1; padding: 25px; }
 .favorites-sports .favorite-art img, .favorites-books .favorite-art img { object-fit: contain; }
 .personal-content > .artwork-note { margin: 0; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--muted); font: 11px/1.8 var(--sans); }
@@ -270,5 +271,21 @@ html[data-theme="dark"] a:hover { color: var(--ink); }
 @media (max-width: 600px) {
   .favorites-grid { gap: 24px 16px; }
   .favorite-title h3 { font-size: 14px; }
-  .artwork-source { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* Lead with the name, then the portrait and biography in mobile reading order. */
+.page-index .introduction { grid-template-areas: "name portrait" "bio portrait"; row-gap: 0; }
+.page-index #intro-title { grid-area: name; }
+.page-index .intro-copy { grid-area: bio; min-height: 0; }
+.page-index .portrait { grid-area: portrait; }
+@media (max-width: 600px) {
+  .page-index .introduction { gap: 27px; }
+  .page-index #intro-title { font-size: 35px; letter-spacing: -1.2px; text-align: center; margin: 0; }
+  .page-index .portrait { order: 0; }
+  .page-index .portrait-name { display: none; }
+}
+
+@media (hover: hover) {
+  .favorite-link:hover { transform: scale(1.015); box-shadow: var(--shadow); }
+}
+.favorite-link:focus-visible { box-shadow: var(--shadow); }
