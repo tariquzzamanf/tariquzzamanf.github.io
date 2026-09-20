@@ -57,4 +57,6 @@ After content or template edits, rebuild and keep generated root HTML synchroniz
 
 Identifiers, which are spelled differently from one another — never blanket-replace one handle with another. GitHub `mdtariquzzaman`; site `mdtariquzzaman.github.io`; LinkedIn `linkedin.com/in/md-tariquzzaman`; ORCID `0009-0002-3322-8741`. ORCID belongs in the CV header, the site footer, and the JSON-LD `sameAs` list; it is deliberately absent from the Home button row and the Publications actions, which stay as approved.
 
+`scripts/build.py` carries `GSC_TOKEN`, the Google Search Console ownership token, rendered as a `google-site-verification` meta on every page. It is public by design, and removing it un-verifies the property, so keep it through template edits.
+
 The site uses relative URLs and `.nojekyll` for branch-based GitHub Pages deployment from `main` at the repository root. Verify the repository and remote before any user-authorized publication.
