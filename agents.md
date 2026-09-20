@@ -42,7 +42,7 @@ Create an original, reading-focused academic website. Help visitors identify the
 - `assets/style.css`: base typography/layout. `assets/interactions.css`: visual refinements, responsive overrides, interactions, and reduced motion.
 - `assets/app.js`: theme, mobile menu with Escape handling, and `.page-contents` scroll highlighting through `aria-current="location"`.
 - `profile.jpg`: portrait, 699x715 and about 150 KB. It is the homepage's largest-paint element, so keep it near this size; CSS crops it with `object-fit: cover`, and this resolution covers 2x of the 280x350 render box. `files/cv/`: factual CV sources and downloadable PDF.
-- `readme.md`: website documentation. `github-profile/readme.md`: separate prepared profile README; keep consistent with approved content and publish only when requested.
+- `readme.md`: website documentation. `github-profile/readme.md`: separate prepared profile README for the `mdtariquzzaman/mdtariquzzaman` repository; keep consistent with approved content and publish only when requested. Its shields.io badges reuse the site palette — green `425b46` for identity and venues, gold `a3864e` for interests and the award, grey `68665d` for paper resources, all `style=flat-square`. Verify any new badge actually embeds its `logo=` slug, since shields silently drops unknown ones (LinkedIn's mark is unavailable, so that badge carries no logo). Keep blank lines between a paper's title, description, and badge row: a GitHub `.md` file collapses single newlines, which is what makes each badge row render as one row.
 
 ## Build and verification
 
