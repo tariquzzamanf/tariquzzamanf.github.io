@@ -56,4 +56,4 @@ The generated HTML and `.nojekyll` support publishing from the `main` branch and
 
 Bundled Literata is distributed under the [SIL Open Font License](assets/fonts/OFL.txt).
 
-[Email](mailto:tariquzzaman@iut-dhaka.edu) · [Google Scholar](https://scholar.google.com/citations?user=LWB_NzwAAAAJ) · [LinkedIn](https://www.linkedin.com/in/tariquzzamanf/)
+[Email](mailto:tariquzzaman@iut-dhaka.edu) · [Google Scholar](https://scholar.google.com/citations?user=LWB_NzwAAAAJ) · [LinkedIn](https://www.linkedin.com/in/md-tariquzzaman/) · [ORCID](https://orcid.org/0009-0002-3322-8741)
