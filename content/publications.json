@@ -57,7 +57,7 @@
     "status": "Workshop paper",
     "links": {
       "Paper": "https://arxiv.org/abs/2508.16076",
-      "Code": "https://github.com/tariquzzamanf/SPIP",
+      "Code": "https://github.com/mdtariquzzaman/SPIP",
       "Dataset": "https://huggingface.co/datasets/aplycaebous/BdSLIG",
       "Video": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/view"
     },
@@ -84,7 +84,7 @@
     "status": "Workshop paper",
     "links": {
       "Paper": "https://aclanthology.org/2023.banglalp-1.26/",
-      "Code": "https://github.com/tariquzzamanf/VITD",
+      "Code": "https://github.com/mdtariquzzaman/VITD",
       "Dataset": "https://github.com/blp-workshop/blp_task1",
       "Video": "https://aclanthology.org/2023.banglalp-1.26.mp4"
     },

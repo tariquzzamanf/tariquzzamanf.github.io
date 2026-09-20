@@ -1,6 +1,7 @@
 """Build the static site with Python's standard library: python3 scripts/build.py."""
 from pathlib import Path
 from html import escape
+from datetime import date
 import json
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -18,7 +19,7 @@ def publication(p, compact=False, label=None):
     return f'''<article class="publication" id="{p['id']}"><div class="pub-year">{marker}</div><div>{status}<h3><a href="{p['links']['Paper']}">{escape(p['title'])}</a></h3><p class="authors">{authors}</p><p class="venue">{escape(p['venue'])}</p>{award}{tags}<div class="link-row paper-links">{links}</div></div></article>'''
 news=json.loads(read('news.json'))
 def news_list(items): return '<dl class="news">'+''.join(f'<div><dt>{x["date"]}</dt><dd>{x["text"]}</dd></div>' for x in items)+'</dl>'
-news_html=news_list(news[:3])+'<details class="older-news"><summary>Earlier milestones</summary>'+news_list(news[3:])+'</details>'
+news_html=news_list(news[:3])  # Home shows three; the rest of news.json stays historical.
 course_terms={}
 for term in json.loads(read('teaching.json')):
     for course in term['courses']:
@@ -48,7 +49,7 @@ for kind, anchor, heading, _, prefix in groups:
     sections += f'{legacy_anchor}<section class="publication-group" id="{anchor}" aria-labelledby="{anchor}-heading"><h2 id="{anchor}-heading">{escape(heading)} <span class="group-count">{len(entries)}</span></h2>{listing}</section>'
 pub_body = f'''<header class="page-heading publications-heading"><p class="eyebrow">Research output</p><h1>Publications</h1><p class="lead">A record of my research, in print and in progress.</p></header>
 <div class="publications-summary"><dl class="publication-metrics">{metric_html}</dl><div class="publication-actions"><a class="button button-primary" href="https://scholar.google.com/citations?user=LWB_NzwAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a><a class="button" href="files/cv/tariq.pdf" download>Download CV <span aria-hidden="true">↓</span></a></div></div><p class="metrics-note">{metric_note}</p>
-<div class="reading-layout publications-layout"><nav class="contents page-contents" aria-label="On this page"><p class="eyebrow">On this page</p>{contents}<a href="#resources">Code &amp; data</a></nav><div class="publication-sections">{sections}''' + '''<section class="section" id="resources"><h2>Code &amp; data</h2><div class="resource-list"><article><h3><a href="https://huggingface.co/datasets/aplycaebous/BdSLIG">BdSLIG ↗</a></h3><p>Bangla Sign Language instruction generation dataset.</p></article><article><h3><a href="https://github.com/tariquzzamanf/SPIP">SPIP ↗</a></h3><p>Sign Parameter Informed Prompting: reference implementation.</p></article><article><h3><a href="https://github.com/tariquzzamanf/VITD">VITD ↗</a></h3><p>Informal Bangla embeddings and violence-inciting text detection.</p></article></div></section></div></div>'''
+<div class="reading-layout publications-layout"><nav class="contents page-contents" aria-label="On this page"><p class="eyebrow">On this page</p>{contents}<a href="#resources">Code &amp; data</a></nav><div class="publication-sections">{sections}''' + '''<section class="section" id="resources"><h2>Code &amp; data</h2><div class="resource-list"><article><h3><a href="https://huggingface.co/datasets/aplycaebous/BdSLIG">BdSLIG ↗</a></h3><p>Bangla Sign Language instruction generation dataset.</p></article><article><h3><a href="https://github.com/mdtariquzzaman/SPIP">SPIP ↗</a></h3><p>Sign Parameter Informed Prompting: reference implementation.</p></article><article><h3><a href="https://github.com/mdtariquzzaman/VITD">VITD ↗</a></h3><p>Informal Bangla embeddings and violence-inciting text detection.</p></article></div></section></div></div>'''
 
 personal_data = json.loads(read('personal.json'))
 personal_body = read('personal.html')
@@ -68,13 +69,48 @@ for category, entries in personal_data.items():
     personal_body = personal_body.replace('{{'+category.upper()+'}}', gallery)
 
 pages=[('index','Home','Low-resource NLP, language model evaluation, and accessibility research by Md. Tariquzzaman, Junior Lecturer at IUT.',read('home.html').replace('{{NEWS}}',news_html).replace('{{SELECTED}}',''.join(publication(p,True) for p in papers[:2]))),('research','Research','Research on Bangla NLP, multilingual model evaluation, and sign language accessibility.',read('research.html')),('publications','Publications','Publications, preprints, code, and datasets by Md. Tariquzzaman.',pub_body),('cv','CV','Education, academic appointments, teaching, and awards of Md. Tariquzzaman.',read('cv.html').replace('{{TEACHING}}',teaching)),('personal','Personal','Favorite anime, movies, books, and sports beyond the academic work of Md. Tariquzzaman.',personal_body)]
-for slug,title,description,body in pages:
-    nav=''.join(f'<a href="{s}.html"'+(' aria-current="page"' if s==slug else '')+f'>{t}</a>' for s,t,_,_ in pages)
-    canonical='https://tariquzzamanf.github.io/'+('' if slug=='index' else slug+'.html')
-    page_title='Md. Tariquzzaman · Junior Lecturer & NLP Researcher at IUT' if slug=='index' else title+' · Md. Tariquzzaman'
-    html=f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description)}"><meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{escape(page_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="https://tariquzzamanf.github.io/profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/literata.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="assets/style.css"></head>
+SITE = 'https://mdtariquzzaman.github.io/'
+person_schema = json.dumps({
+    '@context': 'https://schema.org', '@type': 'Person', 'name': 'Md. Tariquzzaman',
+    'alternateName': ['Tariquzzaman', 'Md Tariquzzaman', 'Tariquzzaman Md'],
+    'jobTitle': 'Junior Lecturer', 'url': SITE, 'image': SITE + 'profile.jpg',
+    'affiliation': {'@type': 'CollegeOrUniversity', 'name': 'Islamic University of Technology',
+                    'url': 'https://www.iutoic-dhaka.edu/'},
+    'alumniOf': {'@type': 'CollegeOrUniversity', 'name': 'Islamic University of Technology'},
+    'knowsAbout': ['Natural Language Processing', 'Low-resource languages', 'Bangla NLP',
+                   'Large language model evaluation', 'Sign language accessibility'],
+    'sameAs': ['https://scholar.google.com/citations?user=LWB_NzwAAAAJ',
+               'https://github.com/mdtariquzzaman',
+               'https://www.linkedin.com/in/tariquzzamanf/'],
+}, separators=(',', ':'))
+
+def render(slug, page_title, description, canonical, body, current=None, head_extra='', noindex=False):
+    nav = ''.join(f'<a href="{s}.html"' + (' aria-current="page"' if s == current else '') + f'>{t}</a>'
+                  for s, t, _, _ in pages)
+    robots = '<meta name="robots" content="noindex">' if noindex else ''
+    return f'''<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description)}">{robots}<meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{escape(page_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{escape(page_title)}"><meta name="twitter:description" content="{escape(description)}"><meta name="twitter:image" content="{SITE}profile.jpg"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/literata.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/interactions.css?v=20260919">{head_extra}</head>
 <body class="page-{slug}"><a class="skip-link" href="#main">Skip to content</a><div class="site-shell"><header class="site-header"><a class="wordmark" href="index.html" aria-label="Tariq, home">tariq<span>.</span></a><nav aria-label="Main navigation">{nav}</nav><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><span aria-hidden="true">◐</span></button><button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false"><span>☰</span></button></header><main id="main">{body}</main><footer class="site-footer"><p>© 2026 Md. Tariquzzaman<span>Made for reading, and a little curiosity.</span></p><div><a href="mailto:tariquzzaman@iut-dhaka.edu">Email</a><a href="https://www.linkedin.com/in/tariquzzamanf/">LinkedIn</a><a href="#main">Back to top ↑</a></div></footer></div><script src="assets/app.js"></script></body></html>'''
-    html = html.replace('</head>', '<link rel="stylesheet" href="assets/interactions.css?v=20260919"></head>')
-    (ROOT / (slug+'.html')).write_text(html)
-print(f'Built {len(pages)} static pages.')
+
+for slug, title, description, body in pages:
+    canonical = SITE + ('' if slug == 'index' else slug + '.html')
+    page_title = ('Md. Tariquzzaman · Junior Lecturer & NLP Researcher at IUT'
+                  if slug == 'index' else title + ' · Md. Tariquzzaman')
+    head_extra = f'<script type="application/ld+json">{person_schema}</script>' if slug == 'index' else ''
+    (ROOT / (slug + '.html')).write_text(
+        render(slug, page_title, description, canonical, body, current=slug, head_extra=head_extra))
+
+not_found = '''<header class="page-heading"><p class="eyebrow">Error 404</p><h1>Page not found</h1><p class="lead">That address does not exist on this site. It may have moved, or the link may be incomplete.</p></header>
+<section class="section"><h2>Try one of these</h2><div class="personal-topics"><a href="index.html">Home</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="cv.html">CV</a><a href="personal.html">Personal</a></div></section>'''
+(ROOT / '404.html').write_text(render('404', 'Page not found · Md. Tariquzzaman',
+    'That page does not exist on this site.', SITE + '404.html', not_found, noindex=True))
+
+today = date.today().isoformat()
+urls = ''.join(f'<url><loc>{SITE}{"" if s == "index" else s + ".html"}</loc>'
+               f'<lastmod>{today}</lastmod></url>' for s, _, _, _ in pages)
+(ROOT / 'sitemap.xml').write_text(
+    '<?xml version="1.0" encoding="UTF-8"?>\n'
+    f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+(ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n')
+
+print(f'Built {len(pages)} static pages, plus 404.html, sitemap.xml, and robots.txt.')
