@@ -11,7 +11,7 @@
 
 Create an original, reading-focused academic website. Help visitors identify the person, understand their work, find outputs, and make contact. Give Home, Research, Publications, CV, and Personal distinct purposes within consistent navigation.
 
-- Use warm cream paper, muted green accents, subtle borders, polished buttons, and restrained motion. Use Bookerly when installed, otherwise bundled Literata; no external font service.
+- Use warm cream paper, muted green accents, subtle borders, polished buttons, and restrained motion. Use Bookerly when installed, otherwise bundled Literata; no external font service. The browser loads `assets/fonts/literata.woff2`, a Latin subset (Latin-1, Latin Extended-A, general punctuation, arrows) of the variable font with both the `opsz` and `wght` axes intact, so `font-weight:200 900` keeps working. `literata.ttf` and `literata-light.ttf` must stay: `files/cv/tariq.tex` compiles the CV from them, so never delete, subset, or re-encode those two. Literata's OFL names no Reserved Font Name, so the subset keeps the family name.
 - Establish hierarchy through typography and spacing. Keep comfortable line lengths and make supporting metadata quieter than titles. Avoid generic slogans, decorative straplines, and repeated information.
 - Keep substantive content and navigation usable without JavaScript. Use JavaScript only to enhance theme controls, mobile navigation, and active-section highlighting.
 - Make layouts responsive, preserve semantic reading order, and support keyboard focus, readable contrast, and reduced motion.
@@ -38,10 +38,10 @@ Create an original, reading-focused academic website. Help visitors identify the
 - `content/scholar-metrics.json`: supplied/verified metrics and recorded date; `null` means unavailable.
 - `content/personal.json`: ordered favorites; `image` is remote artwork, `source`/`provider` record provenance, and `url` is the Wikipedia card destination.
 - `content/teaching.json`: teaching by term. `content/news.json`: historical updates, not shown on Home.
-- `scripts/build.py`: shared HTML through `render()`, page metadata, publication groups/metrics, teaching, and favorite-card rendering. It also emits `404.html` (noindex), `sitemap.xml`, and `robots.txt`, and injects the JSON-LD `Person` block on Home plus Twitter card metadata on every page. These generated files are build output; edit the builder, not them.
+- `scripts/build.py`: shared HTML through `render()`, page metadata, publication groups/metrics, teaching, and favorite-card rendering. It also emits `404.html` (noindex), `sitemap.xml`, and `robots.txt`, and injects JSON-LD through `schemas` — the `Person` node on Home, and on Publications a `@graph` of that same node plus one `ScholarlyArticle` per paper, with his authorship pointing at the Person's `@id` — plus Twitter card metadata on every page. These generated files are build output; edit the builder, not them.
 - `assets/style.css`: base typography/layout. `assets/interactions.css`: visual refinements, responsive overrides, interactions, and reduced motion.
 - `assets/app.js`: theme, mobile menu with Escape handling, and `.page-contents` scroll highlighting through `aria-current="location"`.
-- `profile.jpg`: portrait. `files/cv/`: factual CV sources and downloadable PDF.
+- `profile.jpg`: portrait, 699x715 and about 150 KB. It is the homepage's largest-paint element, so keep it near this size; CSS crops it with `object-fit: cover`, and this resolution covers 2x of the 280x350 render box. `files/cv/`: factual CV sources and downloadable PDF.
 - `readme.md`: website documentation. `github-profile/readme.md`: separate prepared profile README; keep consistent with approved content and publish only when requested.
 
 ## Build and verification

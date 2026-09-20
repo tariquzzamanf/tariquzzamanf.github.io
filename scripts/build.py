@@ -70,8 +70,9 @@ for category, entries in personal_data.items():
 
 pages=[('index','Home','Low-resource NLP, language model evaluation, and accessibility research by Md. Tariquzzaman, Junior Lecturer at IUT.',read('home.html').replace('{{NEWS}}',news_html).replace('{{SELECTED}}',''.join(publication(p,True) for p in papers[:2]))),('research','Research','Research on Bangla NLP, multilingual model evaluation, and sign language accessibility.',read('research.html')),('publications','Publications','Publications, preprints, code, and datasets by Md. Tariquzzaman.',pub_body),('cv','CV','Education, academic appointments, teaching, and awards of Md. Tariquzzaman.',read('cv.html').replace('{{TEACHING}}',teaching)),('personal','Personal','Favorite anime, movies, books, and sports beyond the academic work of Md. Tariquzzaman.',personal_body)]
 SITE = 'https://mdtariquzzaman.github.io/'
-person_schema = json.dumps({
-    '@context': 'https://schema.org', '@type': 'Person', 'name': 'Md. Tariquzzaman',
+ME = 'Md. Tariquzzaman'
+PERSON = {
+    '@type': 'Person', '@id': SITE + '#person', 'name': ME,
     'alternateName': ['Tariquzzaman', 'Md Tariquzzaman', 'Tariquzzaman Md'],
     'jobTitle': 'Junior Lecturer', 'url': SITE, 'image': SITE + 'profile.jpg',
     'affiliation': {'@type': 'CollegeOrUniversity', 'name': 'Islamic University of Technology',
@@ -83,21 +84,42 @@ person_schema = json.dumps({
                'https://github.com/mdtariquzzaman',
                'https://www.linkedin.com/in/md-tariquzzaman/',
                'https://orcid.org/0009-0002-3322-8741'],
-}, separators=(',', ':'))
+}
+
+def ld(payload):
+    """One JSON-LD block. '</' is escaped so a title can never close the script tag."""
+    blob = json.dumps(payload, separators=(',', ':')).replace('</', r'<\/')
+    return f'<script type="application/ld+json">{blob}</script>'
+
+def article_schema(p):
+    """A paper, with authorship tied to the same Person node the homepage declares."""
+    return {'@type': 'ScholarlyArticle', 'name': p['title'], 'headline': p['title'],
+            'author': [{'@id': PERSON['@id']} if a == ME else {'@type': 'Person', 'name': a}
+                       for a in p['authors']],
+            'datePublished': p['year'], 'inLanguage': 'en',
+            'isPartOf': {'@type': 'CreativeWork', 'name': p['venue']},
+            'url': p['links']['Paper'],
+            'creativeWorkStatus': p['status'] or 'Published'}
+
+schemas = {
+    'index': ld({'@context': 'https://schema.org', **PERSON}),
+    'publications': ld({'@context': 'https://schema.org',
+                        '@graph': [PERSON] + [article_schema(p) for p in papers]}),
+}
 
 def render(slug, page_title, description, canonical, body, current=None, head_extra='', noindex=False):
     nav = ''.join(f'<a href="{s}.html"' + (' aria-current="page"' if s == current else '') + f'>{t}</a>'
                   for s, t, _, _ in pages)
     robots = '<meta name="robots" content="noindex">' if noindex else ''
     return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description)}">{robots}<meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{escape(page_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{escape(page_title)}"><meta name="twitter:description" content="{escape(description)}"><meta name="twitter:image" content="{SITE}profile.jpg"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/literata.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/interactions.css?v=20260919">{head_extra}</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description)}">{robots}<meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{escape(page_title)}"><meta property="og:description" content="{escape(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{escape(page_title)}"><meta name="twitter:description" content="{escape(description)}"><meta name="twitter:image" content="{SITE}profile.jpg"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/interactions.css?v=20260919">{head_extra}</head>
 <body class="page-{slug}"><a class="skip-link" href="#main">Skip to content</a><div class="site-shell"><header class="site-header"><a class="wordmark" href="index.html" aria-label="Tariq, home">tariq<span>.</span></a><nav aria-label="Main navigation">{nav}</nav><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><span aria-hidden="true">◐</span></button><button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false"><span>☰</span></button></header><main id="main">{body}</main><footer class="site-footer"><p>© 2026 Md. Tariquzzaman<span>Made for reading, and a little curiosity.</span></p><div><a href="mailto:tariquzzaman@iut-dhaka.edu">Email</a><a href="https://www.linkedin.com/in/md-tariquzzaman/">LinkedIn</a><a href="https://orcid.org/0009-0002-3322-8741">ORCID</a><a href="#main">Back to top ↑</a></div></footer></div><script src="assets/app.js"></script></body></html>'''
 
 for slug, title, description, body in pages:
     canonical = SITE + ('' if slug == 'index' else slug + '.html')
     page_title = ('Md. Tariquzzaman · Junior Lecturer & NLP Researcher at IUT'
                   if slug == 'index' else title + ' · Md. Tariquzzaman')
-    head_extra = f'<script type="application/ld+json">{person_schema}</script>' if slug == 'index' else ''
+    head_extra = schemas.get(slug, '')
     (ROOT / (slug + '.html')).write_text(
         render(slug, page_title, description, canonical, body, current=slug, head_extra=head_extra))
 
