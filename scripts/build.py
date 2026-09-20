@@ -20,11 +20,24 @@ def publication(p, compact=False, label=None):
 news=json.loads(read('news.json'))
 def news_list(items): return '<dl class="news">'+''.join(f'<div><dt>{x["date"]}</dt><dd>{x["text"]}</dd></div>' for x in items)+'</dl>'
 news_html=news_list(news[:3])  # Home shows three; the rest of news.json stays historical.
-course_terms={}
-for term in json.loads(read('teaching.json')):
-    for course in term['courses']:
-        course_terms.setdefault(course, []).append(term['term'])
-teaching=''.join('<article class="record"><h3>'+escape(course)+'</h3><p class="detail">['+'; '.join(escape(term) for term in terms)+']</p></article>' for course,terms in course_terms.items())
+terms = json.loads(read('teaching.json'))
+# Grouped as the PDF groups them: taught courses, then supervision. Roles are tagged in the data.
+def _courses(supervisory):
+    seen = []
+    for term in terms:
+        for course in term['courses']:
+            is_sup = '(Supervisor)' in course or '(Co-Supervisor)' in course
+            if is_sup == supervisory and course not in seen:
+                seen.append(course)
+    return seen
+def _group(heading, courses):
+    if not courses:
+        return ''
+    items = ''.join('<li>'+escape(c)+'</li>' for c in courses)
+    return ('<article class="record"><h3>'+heading+'</h3>'
+            '<ul class="course-list">'+items+'</ul></article>')
+teaching = (_group('Courses', _courses(False))
+            + _group('Supervision', _courses(True)))
 groups = [('conference', 'conference-papers', 'Conference papers', 'Conference Papers', 'C'),
           ('journal', 'journal-articles', 'Journal articles', 'Journal Articles', 'J'),
           ('workshop', 'workshop-papers', 'Workshop & shared-task papers', 'Workshop Papers', 'W'),
@@ -68,7 +81,7 @@ for category, entries in personal_data.items():
     gallery = f'<{tag} class="favorites-grid favorites-{category}" role="list">'+''.join(cards)+f'</{tag}>'
     personal_body = personal_body.replace('{{'+category.upper()+'}}', gallery)
 
-pages=[('index','Home','Low-resource NLP, language model evaluation, and accessibility research by Md. Tariquzzaman, Junior Lecturer at IUT.',read('home.html').replace('{{NEWS}}',news_html).replace('{{SELECTED}}',''.join(publication(p,True) for p in papers[:2]))),('research','Research','Research on Bangla NLP, multilingual model evaluation, and sign language accessibility.',read('research.html')),('publications','Publications','Publications, preprints, code, and datasets by Md. Tariquzzaman.',pub_body),('cv','CV','Education, academic appointments, teaching, and awards of Md. Tariquzzaman.',read('cv.html').replace('{{TEACHING}}',teaching)),('personal','Personal','Favorite anime, movies, books, and sports beyond the academic work of Md. Tariquzzaman.',personal_body)]
+pages=[('index','Home','Misinformation detection, LLM evaluation, low-resource Bangla NLP, and sign language accessibility research by Md. Tariquzzaman, Junior Lecturer at IUT.',read('home.html').replace('{{NEWS}}',news_html).replace('{{SELECTED}}',''.join(publication(p,True) for p in papers[:2]))),('research','Research','Research on Bangla NLP, multilingual model evaluation, and sign language accessibility.',read('research.html')),('publications','Publications','Publications, preprints, code, and datasets by Md. Tariquzzaman.',pub_body),('cv','CV','Education, academic appointments, teaching, and awards of Md. Tariquzzaman.',read('cv.html').replace('{{TEACHING}}',teaching)),('personal','Personal','Favorite anime, movies, books, and sports beyond the academic work of Md. Tariquzzaman.',personal_body)]
 SITE = 'https://mdtariquzzaman.github.io/'
 # Search-engine ownership tokens. Public by design; removing one un-verifies that property.
 GSC_TOKEN = 'boT_CMjz6ow5mcyZhAbCVE0JK2v9CAJwCu424PfT1U0'
@@ -81,8 +94,9 @@ PERSON = {
     'affiliation': {'@type': 'CollegeOrUniversity', 'name': 'Islamic University of Technology',
                     'url': 'https://www.iutoic-dhaka.edu/'},
     'alumniOf': {'@type': 'CollegeOrUniversity', 'name': 'Islamic University of Technology'},
-    'knowsAbout': ['Natural Language Processing', 'Low-resource languages', 'Bangla NLP',
-                   'Large language model evaluation', 'Sign language accessibility'],
+    'knowsAbout': ['Misinformation detection', 'Large language model evaluation and bias',
+                   'Low-resource languages', 'Bangla NLP', 'Sign language accessibility',
+                   'Natural language processing'],
     'sameAs': ['https://scholar.google.com/citations?user=LWB_NzwAAAAJ',
                'https://github.com/mdtariquzzaman',
                'https://www.linkedin.com/in/md-tariquzzaman/',
