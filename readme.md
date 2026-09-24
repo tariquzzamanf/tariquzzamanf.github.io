@@ -46,7 +46,7 @@ After changing content or the build script, run `python3 scripts/build.py` and i
 
 `scripts/sync_scholar.py` refreshes the public profile summary (citations, h-index, and i10-index) in `content/scholar-metrics.json`. It deliberately does not import papers: publication author order, status, topics, and resource links are curated in `content/publications.json`. Google Scholar can rate-limit automated requests; a blocked run leaves the previous metrics untouched, and the Pages workflow still deploys the rest of the site.
 
-The repository includes `.github/workflows/scholar-and-pages.yml`. It runs on pushes to `main`, every Monday at 03:23 UTC, and on demand. Each run syncs the metrics, rebuilds the HTML, commits changed data and generated files, and deploys the result through GitHub Pages.
+The repository includes `.github/workflows/scholar-and-pages.yml`. It runs on human pushes to `main`, every Monday at 03:23 UTC, and on demand. Each run syncs the metrics, rebuilds the HTML, commits changed data and generated files, and deploys the result through GitHub Pages. The bot's follow-up commit skips fetching once, so it does not create a commit loop.
 
 ### One-time GitHub setup
 

@@ -36,7 +36,9 @@ jobs:
 
       - name: Sync Google Scholar metrics
         id: scholar
-        if: github.event_name != 'push'
+        # Fetch on manual, scheduled, and human push runs. Skip only the
+        # follow-up push created by this workflow, avoiding a commit loop.
+        if: github.actor != 'github-actions[bot]'
         continue-on-error: true
         run: python scripts/sync_scholar.py
 
