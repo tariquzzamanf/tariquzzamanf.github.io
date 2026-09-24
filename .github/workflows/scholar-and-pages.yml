@@ -1,0 +1,78 @@
+name: Sync Scholar and deploy Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Monday, 03:23 UTC / 09:23 Bangladesh time. GitHub may delay scheduled jobs.
+    - cron: "23 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    if: github.ref == 'refs/heads/main' && github.repository == 'mdtariquzzaman/mdtariquzzaman.github.io'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync Google Scholar metrics
+        id: scholar
+        if: github.event_name != 'push'
+        continue-on-error: true
+        run: python scripts/sync_scholar.py
+
+      - name: Report an unsuccessful Scholar refresh
+        if: steps.scholar.outcome == 'failure'
+        run: echo '::warning::Scholar refresh failed. Publishing with the last verified metrics; see the sync step for details.'
+
+      - name: Build the static site
+        run: python scripts/build.py
+
+      - name: Commit synchronized data and generated pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/scholar-metrics.json index.html research.html publications.html cv.html personal.html 404.html sitemap.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "chore: sync Scholar metrics"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        run: |
+          mkdir _site
+          cp index.html research.html publications.html cv.html personal.html 404.html sitemap.xml robots.txt .nojekyll profile.jpg _site/
+          cp -R assets files _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

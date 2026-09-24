@@ -55,6 +55,7 @@
     const updateSection = () => {
       scheduled = false;
       const stickyHeight = getComputedStyle(contents).position === 'sticky' && window.innerWidth <= 600 ? contents.offsetHeight : 0;
+      root.style.setProperty('--contents-height', `${stickyHeight}px`);
       const threshold = header.getBoundingClientRect().bottom + stickyHeight + 45;
       let active = 0;
       sections.forEach((section, index) => {
@@ -72,6 +73,7 @@
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
     window.addEventListener('load', schedule);
+    new ResizeObserver(schedule).observe(contents);
     updateSection();
   }
 })();
