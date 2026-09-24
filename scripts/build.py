@@ -35,7 +35,7 @@ def publication(p, compact=False, label=None, prefix=''):
     status = f'<p class="pub-status">{escape(p["status"])}</p>' if p.get('status') else ''
     tags = '<div class="tags">'+''.join(f'<span class="tag">{escape(area)}</span>' for area in p.get('areas', []))+'</div>' if label else ''
     paper_url = local_publication_url(p, prefix)
-    links = f'<a href="{paper_url}">Website <span aria-hidden="true">→</span></a> {external_links(p, prefix)}'
+    links = f'<a href="{paper_url}">Project page <span aria-hidden="true">→</span></a> {external_links(p, prefix)}'
     return f'''<article class="publication" id="{escape(p['id'])}"><div class="pub-year">{marker}</div><div>{status}<h3><a href="{paper_url}">{escape(p['title'])}</a></h3><p class="authors">{authors}</p><p class="venue">{escape(p['venue'])}</p>{award}{tags}<div class="link-row paper-links">{links}</div></div></article>'''
 
 def news_list(items):
@@ -162,19 +162,16 @@ def citation_meta(p):
         tags.append(f'<meta name="citation_pdf_url" content="{escape(absolute, quote=True)}">')
     return ''.join(tags)
 
-# Co-authors with a public page; everyone else is listed as plain text.
-AUTHOR_LINKS = {'Hasan Mahmud': 'https://scholar.google.com/citations?user=EQ3gQlQAAAAJ',
-                'Mohsinul Kabir': 'https://scholar.google.com/citations?user=eVVCkREAAAAJ',
-                'Md Farhan Ishmam': 'https://farhanishmam.github.io/'}
 LINK_ORDER = ['Paper', 'arXiv', 'PDF', 'Code', 'Dataset', 'Video']
 
 def paper_figure(f, prefix, extra=''):
     src = escape(prefix + f['src'], quote=True)
     size = f' width="{f["width"]}" height="{f["height"]}"' if f.get('width') else ''
     classes = 'paper-figure' + (' paper-figure-narrow' if f.get('narrow') else '') + extra
-    return (f'<figure class="{classes}"><a href="{src}" aria-label="Open full-size figure">'
+    # The image and the caption link open the same file; only the text link is in the tab order.
+    return (f'<figure class="{classes}"><a class="figure-image" href="{src}" tabindex="-1">'
             f'<img src="{src}" alt="{escape(f["alt"], quote=True)}"{size} loading="lazy" decoding="async"></a>'
-            f'<figcaption>{escape(f["caption"])}</figcaption></figure>')
+            f'<figcaption>{escape(f["caption"])} <a class="figure-zoom" href="{src}">View full size <span aria-hidden="true">↗</span></a></figcaption></figure>')
 
 def paper_table(t):
     head = ''.join(f'<th scope="col">{escape(c)}</th>' for c in t['columns'])
@@ -209,7 +206,7 @@ def paper_findings(findings, prefix):
         if f.get('figure'): body += paper_figure(f['figure'], prefix)
         if f.get('table'): body += paper_table(f['table'])
         items.append(f'<details class="finding"><summary><span class="finding-index" aria-hidden="true">{n:02}</span><span>{escape(f["claim"])}</span></summary><div class="finding-body">{body}</div></details>')
-    return f'<section class="section paper-section" id="findings" aria-labelledby="findings-heading"><h2 id="findings-heading">Findings</h2><div class="findings">{"".join(items)}</div></section>'
+    return f'<section class="section paper-section" id="findings" aria-labelledby="findings-heading"><h2 id="findings-heading">Findings</h2><p class="section-note">Open a finding for the detail and evidence behind it.</p><div class="findings">{"".join(items)}</div></section>'
 
 def paper_video(v):
     src, title = escape(v['src'], quote=True), escape(v['title'], quote=True)
@@ -219,21 +216,13 @@ def paper_video(v):
         player = f'<iframe src="{src}" title="{title}" loading="lazy" allow="fullscreen" allowfullscreen></iframe>'
     return f'<section class="section paper-section" id="video" aria-labelledby="video-heading"><h2 id="video-heading">Video</h2><div class="paper-video">{player}</div></section>'
 
-def publication_body(p, prefix=''):
+TYPE_LABEL = {'conference': 'Conference paper', 'journal': 'Journal article', 'workshop': 'Workshop paper', 'preprint': 'Preprint'}
+
+def publication_body(p, prefix='', prev=None, nxt=None):
     page = p.get('page', {})
-    affils = page.get('affiliations', [])
-    marks = page.get('author_affiliations', {}) if len(affils) > 1 else {}
-    def author(a):
-        name = escape(a)
-        if a == ME: name = f'<a href="{prefix}index.html"><strong>{name}</strong></a>'
-        elif a in AUTHOR_LINKS: name = f'<a href="{escape(AUTHOR_LINKS[a], quote=True)}">{name}</a>'
-        sup = f'<sup>{",".join(map(str, marks[a]))}</sup>' if marks.get(a) else ''
-        return f'<span class="paper-author">{name}{sup}</span>'
-    author_html = ', '.join(author(a) for a in p['authors'])
-    if len(affils) > 1:
-        affil_html = '<p class="publication-affiliations">' + ''.join(f'<span><sup>{i}</sup>{escape(x)}</span>' for i, x in enumerate(affils, 1)) + '</p>'
-    else:
-        affil_html = f'<p class="publication-affiliations"><span>{escape(affils[0])}</span></p>' if affils else ''
+    group = next(g for g in groups if g[0] == p['type'])
+    breadcrumb = (f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{prefix}publications.html">Publications</a>'
+                  f'<span aria-hidden="true">/</span><a href="{prefix}publications.html#{group[1]}">{escape(group[2])}</a></nav>')
 
     links = {**p.get('links', {}), **page.get('links', {})}
     if p.get('pdf'): links['PDF'] = p['pdf'] if p['pdf'].startswith(('http://', 'https://')) else prefix + p['pdf']
@@ -241,34 +230,46 @@ def publication_body(p, prefix=''):
     resources = '<div class="link-row paper-links publication-resources">' + ''.join(
         f'<a href="{escape(v, quote=True)}">{escape(k)} <span aria-hidden="true">{"↓" if k == "PDF" else "↗"}</span></a>' for k, v in ordered) + '</div>'
 
-    status = f'<p class="pub-status">{escape(p["status"])}</p>' if p.get('status') else ''
     award = f'<p class="award">{escape(p["award"])}</p>' if p.get('award') else ''
     topics = '<div class="tags">'+''.join(f'<span class="tag">{escape(x)}</span>' for x in p.get('areas', []))+'</div>' if p.get('areas') else ''
-    header = (f'<header class="page-heading paper-hero"><p class="eyebrow">Publication · {escape(p["year"])}</p>{status}<h1>{escape(p["title"])}</h1>'
-              f'<p class="authors publication-authors">{author_html}</p>{affil_html}<p class="venue">{escape(p["venue"])}</p>{award}{topics}{resources}'
-              f'<p class="detail-back"><a href="{prefix}publications.html">← All publications</a></p></header>')
+    header = (f'<header class="page-heading paper-hero">{breadcrumb}<p class="eyebrow">{TYPE_LABEL[p["type"]]} · {escape(p["year"])}</p>'
+              f'<h1>{escape(p["title"])}</h1><p class="venue">{escape(p["venue"])}</p>{award}{topics}{resources}</header>')
 
     # Section order follows a project page: teaser, summary, the work itself, findings, video, citation.
     teaser = paper_figure(page['teaser'], prefix, ' paper-teaser') if page.get('teaser') else ''
     lead = page.get('tldr') or p.get('summary', '')
     abstract = f'<details class="paper-abstract"><summary>Full abstract</summary><p>{escape(p["abstract"])}</p></details>' if p.get('abstract') else ''
-    tldr = f'<section class="paper-tldr" aria-label="Summary"><p>{escape(lead)}</p>{abstract}</section>' if lead or abstract else ''
+    overview = (f'<section class="paper-overview" id="overview" aria-labelledby="overview-heading">{teaser}<div class="paper-tldr">'
+                f'<h2 class="paper-tldr-label" id="overview-heading">In short</h2><p>{escape(lead)}</p>{abstract}</div></section>')
     sections = ''.join(paper_section(sec, prefix) for sec in page.get('sections', []))
     findings = paper_findings(page['findings'], prefix) if page.get('findings') else ''
     video = paper_video(page['video']) if page.get('video') else ''
-
     citation = ('<section class="section citation-block" id="citation" aria-labelledby="citation-heading"><div class="section-heading"><h2 id="citation-heading">Cite this paper</h2></div>'
                 f'<div class="citation-code"><pre tabindex="0"><code id="bibtex-text">{escape(p.get("bibtex", ""))}</code></pre>'
                 '<button class="copy-citation" type="button" data-copy-target="bibtex-text">Copy BibTeX</button></div></section>')
     thanks = (f'<section class="section paper-section" id="acknowledgements" aria-labelledby="acknowledgements-heading"><h2 id="acknowledgements-heading">Acknowledgements</h2><p>{escape(page["acknowledgements"])}</p></section>'
               if page.get('acknowledgements') else '')
-    return f'<article class="publication-detail">{header}{teaser}{tldr}{sections}{findings}{video}{citation}{thanks}</article>'
+
+    # "On this page" uses short labels; the section headings stay descriptive.
+    toc = [('overview', 'Overview')] + [(s['id'], s.get('nav', s['heading'])) for s in page.get('sections', [])]
+    if page.get('findings'): toc.append(('findings', 'Findings'))
+    if page.get('video'): toc.append(('video', 'Video'))
+    toc.append(('citation', 'Cite'))
+    contents = '<nav class="contents page-contents" aria-label="On this page"><p class="eyebrow">On this page</p>' + ''.join(f'<a href="#{i}">{escape(t)}</a>' for i, t in toc) + '</nav>'
+
+    def pager_link(q, rel, label):
+        if not q: return '<span></span>'
+        return f'<a class="pager-{rel}" href="{prefix}publications/{q["id"]}/index.html" rel="{rel}"><span class="pager-label">{label}</span><span class="pager-title">{escape(q["title"])}</span></a>'
+    pager = (f'<nav class="paper-pager" aria-label="More publications">{pager_link(prev, "prev", "← Previous paper")}'
+             f'{pager_link(nxt, "next", "Next paper →")}</nav>')
+    return (f'<article class="publication-detail">{header}<div class="reading-layout paper-layout">{contents}'
+            f'<div class="paper-body">{overview}{sections}{findings}{video}{citation}{thanks}{pager}</div></div></article>')
 
 def render(slug, page_title, description, canonical, body, current=None, head_extra='', noindex=False, asset_prefix=''):
     nav = ''.join(f'<a href="{asset_prefix}{s}.html"' + (' aria-current="page"' if s == current else '') + f'>{t}</a>' for s, t, _, _ in pages)
     robots = '<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index,follow">'
     asset = asset_prefix
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description, quote=True)}">{robots}<meta name="google-site-verification" content="{GSC_TOKEN}"><meta name="msvalidate.01" content="{BING_TOKEN}"><meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="{'article' if slug == 'publication' else 'website'}"><meta property="og:title" content="{escape(page_title, quote=True)}"><meta property="og:description" content="{escape(description, quote=True)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{escape(page_title, quote=True)}"><meta name="twitter:description" content="{escape(description, quote=True)}"><meta name="twitter:image" content="{SITE}profile.jpg"><link rel="icon" href="{asset}assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="{asset}assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{asset}assets/style.css"><link rel="stylesheet" href="{asset}assets/interactions.css?v=20260924b">{head_extra}</head><body class="page-{slug}"><a class="skip-link" href="#main">Skip to content</a><div class="site-shell"><header class="site-header"><a class="wordmark" href="{asset}index.html" aria-label="Tariq, home">tariq<span>.</span></a><nav aria-label="Main navigation">{nav}</nav><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><span aria-hidden="true">◐</span></button><button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false"><span>☰</span></button></header><main id="main">{body}</main><footer class="site-footer"><p>© 2026 Md. Tariquzzaman<span>Made for reading, and a little curiosity.</span></p><div><a href="mailto:tariquzzaman@iut-dhaka.edu">Email</a><a href="https://www.linkedin.com/in/md-tariquzzaman/">LinkedIn</a><a href="https://orcid.org/0009-0002-3322-8741">ORCID</a><a href="https://huggingface.co/md-tariquzzaman">Hugging Face</a><a href="#main">Back to top ↑</a></div></footer></div><script src="{asset}assets/app.js"></script></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(page_title)}</title><meta name="description" content="{escape(description, quote=True)}">{robots}<meta name="google-site-verification" content="{GSC_TOKEN}"><meta name="msvalidate.01" content="{BING_TOKEN}"><meta name="theme-color" content="#f8f5ed"><link rel="canonical" href="{canonical}"><meta property="og:type" content="{'article' if slug == 'publication' else 'website'}"><meta property="og:title" content="{escape(page_title, quote=True)}"><meta property="og:description" content="{escape(description, quote=True)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}profile.jpg"><meta property="og:image:alt" content="Md. Tariquzzaman"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{escape(page_title, quote=True)}"><meta name="twitter:description" content="{escape(description, quote=True)}"><meta name="twitter:image" content="{SITE}profile.jpg"><link rel="icon" href="{asset}assets/favicon.svg" type="image/svg+xml"><link rel="preload" href="{asset}assets/fonts/literata.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{asset}assets/style.css"><link rel="stylesheet" href="{asset}assets/interactions.css?v=20260924c">{head_extra}</head><body class="page-{slug}"><a class="skip-link" href="#main">Skip to content</a><div class="site-shell"><header class="site-header"><a class="wordmark" href="{asset}index.html" aria-label="Tariq, home">tariq<span>.</span></a><nav aria-label="Main navigation">{nav}</nav><button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><span aria-hidden="true">◐</span></button><button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false"><span>☰</span></button></header><main id="main">{body}</main><footer class="site-footer"><p>© 2026 Md. Tariquzzaman<span>Made for reading, and a little curiosity.</span></p><div><a href="mailto:tariquzzaman@iut-dhaka.edu">Email</a><a href="https://www.linkedin.com/in/md-tariquzzaman/">LinkedIn</a><a href="https://orcid.org/0009-0002-3322-8741">ORCID</a><a href="https://huggingface.co/md-tariquzzaman">Hugging Face</a><a href="#main">Back to top ↑</a></div></footer></div><script src="{asset}assets/app.js"></script></body></html>'''
 
 schemas = {'index': ld({'@context': 'https://schema.org', **PERSON})}
 for slug, title, description, body in pages:
@@ -277,12 +278,14 @@ for slug, title, description, body in pages:
     (ROOT / (slug + '.html')).write_text(render(slug, page_title, description, canonical, body, current=slug, head_extra=schemas.get(slug, '')))
 
 publication_routes = []
-for p in papers:
+# Previous/next follow the order of the Publications page.
+paper_order = [p for kind, *_ in groups for p in sorted((q for q in papers if q['type'] == kind), key=lambda q: int(q['year']), reverse=True)]
+for i, p in enumerate(paper_order):
     route = ROOT / 'publications' / p['id'] / 'index.html'; route.parent.mkdir(parents=True, exist_ok=True)
     canonical = SITE + 'publications/' + p['id'] + '/'
     description = f'{p["title"]} by {ME}. {p["venue"]}.'
     extra = citation_meta(p) + ld({'@context': 'https://schema.org', '@graph': [PERSON, publication_schema(p, canonical)]})
-    route.write_text(render('publication', p['title'] + ' · Md. Tariquzzaman', description, canonical, publication_body(p, '../../'), head_extra=extra, asset_prefix='../../'))
+    route.write_text(render('publication', p['title'] + ' · Md. Tariquzzaman', description, canonical, publication_body(p, '../../', paper_order[i-1] if i else None, paper_order[i+1] if i+1 < len(paper_order) else None), current='publications', head_extra=extra, asset_prefix='../../'))
     publication_routes.append(canonical)
 
 not_found = '<header class="page-heading"><p class="eyebrow">Error 404</p><h1>Page not found</h1><p class="lead">That address does not exist on this site. It may have moved, or the link may be incomplete.</p></header><section class="section"><h2>Try one of these</h2><div class="personal-topics"><a href="index.html">Home</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="cv.html">CV</a><a href="personal.html">Personal</a></div></section>'

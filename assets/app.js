@@ -52,6 +52,7 @@
     const sections = links.map(link => document.getElementById(link.hash.slice(1)));
     const header = document.querySelector('.site-header');
     let scheduled = false;
+    let lastActive = -1;
     const updateSection = () => {
       scheduled = false;
       const stickyHeight = getComputedStyle(contents).position === 'sticky' && window.innerWidth <= 600 ? contents.offsetHeight : 0;
@@ -66,6 +67,11 @@
         if (index === active) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
+      // On phones the paper-page contents is one swipeable row; keep the active link in view.
+      if (active !== lastActive && contents.scrollWidth > contents.clientWidth) {
+        contents.scrollLeft += links[active].getBoundingClientRect().left - contents.getBoundingClientRect().left - 16;
+      }
+      lastActive = active;
     };
     const schedule = () => {
       if (!scheduled) { scheduled = true; requestAnimationFrame(updateSection); }

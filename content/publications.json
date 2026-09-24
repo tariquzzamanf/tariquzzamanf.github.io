@@ -57,106 +57,6 @@
         "arXiv": "https://arxiv.org/abs/2601.05403",
         "Code": "https://github.com/lzw108/FMD"
       },
-      "affiliations": [
-        "The University of Manchester",
-        "Stevens Institute of Technology",
-        "The Fin AI",
-        "Columbia University",
-        "Islamic University of Technology",
-        "Athens University of Economics and Business",
-        "Archimedes, Athena Research Center",
-        "MBZUAI",
-        "McGill University",
-        "Mila – Quebec AI Institute",
-        "Dubai Police",
-        "University of Melbourne",
-        "Halmstad University",
-        "University of Florida",
-        "ELLIS Manchester"
-      ],
-      "author_affiliations": {
-        "Zhiwei Liu": [
-          1
-        ],
-        "Yupen Cao": [
-          2
-        ],
-        "Yuechen Jiang": [
-          1
-        ],
-        "Mohsinul Kabir": [
-          1
-        ],
-        "Polydoros Giannouris": [
-          1
-        ],
-        "Chen Xu": [
-          3
-        ],
-        "Ziyang Xu": [
-          3
-        ],
-        "Tianlei Zhu": [
-          4
-        ],
-        "Md. Tariquzzaman": [
-          5
-        ],
-        "Triantafillos Papadopoulos": [
-          6,
-          7
-        ],
-        "Yan Wang": [
-          3
-        ],
-        "Lingfei Qian": [
-          3
-        ],
-        "Xueqing Peng": [
-          3
-        ],
-        "Zhuohan Xie": [
-          8
-        ],
-        "Ye Yuan": [
-          9,
-          10
-        ],
-        "Saeed Almheiri": [
-          8
-        ],
-        "Abdulrazzaq Alnajjar": [
-          11
-        ],
-        "Mingbin Chen": [
-          12
-        ],
-        "Harry Stuart": [
-          8
-        ],
-        "Paul Thompson": [
-          1
-        ],
-        "Prayag Tiwari": [
-          13
-        ],
-        "Alejandro Lopez-Lira": [
-          14
-        ],
-        "Xue Liu": [
-          8,
-          9
-        ],
-        "Jimin Huang": [
-          1,
-          3
-        ],
-        "Sophia Ananiadou": [
-          1,
-          7,
-          15
-        ]
-      },
       "teaser": {
         "src": "files/papers/scenario-bias/scenarios.webp",
         "width": 672,
@@ -169,6 +69,7 @@
         {
           "id": "benchmark",
           "heading": "The MFMD-Scen benchmark",
+          "nav": "Benchmark",
           "paragraphs": [
             "Each claim is verified twice: once on its own, and once inside a financial scenario. The model answers True or False both times, and scenario-induced bias is the difference between the two macro-F1 scores. Because the claim never changes, any shift can be attributed to the context rather than to the evidence.",
             "Scenarios were designed with financial experts along three complementary axes:"
@@ -192,6 +93,7 @@
         {
           "id": "dataset",
           "heading": "A multilingual claim set",
+          "nav": "Dataset",
           "paragraphs": [
             "Claims start from the Snopes subset of FinFact. The original claim text was recovered from each Snopes article and extended with Snopes items from 2024 to September 2025. Two annotators with finance backgrounds screened the pool down to 502 financial claims, and two financial experts selected the 144 with worldwide relevance (121 false, 23 true).",
             "Those 144 claims were translated into Chinese, Greek, and Bengali with GPT-4.1. Two native speakers reviewed each language; where a translation fell short, one translator revised it and another checked the revision."
@@ -241,6 +143,7 @@
         {
           "id": "models",
           "heading": "Models and human baseline",
+          "nav": "Models",
           "paragraphs": [
             "The evaluation covers 22 open- and closed-source models, with and without explicit reasoning: GPT-5-mini and GPT-4.1; Claude Sonnet 4.5 and Claude 3.5 Haiku; Gemini 2.5 Flash and Gemini 2.0 Flash; DeepSeek-V3.2 in reasoner and chat modes; Qwen3 8B, 14B, and 32B in both modes; Qwen2.5-72B; Llama-3.3-70B; and six Mistral and Mixtral models.",
             "For a human reference point, volunteers from China Mainland, Europe, Asia-Pacific, Australia, and the UAE judged the 144 English claims from their own experience and knowledge."
@@ -327,10 +230,6 @@
       "links": {
         "arXiv": "https://arxiv.org/abs/2508.16076"
       },
-      "affiliations": [
-        "Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
-      ],
-      "author_affiliations": {},
       "teaser": {
         "src": "files/papers/sign-parameters/toothpaste.webp",
         "width": 1500,
@@ -343,6 +242,7 @@
         {
           "id": "parameters",
           "heading": "Seven sign parameters",
+          "nav": "Sign parameters",
           "paragraphs": [
             "Sign parameters are the visual cues used to identify or describe a gesture. They serve twice in this work: as the annotation guideline for BdSLIG, and as the structure injected by SPI prompting."
           ],
@@ -360,6 +260,7 @@
         {
           "id": "dataset",
           "heading": "The BdSLIG dataset",
+          "nav": "Dataset",
           "paragraphs": [
             "BdSLIG draws on BdSLW60, a 60-word Bengali Sign Language recognition dataset. For each word, one representative video was selected and given a written instruction by three trained annotators following the parameter guideline. Annotations were validated in two stages: first for grammatical and semantic consistency, then by a Bengali Sign Language domain expert. Annotators and validators were paid for their work.",
             "Bengali Sign Language is unlikely to appear in the pre-training data of today’s vision-language models, so BdSLIG also serves as a test of long-tail visual understanding."
@@ -373,6 +274,7 @@
         {
           "id": "method",
           "heading": "Prompting framework",
+          "nav": "Method",
           "paragraphs": [
             "Instruction generation runs in three stages. Vanilla prompting skips the second."
           ],
@@ -389,6 +291,7 @@
         {
           "id": "results",
           "heading": "Results",
+          "nav": "Results",
           "table": {
             "caption": "Vanilla and SPI prompting on BdSLIG. Arrows mark the change from vanilla prompting for the same model.",
             "columns": [
@@ -543,10 +446,6 @@
     "bibtex": "@inproceedings{tariquzzaman-etal-2023-linguists,\n    title = \"the{\\_}linguists at {BLP}-2023 Task 1: A Novel Informal {B}angla {F}asttext Embedding for Violence Inciting Text Detection\",\n    author = \"Tariquzzaman, Md.  and\n      Kader, Md Wasif  and\n      Anam, Audwit  and\n      Haque, Naimul  and\n      Kabir, Mohsinul  and\n      Mahmud, Hasan  and\n      Hasan, Md Kamrul\",\n    editor = \"Alam, Firoj  and\n      Kar, Sudipta  and\n      Chowdhury, Shammur Absar  and\n      Sadeque, Farig  and\n      Amin, Ruhul\",\n    booktitle = \"Proceedings of the First Workshop on Bangla Language Processing (BLP-2023)\",\n    month = dec,\n    year = \"2023\",\n    address = \"Singapore\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2023.banglalp-1.26/\",\n    doi = \"10.18653/v1/2023.banglalp-1.26\",\n    pages = \"214--219\"\n}",
     "page": {
       "links": {},
-      "affiliations": [
-        "Systems and Software Lab (SSL), Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
-      ],
-      "author_affiliations": {},
       "teaser": {
         "src": "files/papers/informal-bangla/system.webp",
         "width": 672,
@@ -560,6 +459,7 @@
         {
           "id": "task",
           "heading": "Violence-inciting text detection",
+          "nav": "Task",
           "paragraphs": [
             "BLP-2023 Task 1 asks systems to sort text by the violence it could incite. Unlike hate speech, which targets groups by attribute, violence-inciting text advocates harm. The shared-task data are YouTube comments on the nine most significant violent incidents in the Bengal region, covering Bangladesh and West Bengal, over the past decade."
           ],
@@ -575,6 +475,7 @@
         {
           "id": "embedding",
           "heading": "An informal Bangla embedding",
+          "nav": "Embedding",
           "paragraphs": [
             "We collected 6.8 million comments from Facebook and YouTube through the Facebook Graph API using Facepager. Removing redundant words, symbols, and non-Bangla content left 3.8 million samples. A FastText model was trained on them with continuous bag-of-words, 300-dimensional vectors, character n-grams of 3 to 6, and a minimum word count of 2. Sub-word information lets it represent misspelled and out-of-vocabulary words common in informal text.",
             "The resulting informal FastText (IFT) embedding covers far more of the task vocabulary than BanglaBERT’s."
@@ -743,10 +644,6 @@
       "links": {
         "Code": "https://github.com/mdtariquzzaman/Bangla-Text-Augmentation-Framework"
       },
-      "affiliations": [
-        "Systems and Software Lab (SSL), Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
-      ],
-      "author_affiliations": {},
       "teaser": {
         "src": "files/papers/bda/pipeline.webp",
         "width": 966,
@@ -759,6 +656,7 @@
         {
           "id": "method",
           "heading": "Four augmentation operations",
+          "nav": "Method",
           "paragraphs": [
             "Each training sentence is rewritten by one randomly chosen operation:"
           ],
@@ -784,6 +682,7 @@
         {
           "id": "filtering",
           "heading": "Meaning-preserving filter",
+          "nav": "Filtering",
           "paragraphs": [
             "Augmentation can drift far enough to change a label. Each candidate is therefore compared with its source twice. A multilingual Sentence-BERT model checks semantic similarity, and SacreBLEU checks lexical overlap. A candidate is kept only if it stays close in meaning (85% to 99% similarity here, so near-copies are dropped too) while sharing little wording (lexical similarity below 45%). Thresholds are dataset-specific and adjustable."
           ],
@@ -800,6 +699,7 @@
         {
           "id": "setup",
           "heading": "Experimental setup",
+          "nav": "Setup",
           "paragraphs": [
             "Five datasets were chosen to cover class imbalance, data scarcity, noisy text, and low variation between samples. Training sets were cut to 15%, 50%, and 100% with stratified sampling, keeping the class ratios, to see how far augmentation can stand in for missing data. Each setting was run with BanglaBERT and with an SVM over TF-IDF word (1–3) and character (2–5) n-grams."
           ],
