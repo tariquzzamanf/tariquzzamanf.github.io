@@ -33,14 +33,266 @@
     "venue": "Findings of ACL 2026",
     "status": "",
     "links": {
-      "Paper": "https://arxiv.org/abs/2601.05403"
+      "Paper": "https://aclanthology.org/2026.findings-acl.479/"
     },
     "award": "",
     "type": "conference",
     "areas": [
       "LLM evaluation",
       "Misinformation"
-    ]
+    ],
+    "arxiv": "2601.05403",
+    "pdf": "https://aclanthology.org/2026.findings-acl.479.pdf",
+    "abstract": "Large language models (LLMs) have been widely applied across various domains of finance. Since their training data are largely derived from human-authored corpora, LLMs may inherit a range of human biases. Behavioral biases can lead to instability and uncertainty in decision-making, particularly when processing financial information. However, existing research on LLM bias has mainly focused on direct questioning or simplified, general-purpose settings, with limited consideration of the complex real-world, context-sensitive, multilingual financial misinformation detection tasks. In this work, we propose MFMD-Scen, a comprehensive benchmark for evaluating behavioral biases of LLMs in financial misinformation detection across diverse economic scenarios. In collaboration with financial experts, we construct three types of complex financial scenarios: (i) role- and personality-based, (ii) role- and region-based, and (iii) role-based scenarios incorporating ethnicity and religious beliefs. We further develop a multilingual financial misinformation dataset covering English, Chinese, Greek, and Bengali. By integrating these scenarios with misinformation claims, MFMD-Scen enables a systematic evaluation of 22 mainstream LLMs. Our findings reveal that pronounced behavioral biases persist across both commercial and open-source models.",
+    "summary": "MFMD-Scen tests whether large language models judge the same financial misinformation claim consistently when the surrounding role, region, personality, ethnicity, or religion changes. The benchmark spans English, Chinese, Greek, and Bengali and evaluates 22 mainstream models.",
+    "bibtex": "@inproceedings{liu-etal-2026-claim,\n    title = \"Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection\",\n    author = \"Liu, Zhiwei  and\n      Cao, Yupeng  and\n      Jiang, Yuechen  and\n      Kabir, Mohsinul  and\n      Giannouris, Polydoros  and\n      Xu, Chen  and\n      Xu, Ziyang  and\n      Zhu, Tianlei  and\n      Tariquzzaman, Md.  and\n      Papadopoulos, Triantafillos  and\n      Wang, Yan  and\n      Qian, Lingfei  and\n      Peng, Xueqing  and\n      Xie, Zhuohan  and\n      Yuan, Ye  and\n      Almheiri, Saeed  and\n      Alnajjar, Abdulrazzaq  and\n      Chen, Ming-Bin  and\n      Stuart, Harry  and\n      Thompson, Paul  and\n      Tiwari, Prayag  and\n      Lopez-Lira, Alejandro  and\n      Liu, Xue  and\n      Huang, Jimin  and\n      Ananiadou, Sophia\",\n    editor = \"Liakata, Maria  and\n      Moreira, Viviane P.  and\n      Zhang, Jiajun  and\n      Jurgens, David\",\n    booktitle = \"Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026\",\n    month = jul,\n    year = \"2026\",\n    address = \"San Diego, California, United States\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2026.findings-acl.479/\",\n    doi = \"10.18653/v1/2026.findings-acl.479\",\n    pages = \"9838--9864\",\n    ISBN = \"979-8-89176-395-1\",\n    abstract = \"Large language models (LLMs) have been widely applied across various domains of finance. Since their training data are largely derived from human-authored corpora, LLMs may inherit a range of human biases. Behavioral biases can lead to instability and uncertainty in decision-making, particularly when processing financial information. However, existing research on LLM bias has mainly focused on direct questioning or simplified, general-purpose settings, with limited consideration of the complex real-world financial environments and high-risk, context-sensitive, multilingual financial misinformation detection tasks (MFMD). In this work, we propose MFMDScen, a comprehensive benchmark for evaluating behavioral biases of LLMs in MFMD across diverse economic scenarios. In collaboration with financial experts, we construct three types of complex financial scenarios: (i) role- and personality-based, (ii) role- and region-based, and (iii) role-based scenarios incorporating ethnicity and religious beliefs. We further develop a multilingual financial misinformation dataset covering English, Chinese, Greek, and Bengali. By integrating these scenarios with misinformation claims, MFMDScen enables a systematic evaluation of 22 mainstream LLMs. Our findings reveal that pronounced behavioral biases persist across both commercial and open-source models. This project is available at \\url{https://github.com/lzw108/FMD}.\"\n}",
+    "metadata": {
+      "doi": "10.18653/v1/2026.findings-acl.479",
+      "firstpage": "9838",
+      "lastpage": "9864",
+      "isbn": "979-8-89176-395-1"
+    },
+    "page": {
+      "links": {
+        "arXiv": "https://arxiv.org/abs/2601.05403",
+        "Code": "https://github.com/lzw108/FMD"
+      },
+      "affiliations": [
+        "The University of Manchester",
+        "Stevens Institute of Technology",
+        "The Fin AI",
+        "Columbia University",
+        "Islamic University of Technology",
+        "Athens University of Economics and Business",
+        "Archimedes, Athena Research Center",
+        "MBZUAI",
+        "McGill University",
+        "Mila – Quebec AI Institute",
+        "Dubai Police",
+        "University of Melbourne",
+        "Halmstad University",
+        "University of Florida",
+        "ELLIS Manchester"
+      ],
+      "author_affiliations": {
+        "Zhiwei Liu": [
+          1
+        ],
+        "Yupen Cao": [
+          2
+        ],
+        "Yuechen Jiang": [
+          1
+        ],
+        "Mohsinul Kabir": [
+          1
+        ],
+        "Polydoros Giannouris": [
+          1
+        ],
+        "Chen Xu": [
+          3
+        ],
+        "Ziyang Xu": [
+          3
+        ],
+        "Tianlei Zhu": [
+          4
+        ],
+        "Md. Tariquzzaman": [
+          5
+        ],
+        "Triantafillos Papadopoulos": [
+          6,
+          7
+        ],
+        "Yan Wang": [
+          3
+        ],
+        "Lingfei Qian": [
+          3
+        ],
+        "Xueqing Peng": [
+          3
+        ],
+        "Zhuohan Xie": [
+          8
+        ],
+        "Ye Yuan": [
+          9,
+          10
+        ],
+        "Saeed Almheiri": [
+          8
+        ],
+        "Abdulrazzaq Alnajjar": [
+          11
+        ],
+        "Mingbin Chen": [
+          12
+        ],
+        "Harry Stuart": [
+          8
+        ],
+        "Paul Thompson": [
+          1
+        ],
+        "Prayag Tiwari": [
+          13
+        ],
+        "Alejandro Lopez-Lira": [
+          14
+        ],
+        "Xue Liu": [
+          8,
+          9
+        ],
+        "Jimin Huang": [
+          1,
+          3
+        ],
+        "Sophia Ananiadou": [
+          1,
+          7,
+          15
+        ]
+      },
+      "teaser": {
+        "src": "files/papers/scenario-bias/scenarios.webp",
+        "width": 672,
+        "height": 498,
+        "alt": "A claim that people on Facebook promise to send $750 to a Cash App account is judged false by a base model, while the verdict is left open when the same model is given a personality, region, or identity scenario.",
+        "caption": "Figure 1. One claim, four framings. A base model judges it false; the question is whether the verdict holds once the model is told it is an overconfident retail investor, a U.S. hedge-fund strategist, or a company owner of Latino background and Christian belief."
+      },
+      "tldr": "MFMD-Scen asks whether large language models reach the same verdict on the same financial claim once a realistic scenario is added to the prompt: an investor’s role and personality, the market they work in, or their ethnicity and faith. Across 22 models and four languages, the answer is often no. The claim stays fixed, yet the scenario shifts the verdict.",
+      "sections": [
+        {
+          "id": "benchmark",
+          "heading": "The MFMD-Scen benchmark",
+          "paragraphs": [
+            "Each claim is verified twice: once on its own, and once inside a financial scenario. The model answers True or False both times, and scenario-induced bias is the difference between the two macro-F1 scores. Because the claim never changes, any shift can be attributed to the context rather than to the evidence.",
+            "Scenarios were designed with financial experts along three complementary axes:"
+          ],
+          "list": [
+            "<strong>MFMD-persona</strong>: three roles (retail investor, professional or institutional investor, company owner) crossed with five behavioural-finance biases (overconfidence, loss aversion, herding, anchoring, confirmation bias), each stated explicitly or conveyed implicitly through narrative cues.",
+            "<strong>MFMD-region</strong>: the same roles placed in six financial markets: Europe, the United States, Asia-Pacific, China Mainland, Australia, and the UAE.",
+            "<strong>MFMD-identity</strong>: retail-investor and company-owner roles combined with ethnicity and faith, drawn from public demographic and religious statistics."
+          ],
+          "figures": [
+            {
+              "src": "files/papers/scenario-bias/overview.webp",
+              "width": 672,
+              "height": 885,
+              "narrow": true,
+              "alt": "Diagram of the three MFMD-Scen subtasks. Persona crosses explicit or implicit mode, three roles, and five personality biases. Region crosses three roles with six regions. Identity crosses two roles with eight ethnicities and four faiths. Each scenario is combined with financial misinformation claims.",
+              "caption": "Figure 2. The three scenario families. Each scenario is paired with every misinformation claim to form the benchmark."
+            }
+          ]
+        },
+        {
+          "id": "dataset",
+          "heading": "A multilingual claim set",
+          "paragraphs": [
+            "Claims start from the Snopes subset of FinFact. The original claim text was recovered from each Snopes article and extended with Snopes items from 2024 to September 2025. Two annotators with finance backgrounds screened the pool down to 502 financial claims, and two financial experts selected the 144 with worldwide relevance (121 false, 23 true).",
+            "Those 144 claims were translated into Chinese, Greek, and Bengali with GPT-4.1. Two native speakers reviewed each language; where a translation fell short, one translator revised it and another checked the revision."
+          ],
+          "table": {
+            "caption": "Agreement at each annotation stage.",
+            "columns": [
+              "Stage",
+              "Kappa",
+              "Accuracy",
+              "F1"
+            ],
+            "rows": [
+              [
+                "Financial vs. non-financial",
+                "0.992",
+                "0.996",
+                "0.996"
+              ],
+              [
+                "Regional vs. global",
+                "0.965",
+                "0.984",
+                "0.983"
+              ],
+              [
+                "Chinese translation",
+                "1",
+                "1",
+                "1"
+              ],
+              [
+                "Greek translation",
+                "0.723",
+                "0.973",
+                "0.861"
+              ],
+              [
+                "Bengali translation",
+                "0.98",
+                "0.995",
+                "0.99"
+              ]
+            ]
+          }
+        },
+        {
+          "id": "models",
+          "heading": "Models and human baseline",
+          "paragraphs": [
+            "The evaluation covers 22 open- and closed-source models, with and without explicit reasoning: GPT-5-mini and GPT-4.1; Claude Sonnet 4.5 and Claude 3.5 Haiku; Gemini 2.5 Flash and Gemini 2.0 Flash; DeepSeek-V3.2 in reasoner and chat modes; Qwen3 8B, 14B, and 32B in both modes; Qwen2.5-72B; Llama-3.3-70B; and six Mistral and Mixtral models.",
+            "For a human reference point, volunteers from China Mainland, Europe, Asia-Pacific, Australia, and the UAE judged the 144 English claims from their own experience and knowledge."
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "claim": "Models reliably flag false claims but struggle to confirm true ones.",
+          "detail": "Every model scores above 0.85 F1 on false claims. Performance drops sharply on true claims: models answer conservatively and lean towards calling a statement false."
+        },
+        {
+          "claim": "Retail-investor and herding scenarios push models towards scepticism.",
+          "detail": "Introducing a retail investor or a herding personality produces the most pronounced negative bias. Implicit cues are harder than explicit ones: on true claims, bias is larger when a personality is implied through narrative than when it is stated outright.",
+          "figure": {
+            "src": "files/papers/scenario-bias/persona.webp",
+            "width": 1610,
+            "height": 371,
+            "alt": "Four radar charts for MFMD-persona showing mean absolute and arithmetic-mean F1 bias across personalities, roles, and languages, for implicit and explicit scenarios.",
+            "caption": "Figure 3. MFMD-persona across 22 models. MAV shows the size of the bias and AM its direction; dark lines are false claims, light lines true claims."
+          }
+        },
+        {
+          "claim": "The market region changes the verdict.",
+          "detail": "Scenarios set in Asia-Pacific and China Mainland generally induce negative bias, while U.S. scenarios mostly yield positive bias. Retail investors show the largest bias in UAE scenarios; European and U.S. settings consistently produce the least.",
+          "figure": {
+            "src": "files/papers/scenario-bias/region.webp",
+            "width": 1316,
+            "height": 571,
+            "alt": "Hexagonal radar charts for four representative models plus AM and MAV, one row per role, over six regions; a dashed line marks the no-scenario baseline.",
+            "caption": "Figure 4. True-claim F1 under MFMD-region for representative models, with AM and MAV across all 22. The dashed line is the no-scenario baseline. AP: Asia-Pacific; CM: China Mainland."
+          }
+        },
+        {
+          "claim": "Identity and role interact, and can reverse the direction of bias.",
+          "detail": "American identities are systematically overestimated and Chinese identities underestimated. Several groups, among them Arab–Islam, Latino/Hispanic–Christianity, and African–Islam, move from negative bias as retail investors to positive bias as company owners. Role, more than ethnicity alone, sets the direction.",
+          "figure": {
+            "src": "files/papers/scenario-bias/identity.webp",
+            "width": 798,
+            "height": 742,
+            "narrow": true,
+            "alt": "Heatmap of F1 change in percentage points for 30 role, ethnicity, and faith combinations across four models, with AM and MAV columns.",
+            "caption": "Figure 5. MFMD-identity: change in F1 relative to the no-scenario baseline, in percentage points. RI: retail investor; CO: company owner."
+          }
+        },
+        {
+          "claim": "Low-resource languages amplify bias; larger models are steadier.",
+          "detail": "On false claims, bias grows from English to Chinese, Greek, and Bengali, with Bengali the most susceptible. Smaller models show larger, mostly negative bias on true claims. Explicit reasoning helps inconsistently at small scale, but DeepSeek’s reasoner consistently outperforms its chat mode."
+        }
+      ],
+      "acknowledgements": "We thank Ming Shan Hee, LIM Jia Peng, and Ethan Bird for the Human-level Performance Measurement part. This work was supported by the computational shared facility at the University of Manchester and the scholar award from the Department of Computer Science at the University of Manchester. This research was supported by the NVIDIA Academic Grant Program using 32K A100 GPU-hours on Brev. This work has been partially supported by project MIS 5154714 of the National Recovery and Resilience Plan Greece 2.0 funded by the European Union under the Next Generation EU Program. The authors acknowledge The Fin AI community for its research support, feedback, and collaborative environment that contributed to this work."
+    }
   },
   {
     "id": "sign-parameters",
@@ -65,7 +317,199 @@
     "type": "workshop",
     "areas": [
       "Accessibility"
-    ]
+    ],
+    "arxiv": "2508.16076",
+    "pdf": "https://arxiv.org/pdf/2508.16076",
+    "abstract": "Sign Language Instruction Generation (SLIG) produces step-by-step textual instructions that enable non-SL users to imitate and learn sign language gestures, promoting two-way interaction. We introduce BdSLIG, the first Bengali SLIG dataset, used to evaluate Vision Language Models (VLMs) on under-resourced SLIG tasks and long-tail visual concepts. To enhance zero-shot performance, we introduce Sign Parameter-Infused (SPI) prompting, which integrates standard sign parameters, like hand shape, motion, and orientation, directly into textual prompts. Subsuming standard sign parameters into the prompt makes the instructions more structured and reproducible than free-form natural text from vanilla prompting. We envision that our work would promote inclusivity and advancement in sign language learning systems for under-resourced communities.",
+    "summary": "BdSLIG is a Bengali sign-language instruction-generation dataset. The paper introduces Sign Parameter-Infused prompting, which adds structured cues such as hand shape, movement, location, and orientation to prompts so vision-language models can produce more reproducible instructions.",
+    "bibtex": "@misc{tariquzzaman2026promptingsignparameterslowresource,\n      title={Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation}, \n      author={Md Tariquzzaman and Md Farhan Ishmam and Saiyma Sittul Muna and Md Kamrul Hasan and Hasan Mahmud},\n      year={2026},\n      eprint={2508.16076},\n      archivePrefix={arXiv},\n      primaryClass={cs.HC},\n      url={https://arxiv.org/abs/2508.16076}, \n}",
+    "page": {
+      "links": {
+        "arXiv": "https://arxiv.org/abs/2508.16076"
+      },
+      "affiliations": [
+        "Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
+      ],
+      "author_affiliations": {},
+      "teaser": {
+        "src": "files/papers/sign-parameters/toothpaste.webp",
+        "width": 1500,
+        "height": 357,
+        "alt": "Three video frames of a signer performing the Bengali sign for toothpaste, each annotated with numbered parameter descriptions such as hand in fist with index finger extended, palm faces inward, and mouth is open.",
+        "caption": "Figure 1. Parameter-based description of the Bengali sign for toothpaste. Numbers refer to the seven sign parameters below; these annotations illustrate the parameters and are not part of BdSLIG."
+      },
+      "tldr": "Sign-language instruction generation writes step-by-step text that lets a hearing learner reproduce a sign. BdSLIG is the first dataset for this task in Bengali Sign Language, and Sign Parameter-Infused (SPI) prompting writes standard sign parameters into the prompt so vision-language models produce more structured, reproducible instructions.",
+      "sections": [
+        {
+          "id": "parameters",
+          "heading": "Seven sign parameters",
+          "paragraphs": [
+            "Sign parameters are the visual cues used to identify or describe a gesture. They serve twice in this work: as the annotation guideline for BdSLIG, and as the structure injected by SPI prompting."
+          ],
+          "list": [
+            "<strong>Handshape</strong>: the configuration of fingers and palm (raised, extended, pointed, bent, spread, twisted).",
+            "<strong>Movement type</strong>: the trajectory or action of the hands (static, circular, squeezing, grabbing, rotating, pulling).",
+            "<strong>Location</strong>: where the hands are placed (near head, forehead, eye, ear, nose, mouth, chest, shoulder).",
+            "<strong>Palm orientation</strong>: which way the palm faces relative to the body (inward, outward, upward, downward, left, right).",
+            "<strong>Spatial interaction</strong>: the role of one or both hands (right or left hand active, both hands symmetric or asymmetric).",
+            "<strong>Temporal dynamics</strong>: onset, duration, and repetition (sustained hold, repeated oscillation, single tap, repeated tapping).",
+            "<strong>Facial cues</strong>: expressions that can disambiguate a sign (neutral, brows raised or furrowed, mouth open or closed, lips pursed)."
+          ],
+          "ordered": true
+        },
+        {
+          "id": "dataset",
+          "heading": "The BdSLIG dataset",
+          "paragraphs": [
+            "BdSLIG draws on BdSLW60, a 60-word Bengali Sign Language recognition dataset. For each word, one representative video was selected and given a written instruction by three trained annotators following the parameter guideline. Annotations were validated in two stages: first for grammatical and semantic consistency, then by a Bengali Sign Language domain expert. Annotators and validators were paid for their work.",
+            "Bengali Sign Language is unlikely to appear in the pre-training data of today’s vision-language models, so BdSLIG also serves as a test of long-tail visual understanding."
+          ],
+          "embed": {
+            "src": "https://huggingface.co/datasets/aplycaebous/BdSLIG/embed/viewer?theme=light",
+            "title": "BdSLIG dataset viewer on Hugging Face",
+            "caption": "Browse BdSLIG in the Hugging Face dataset viewer."
+          }
+        },
+        {
+          "id": "method",
+          "heading": "Prompting framework",
+          "paragraphs": [
+            "Instruction generation runs in three stages. Vanilla prompting skips the second."
+          ],
+          "list": [
+            "<strong>Frame sampling</strong>: videos are standardised to 30 frames per second, and every 20th frame is passed to the model, shortening the input while keeping most of the motion.",
+            "<strong>Sign parameter injection</strong>: the base prompt is extended with the seven parameters, asking for a stepwise, narrative-style instruction set.",
+            "<strong>Instruction generation</strong>: the model writes the instruction from the sampled frames and the prompt."
+          ],
+          "ordered": true,
+          "after": [
+            "Four proprietary models are compared: GPT-4.1-mini, GPT-4.1, Gemini 2.0 Flash, and Gemini 2.5 Pro. Generated instructions are scored against the expert annotations with ROUGE-1, ROUGE-2, ROUGE-L, BLEU, METEOR, and BERTScore."
+          ]
+        },
+        {
+          "id": "results",
+          "heading": "Results",
+          "table": {
+            "caption": "Vanilla and SPI prompting on BdSLIG. Arrows mark the change from vanilla prompting for the same model.",
+            "columns": [
+              "Prompting",
+              "Model",
+              "ROUGE-1",
+              "ROUGE-2",
+              "ROUGE-L",
+              "BLEU",
+              "METEOR",
+              "BERTScore"
+            ],
+            "rows": [
+              [
+                "Vanilla",
+                "GPT-4.1-mini",
+                "0.526",
+                "0.232",
+                "0.342",
+                "0.174",
+                "0.396",
+                "0.396"
+              ],
+              [
+                "Vanilla",
+                "GPT-4.1",
+                "0.528",
+                "0.220",
+                "0.335",
+                "0.149",
+                "0.416",
+                "0.394"
+              ],
+              [
+                "Vanilla",
+                "Gemini 2.0 Flash",
+                "0.464",
+                "0.209",
+                "0.328",
+                "0.141",
+                "0.329",
+                "0.416"
+              ],
+              [
+                "Vanilla",
+                "Gemini 2.5 Pro",
+                "0.505",
+                "0.224",
+                "0.338",
+                "0.166",
+                "0.354",
+                "0.396"
+              ],
+              [
+                "SPI",
+                "GPT-4.1-mini",
+                "0.522 ↓",
+                "0.224 ↓",
+                "0.326 ↓",
+                "0.162 ↓",
+                "0.447 ↑",
+                "0.396 ="
+              ],
+              [
+                "SPI",
+                "GPT-4.1",
+                "<strong>0.553</strong> ↑",
+                "<strong>0.271</strong> ↑",
+                "<strong>0.384</strong> ↑",
+                "<strong>0.196</strong> ↑",
+                "<strong>0.492</strong> ↑",
+                "0.441 ↑"
+              ],
+              [
+                "SPI",
+                "Gemini 2.0 Flash",
+                "0.505 ↑",
+                "0.250 ↑",
+                "0.365 ↑",
+                "0.168 ↑",
+                "0.359 ↑",
+                "<strong>0.456</strong> ↑"
+              ],
+              [
+                "SPI",
+                "Gemini 2.5 Pro",
+                "0.507 ↑",
+                "0.212 ↓",
+                "0.319 ↓",
+                "0.141 ↓",
+                "0.365 ↑",
+                "0.387 ↓"
+              ]
+            ]
+          }
+        }
+      ],
+      "findings": [
+        {
+          "claim": "SPI prompting improves semantic alignment most.",
+          "detail": "METEOR rises for all four models under SPI prompting. Metrics that reward meaning over surface wording gain the most, suggesting that the parameters help models write more structured and semantically faithful instructions."
+        },
+        {
+          "claim": "GPT-4.1 gains on every metric and scores best overall.",
+          "detail": "With SPI prompting, GPT-4.1 improves on all six metrics and has the highest score on each except BERTScore, where Gemini 2.0 Flash leads. Smaller variants gain less consistently, which the paper attributes to their limited capacity to interpret nuanced motion cues."
+        },
+        {
+          "claim": "Text-overlap metrics undercount correct instructions.",
+          "detail": "Two first-step instructions for toothpaste describe essentially the same motion, yet differ in wording, order, and emphasis, so lexical metrics would score them far apart. Evaluating sign instructions properly calls for human experts or larger, context-aware judges.",
+          "quotes": [
+            "The right hand, with fingers gently curved and palm facing toward the signer, is brought up to the mouth area. The fingertips lightly touch or hover near the lips, with the hand at chin or mouth level. The left hand remains at rest.",
+            "The right hand moves toward the mouth with the index finger fully extended and pointing straight ahead, while the other fingers are curled into a loose fist. At the same time, the mouth opens slightly, revealing the teeth clearly."
+          ]
+        }
+      ],
+      "video": {
+        "kind": "iframe",
+        "src": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/preview",
+        "title": "Presentation video for Prompting with Sign Parameters"
+      }
+    }
   },
   {
     "id": "informal-bangla",
@@ -92,7 +536,181 @@
     "type": "workshop",
     "areas": [
       "Bangla NLP"
-    ]
+    ],
+    "pdf": "https://aclanthology.org/2023.banglalp-1.26.pdf",
+    "abstract": "This paper introduces a novel informal Bangla word embedding for designing a cost-efficient solution for the task “Violence Inciting Text Detection,” which focuses on developing classification systems to categorize violence that can potentially incite further violent actions. We propose a semi-supervised learning approach by training an informal Bangla FastText embedding, which is further fine-tuned on lightweight models on the task-specific dataset and yielded competitive results to our initial method using BanglaBERT, which secured the 7th position with an F1-score of 73.98%. We conduct extensive experiments to assess the efficiency of the proposed embedding and how well it generalizes in terms of violence classification, along with its coverage on the task’s dataset. Our proposed Bangla IFT embedding achieved a competitive macro average F1 score of 70.45%. Additionally, we provide a detailed analysis of our findings, delving into potential causes of misclassification in the detection of violence-inciting text.",
+    "summary": "The paper introduces an informal Bangla FastText embedding trained on 3.8 million informal text samples. Paired with lightweight classifiers, it targets violence-inciting text detection while reducing training and inference cost compared with transformer-based alternatives.",
+    "bibtex": "@inproceedings{tariquzzaman-etal-2023-linguists,\n    title = \"the{\\_}linguists at {BLP}-2023 Task 1: A Novel Informal {B}angla {F}asttext Embedding for Violence Inciting Text Detection\",\n    author = \"Tariquzzaman, Md.  and\n      Kader, Md Wasif  and\n      Anam, Audwit  and\n      Haque, Naimul  and\n      Kabir, Mohsinul  and\n      Mahmud, Hasan  and\n      Hasan, Md Kamrul\",\n    editor = \"Alam, Firoj  and\n      Kar, Sudipta  and\n      Chowdhury, Shammur Absar  and\n      Sadeque, Farig  and\n      Amin, Ruhul\",\n    booktitle = \"Proceedings of the First Workshop on Bangla Language Processing (BLP-2023)\",\n    month = dec,\n    year = \"2023\",\n    address = \"Singapore\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2023.banglalp-1.26/\",\n    doi = \"10.18653/v1/2023.banglalp-1.26\",\n    pages = \"214--219\"\n}",
+    "page": {
+      "links": {},
+      "affiliations": [
+        "Systems and Software Lab (SSL), Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
+      ],
+      "author_affiliations": {},
+      "teaser": {
+        "src": "files/papers/informal-bangla/system.webp",
+        "width": 672,
+        "height": 762,
+        "narrow": true,
+        "alt": "Flowchart. Data preprocessing: social-media comments are collected with Facepager, cleaned of noise, emoticons, tags, foreign words, and punctuation, filtered by length, and saved. Training: FastText embeddings with 3 to 6 character n-grams are passed to a model that is fine-tuned and used for prediction.",
+        "caption": "Figure 1. From raw social-media comments to an informal Bangla FastText embedding, then to lightweight classifiers fine-tuned on the task data."
+      },
+      "tldr": "An informal Bangla FastText embedding, trained on 3.8 million social-media comments, lets a lightweight BiLSTM detect violence-inciting text within about four macro-F1 points of BanglaBERT while training 17 times faster. The paper received the Best Shared Task Paper Award at BLP 2023.",
+      "sections": [
+        {
+          "id": "task",
+          "heading": "Violence-inciting text detection",
+          "paragraphs": [
+            "BLP-2023 Task 1 asks systems to sort text by the violence it could incite. Unlike hate speech, which targets groups by attribute, violence-inciting text advocates harm. The shared-task data are YouTube comments on the nine most significant violent incidents in the Bengal region, covering Bangladesh and West Bengal, over the past decade."
+          ],
+          "list": [
+            "<strong>Direct violence</strong>: explicit threats against individuals or communities.",
+            "<strong>Passive violence</strong>: derogatory language, abusive remarks, slang, or justifications for violence.",
+            "<strong>Non-violence</strong>: content unrelated to violence, including discussion of social rights."
+          ],
+          "after": [
+            "Our initial BanglaBERT submission placed 7th with an F1 of 73.98%. This paper asks whether a far cheaper system can come close."
+          ]
+        },
+        {
+          "id": "embedding",
+          "heading": "An informal Bangla embedding",
+          "paragraphs": [
+            "We collected 6.8 million comments from Facebook and YouTube through the Facebook Graph API using Facepager. Removing redundant words, symbols, and non-Bangla content left 3.8 million samples. A FastText model was trained on them with continuous bag-of-words, 300-dimensional vectors, character n-grams of 3 to 6, and a minimum word count of 2. Sub-word information lets it represent misspelled and out-of-vocabulary words common in informal text.",
+            "The resulting informal FastText (IFT) embedding covers far more of the task vocabulary than BanglaBERT’s."
+          ],
+          "table": {
+            "caption": "Share of unique task tokens covered by each vocabulary.",
+            "columns": [
+              "Split",
+              "IFT",
+              "BanglaBERT"
+            ],
+            "rows": [
+              [
+                "Train",
+                "58.32%",
+                "35.00%"
+              ],
+              [
+                "Dev",
+                "62.45%",
+                "40.49%"
+              ],
+              [
+                "Test",
+                "58.35%",
+                "35.82%"
+              ]
+            ]
+          },
+          "after": [
+            "IFT is paired with logistic regression, SVM, LSTM, BiLSTM, and GRU classifiers, each also trained with a plain CBoW embedding for comparison, and set against mBERT, XLM-RoBERTa, and BanglaBERT."
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "claim": "The informal embedding lifts every lightweight model.",
+          "detail": "Replacing a plain CBoW embedding with IFT improves macro-F1 for all five lightweight classifiers, most dramatically for BiLSTM and GRU, which with CBoW barely predict the violent classes at all.",
+          "table": {
+            "caption": "Macro-F1 (%) on the test set.",
+            "columns": [
+              "Model",
+              "CBoW",
+              "IFT"
+            ],
+            "rows": [
+              [
+                "Logistic regression",
+                "31.7",
+                "63.1"
+              ],
+              [
+                "SVM",
+                "25.9",
+                "66.0"
+              ],
+              [
+                "LSTM",
+                "63.7",
+                "69.3"
+              ],
+              [
+                "BiLSTM",
+                "24.2",
+                "<strong>70.5</strong>"
+              ],
+              [
+                "GRU",
+                "24.0",
+                "69.3"
+              ],
+              [
+                "mBERT",
+                "—",
+                "65.8"
+              ],
+              [
+                "XLM-RoBERTa",
+                "—",
+                "67.4"
+              ],
+              [
+                "BanglaBERT",
+                "—",
+                "74.6"
+              ]
+            ]
+          }
+        },
+        {
+          "claim": "BiLSTM with IFT beats mBERT and XLM-RoBERTa.",
+          "detail": "At 70.5% macro-F1, BiLSTM with IFT outperforms mBERT (65.8%) and XLM-RoBERTa (67.4%). BanglaBERT remains the strongest model at 74.6%, underlining the value of language-specific pre-training."
+        },
+        {
+          "claim": "It trains 17 times faster and infers 1.54 times faster than BanglaBERT.",
+          "detail": "Measured on a Google Colab T4 GPU, with six training epochs over 2,700 samples and inference over 2,016 samples.",
+          "table": {
+            "caption": "Wall-clock time in seconds.",
+            "columns": [
+              "Model",
+              "Training",
+              "Inference"
+            ],
+            "rows": [
+              [
+                "BanglaBERT",
+                "532.80",
+                "18.46"
+              ],
+              [
+                "BiLSTM + IFT",
+                "<strong>31.23</strong>",
+                "<strong>11.98</strong>"
+              ]
+            ]
+          }
+        },
+        {
+          "claim": "Passive and direct violence are the hardest to separate.",
+          "detail": "Across models, most errors come from telling passive from direct violence, likely because violent content shares so much wording. IFT still improves results on these harder classes.",
+          "figure": {
+            "src": "files/papers/informal-bangla/confusion.webp",
+            "width": 660,
+            "height": 558,
+            "narrow": true,
+            "alt": "Confusion matrix for BiLSTM with FastText. True non-violence: 922 correct, 130 predicted passive, 44 direct. True passive: 232 non, 453 correct, 34 direct. True direct: 44 non, 29 passive, 128 correct.",
+            "caption": "Figure 2. Confusion matrix for BiLSTM with the informal FastText embedding."
+          }
+        }
+      ],
+      "video": {
+        "kind": "video",
+        "src": "https://aclanthology.org/2023.banglalp-1.26.mp4",
+        "title": "Presentation video for the_linguists at BLP-2023 Task 1"
+      }
+    }
   },
   {
     "id": "bda",
@@ -115,6 +733,228 @@
     "type": "preprint",
     "areas": [
       "Text augmentation"
-    ]
+    ],
+    "arxiv": "2412.08753",
+    "pdf": "https://arxiv.org/pdf/2412.08753",
+    "abstract": "Data augmentation involves generating synthetic samples that resemble those in a given dataset. In resource-limited fields where high-quality data is scarce, augmentation plays a crucial role in increasing the volume of training data. This paper introduces a Bangla Text Data Augmentation (BDA) Framework that uses both pre-trained models and rule-based methods to create new variants of the text. A filtering process is included to ensure that the new text keeps the same meaning as the original while also adding variety in the words used. We conduct a comprehensive evaluation of the framework’s effectiveness in Bangla text classification tasks. Our framework achieved significant improvement in F1 scores across five distinct datasets, delivering performance equivalent to models trained on 100% of the data while utilizing only 50% of the training dataset. Additionally, we explore the impact of data scarcity by progressively reducing the training data and augmenting it through BDA, resulting in notable F1 score enhancements. The study offers a thorough examination of BDA’s performance, identifying key factors for optimal results and addressing its limitations through detailed analysis.",
+    "summary": "BDA combines rule-based and pretrained-model augmentation methods for Bangla text, then filters generated examples with semantic and lexical similarity checks. Across five datasets, the framework reaches performance comparable to full-data training while using half the training data.",
+    "bibtex": "@misc{tariquzzaman2024bdabanglatextdata,\n      title={BDA: Bangla Text Data Augmentation Framework}, \n      author={Md. Tariquzzaman and Audwit Nafi Anam and Naimul Haque and Mohsinul Kabir and Hasan Mahmud and Md Kamrul Hasan},\n      year={2024},\n      eprint={2412.08753},\n      archivePrefix={arXiv},\n      primaryClass={cs.CL},\n      url={https://arxiv.org/abs/2412.08753}, \n}",
+    "page": {
+      "links": {
+        "Code": "https://github.com/mdtariquzzaman/Bangla-Text-Augmentation-Framework"
+      },
+      "affiliations": [
+        "Systems and Software Lab (SSL), Department of Computer Science and Engineering, Islamic University of Technology, Bangladesh"
+      ],
+      "author_affiliations": {},
+      "teaser": {
+        "src": "files/papers/bda/pipeline.webp",
+        "width": 966,
+        "height": 480,
+        "alt": "Pipeline diagram. A prepared dataset enters the BDA framework, which applies synonym replacement, random swap, back-translation, or paraphrasing. Outputs pass an SBERT similarity and SacreBLEU filter, and those above threshold are merged and evaluated.",
+        "caption": "Figure 2 in the paper. BDA generates candidates with four methods, then keeps only those that pass semantic and lexical filters."
+      },
+      "tldr": "BDA augments Bangla text with two rule-based and two transformer-based methods, then keeps only outputs that preserve the meaning while changing the wording. Across five classification datasets, training on half the data plus BDA matches or beats full-data training on three.",
+      "sections": [
+        {
+          "id": "method",
+          "heading": "Four augmentation operations",
+          "paragraphs": [
+            "Each training sentence is rewritten by one randomly chosen operation:"
+          ],
+          "list": [
+            "<strong>Synonym replacement</strong>: replace n non-stop words with their nearest neighbours in a Bangla Word2Vec space.",
+            "<strong>Random swap</strong>: swap the positions of two words, n times.",
+            "<strong>Back-translation</strong>: translate to English and back with BanglaT5 fine-tuned on BanglaNMT, which reshapes the grammar.",
+            "<strong>Paraphrasing</strong>: rewrite with BanglaT5 fine-tuned on BanglaParaphrase."
+          ],
+          "after": [
+            "The augmented copy is merged 1:1 with the original data, so half the final set is synthetic; more would risk over-representing synthetic text. Rule-based methods use a small n of 2 to keep sentences close to their source. Random swap matters for informal text, where misspellings and missing grammar defeat the model-based methods."
+          ],
+          "figures": [
+            {
+              "src": "files/papers/bda/examples.webp",
+              "width": 1050,
+              "height": 492,
+              "alt": "A Bangla sentence meaning that a proper investigation is needed and whoever did this must be brought to justice, shown in its original form and rewritten by synonym replacement, random swap, back-translation, and paraphrasing.",
+              "caption": "Figure 1 in the paper. One sentence, four augmentations."
+            }
+          ]
+        },
+        {
+          "id": "filtering",
+          "heading": "Meaning-preserving filter",
+          "paragraphs": [
+            "Augmentation can drift far enough to change a label. Each candidate is therefore compared with its source twice. A multilingual Sentence-BERT model checks semantic similarity, and SacreBLEU checks lexical overlap. A candidate is kept only if it stays close in meaning (85% to 99% similarity here, so near-copies are dropped too) while sharing little wording (lexical similarity below 45%). Thresholds are dataset-specific and adjustable."
+          ],
+          "figures": [
+            {
+              "src": "files/papers/bda/filtering.webp",
+              "width": 966,
+              "height": 381,
+              "alt": "Diagram. Original sentence T and augmented sentence T-prime are embedded with SBERT for cosine similarity and compared with SacreBLEU; if both pass the threshold check, T-prime is appended to the dataset.",
+              "caption": "Figure 3 in the paper. The two-stage filter."
+            }
+          ]
+        },
+        {
+          "id": "setup",
+          "heading": "Experimental setup",
+          "paragraphs": [
+            "Five datasets were chosen to cover class imbalance, data scarcity, noisy text, and low variation between samples. Training sets were cut to 15%, 50%, and 100% with stratified sampling, keeping the class ratios, to see how far augmentation can stand in for missing data. Each setting was run with BanglaBERT and with an SVM over TF-IDF word (1–3) and character (2–5) n-grams."
+          ],
+          "table": {
+            "caption": "Benchmark datasets.",
+            "columns": [
+              "Dataset",
+              "Task",
+              "Samples",
+              "Classes"
+            ],
+            "rows": [
+              [
+                "BemoC",
+                "Multi-class emotion classification",
+                "48,328",
+                "6"
+              ],
+              [
+                "SentNoB",
+                "Sentiment in noisy, informal text",
+                "15,728",
+                "3"
+              ],
+              [
+                "Bengali Sentiment",
+                "Balanced sentiment classification",
+                "11,851",
+                "3"
+              ],
+              [
+                "ABSA Cricket",
+                "Aspect-based sentiment",
+                "1,787",
+                "5"
+              ],
+              [
+                "ABSA Restaurant",
+                "Aspect-based sentiment",
+                "1,235",
+                "5"
+              ]
+            ]
+          }
+        }
+      ],
+      "findings": [
+        {
+          "claim": "Half the data plus BDA can match the full dataset.",
+          "detail": "With BanglaBERT, 50% of the data plus BDA beats training on all of the original data on ABSA Cricket and Bengali Sentiment, and comes within 0.14 F1 points on ABSA Restaurant. Augmentation also improves every BanglaBERT setting shown here.",
+          "table": {
+            "caption": "BanglaBERT F1 (%), original → with BDA.",
+            "columns": [
+              "Dataset",
+              "15%",
+              "50%",
+              "100%"
+            ],
+            "rows": [
+              [
+                "SentNoB",
+                "64.86 → 64.97",
+                "66.91 → 68.10",
+                "70.73 → 72.03"
+              ],
+              [
+                "BemoC",
+                "59.61 → 61.94",
+                "68.98 → 69.39",
+                "70.41 → 70.56"
+              ],
+              [
+                "Bengali Sentiment",
+                "45.12 → 45.55",
+                "48.95 → <strong>49.19</strong>",
+                "49.08 → 49.19"
+              ],
+              [
+                "ABSA Cricket",
+                "38.68 → 46.98",
+                "49.27 → <strong>56.05</strong>",
+                "54.83 → 57.45"
+              ],
+              [
+                "ABSA Restaurant",
+                "23.62 → 26.14",
+                "38.01 → 45.59",
+                "45.73 → 55.29"
+              ]
+            ]
+          }
+        },
+        {
+          "claim": "Gains hold across data sizes, and help even when data is scarce.",
+          "detail": "Even at 15% of the training data, BDA adds 8.30 F1 points on ABSA Cricket and 2.52 on ABSA Restaurant with BanglaBERT. On very small sets augmentation behaves partly like oversampling; with more data, the added diversity helps the model generalise.",
+          "figure": {
+            "src": "files/papers/bda/f1-curves.webp",
+            "width": 1576,
+            "height": 220,
+            "alt": "Five line charts of F1 score against 15, 50, and 100 percent of each dataset, comparing normal training with BDA for SentNoB, Bengali Sentiment, BemoC, ABSA Cricket, and ABSA Restaurant.",
+            "caption": "Figure 4 in the paper. F1 with and without BDA as the training set grows."
+          }
+        },
+        {
+          "claim": "No single augmentation method wins everywhere.",
+          "detail": "Rule-based methods keep more of the original wording; random swap preserves meaning best because it adds no new words. Back-translation and paraphrasing restructure whole sentences. Averaged over all datasets, the four methods trade places, so a mix works better than any one of them.",
+          "figure": {
+            "src": "files/papers/bda/method-comparison.webp",
+            "width": 636,
+            "height": 438,
+            "narrow": true,
+            "alt": "Line chart of average F1 against 15, 50, and 100 percent of data for synonym replacement, random swap, back-translation, and paraphrasing; the four lines nearly overlap.",
+            "caption": "Figure 5 in the paper. Average F1 for each method on its own."
+          },
+          "table": {
+            "caption": "Similarity of augmented text to its source (%), and where each method fits best.",
+            "columns": [
+              "Method",
+              "Lexical",
+              "Semantic",
+              "Best suited to"
+            ],
+            "rows": [
+              [
+                "Synonym replacement",
+                "59.61",
+                "83.86",
+                "Small to medium datasets"
+              ],
+              [
+                "Random swap",
+                "48.57",
+                "94.06",
+                "Large, saturated datasets"
+              ],
+              [
+                "Back-translation",
+                "11.29",
+                "79.15",
+                "Small, highly constrained datasets"
+              ],
+              [
+                "Paraphrasing",
+                "15.40",
+                "86.97",
+                "Any dataset size"
+              ]
+            ]
+          }
+        },
+        {
+          "claim": "BanglaBERT benefits more than SVM.",
+          "detail": "BanglaBERT shows the more robust improvement across datasets and sizes, as it captures the contextual variation augmentation introduces. Model-based and rule-based augmentation land within one to two F1 points of each other."
+        }
+      ]
+    }
   }
 ]

@@ -76,4 +76,20 @@
     new ResizeObserver(schedule).observe(contents);
     updateSection();
   }
+  document.querySelectorAll('.copy-citation').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const target = document.getElementById(button.dataset.copyTarget);
+      if (!target) return;
+      const text = target.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = button.textContent;
+        button.textContent = 'Copied';
+        window.setTimeout(() => { button.textContent = original; }, 1400);
+      } catch (_) {
+        target.focus();
+      }
+    });
+  });
+
 })();

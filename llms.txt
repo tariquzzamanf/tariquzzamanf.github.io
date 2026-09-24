@@ -1,0 +1,16 @@
+# Md. Tariquzzaman
+
+Academic website: https://mdtariquzzaman.github.io/
+
+Research: misinformation and harmful content; LLM evaluation and bias; low-resource and Bangla NLP; accessibility and sign language.
+
+## Pages
+- [Research](https://mdtariquzzaman.github.io/research.html)
+- [Publications](https://mdtariquzzaman.github.io/publications.html)
+- [CV](https://mdtariquzzaman.github.io/cv.html)
+
+## Publications
+- [Same Claim, Different Judgment: Benchmarking Scenario-Induced Bias in Multilingual Financial Misinformation Detection](https://mdtariquzzaman.github.io/publications/scenario-bias/)
+- [Prompting with Sign Parameters for Low-resource Sign Language Instruction Generation](https://mdtariquzzaman.github.io/publications/sign-parameters/)
+- [the_linguists at BLP-2023 Task 1: A Novel Informal Bangla Fasttext Embedding for Violence Inciting Text Detection](https://mdtariquzzaman.github.io/publications/informal-bangla/)
+- [BDA: Bangla Text Data Augmentation Framework](https://mdtariquzzaman.github.io/publications/bda/)
