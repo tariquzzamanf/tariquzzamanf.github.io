@@ -89,9 +89,11 @@
       const text = target.innerText;
       try {
         await navigator.clipboard.writeText(text);
-        const original = button.textContent;
-        button.textContent = 'Copied';
-        window.setTimeout(() => { button.textContent = original; }, 1400);
+        const label = button.querySelector('.copy-label') || button;
+        const original = label.textContent;
+        label.textContent = 'Copied';
+        button.classList.add('is-copied');
+        window.setTimeout(() => { label.textContent = original; button.classList.remove('is-copied'); }, 1400);
       } catch (_) {
         target.focus();
       }
