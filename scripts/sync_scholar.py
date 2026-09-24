@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """Synchronize the public Google Scholar summary metrics for this site.
 
-Google Scholar is not an API and may rate-limit automated requests.  This
-script therefore updates only the small, curated metrics file and writes it
-atomically after all three values have been parsed successfully.  Publication
-metadata stays in content/publications.json because its author order, status,
-topics, and resources are editorial records.
+Google Scholar is not an API and blocks automated requests from data-centre
+networks, so run this by hand from your own connection.  It updates only the
+small, curated metrics file, writes it atomically after all three values have
+been parsed, and then rebuilds the site.  Any failure prints SYNC FAILED, leaves
+the previous metrics untouched, and exits with status 1, so a normal
+"updated" line means the values really came from Scholar.  Publication metadata
+stays in content/publications.json because its author order, status, topics,
+and resources are editorial records.
 
 Usage:
-    python3 scripts/sync_scholar.py
-    python3 scripts/sync_scholar.py --dry-run
-    python3 scripts/sync_scholar.py --user-id LWB_NzwAAAAJ
+    python3 scripts/sync_scholar.py              # fetch, save, rebuild
+    python3 scripts/sync_scholar.py --dry-run    # fetch and print only
+    python3 scripts/sync_scholar.py --no-build   # fetch and save, skip rebuild
 """
 
 from __future__ import annotations
@@ -20,6 +23,8 @@ import datetime as dt
 from html.parser import HTMLParser
 import json
 import re
+import ssl
+import subprocess
 import sys
 import tempfile
 import time
@@ -50,12 +55,30 @@ def fetch_profile(user_id: str) -> str:
             with urllib.request.urlopen(request, timeout=30) as response:
                 body = response.read().decode("utf-8", "replace")
             if "gsc_rsb_std" not in body:
-                raise RuntimeError("the response did not contain Scholar metrics")
+                raise RuntimeError(
+                    "Scholar answered without the metrics table (probably a CAPTCHA "
+                    "page); open the profile in a browser, then try again later"
+                )
             return body
-        except (urllib.error.URLError, TimeoutError, RuntimeError) as error:
+        except urllib.error.HTTPError as error:
+            # 403/429 mean this network is blocked; retrying only prolongs it.
+            if error.code in (403, 429):
+                raise RuntimeError(
+                    f"Scholar refused the request (HTTP {error.code}); this network is "
+                    "rate-limited or blocked, so wait a while or try another connection"
+                ) from error
             last_error = error
-            if attempt < 2:
-                time.sleep(2 * (attempt + 1))
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, ssl.SSLCertVerificationError):
+                raise RuntimeError(
+                    "Python cannot verify HTTPS certificates; on macOS run "
+                    "'Install Certificates.command' in your Python folder under /Applications"
+                ) from error
+            last_error = error
+        except (TimeoutError, RuntimeError) as error:
+            last_error = error
+        if attempt < 2:
+            time.sleep(2 * (attempt + 1))
     raise RuntimeError(f"Google Scholar request failed: {last_error}") from last_error
 
 
@@ -136,27 +159,48 @@ def write_metrics(path: Path, metrics: dict[str, int], dry_run: bool = False) ->
     return changed
 
 
+def describe(previous: dict, metrics: dict[str, int]) -> str:
+    """Show each metric as old -> new, or just the value when it is unchanged."""
+    parts = []
+    for key, label in [("citations", "citations"), ("h_index", "h-index"), ("i10_index", "i10-index")]:
+        old, new = previous.get(key), metrics[key]
+        parts.append(f"{label} {old} -> {new}" if old is not None and old != new else f"{label} {new}")
+    return ", ".join(parts)
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--user-id", default=DEFAULT_USER_ID, help="Google Scholar profile ID")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help=argparse.SUPPRESS)
     parser.add_argument("--dry-run", action="store_true", help="print values without writing JSON")
+    parser.add_argument("--no-build", action="store_true", help="save metrics without rebuilding the site")
     args = parser.parse_args()
     if not re.fullmatch(r"[A-Za-z0-9_-]+", args.user_id):
         parser.error("invalid Scholar profile ID")
 
     try:
+        previous = json.loads(args.output.read_text(encoding="utf-8")) if args.output.exists() else {}
         metrics = parse_metrics(fetch_profile(args.user_id))
-        changed = write_metrics(args.output, metrics, dry_run=args.dry_run)
+        write_metrics(args.output, metrics, dry_run=args.dry_run)
     except (OSError, ValueError, RuntimeError) as error:
-        print(f"Scholar sync skipped: {error}", file=sys.stderr)
+        print(f"SYNC FAILED: {error}", file=sys.stderr)
+        print(f"Nothing was changed; the site keeps the metrics from {previous.get('verified_on', 'the last sync')}.", file=sys.stderr)
         return 1
 
-    action = "would update" if args.dry_run else ("updated" if changed else "already current")
-    print(
-        f"Scholar metrics {action}: citations={metrics['citations']}, "
-        f"h-index={metrics['h_index']}, i10-index={metrics['i10_index']}"
-    )
+    # Scholar can legitimately drop a citation or two, but a large fall is
+    # more likely a wrong or partial profile page, so say so plainly.
+    for key in ("citations", "h_index", "i10_index"):
+        if isinstance(previous.get(key), int) and metrics[key] < previous[key]:
+            print(f"Warning: {key} fell from {previous[key]} to {metrics[key]}; check the profile if unexpected.", file=sys.stderr)
+
+    if args.dry_run:
+        print(f"Scholar fetch OK (dry run, nothing saved): {describe(previous, metrics)}")
+        return 0
+    same = all(previous.get(key) == metrics[key] for key in ("citations", "h_index", "i10_index"))
+    print(f"Scholar metrics {'unchanged' if same else 'updated'}: {describe(previous, metrics)}; refreshed date set to today.", flush=True)
+    if not args.no_build:
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "build.py")], check=True)
+        print("Now review with 'git diff', then commit and push to publish.")
     return 0
 
 

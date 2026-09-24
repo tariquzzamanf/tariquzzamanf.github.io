@@ -42,21 +42,25 @@ Open [localhost:8765](http://127.0.0.1:8765). Stop the server with `Ctrl+C`. The
 
 After changing content or the build script, run `python3 scripts/build.py` and include the generated root-level HTML files, `404.html`, `sitemap.xml`, and `robots.txt` with the source changes. CSS-only edits do not require rebuilding. Check affected pages at desktop and mobile widths.
 
-## Automatic Google Scholar metrics
+## Google Scholar metrics
 
-`scripts/sync_scholar.py` refreshes the public profile summary (citations, h-index, and i10-index) in `content/scholar-metrics.json`. It deliberately does not import papers: publication author order, status, topics, and resource links are curated in `content/publications.json`. Google Scholar can rate-limit automated requests; a blocked run leaves the previous metrics untouched, and the Pages workflow still deploys the rest of the site.
+`scripts/sync_scholar.py` refreshes the public profile summary (citations, h-index, and i10-index) in `content/scholar-metrics.json`. It deliberately does not import papers: publication author order, status, topics, and resource links are curated in `content/publications.json`. Google Scholar blocks requests from cloud servers such as GitHub Actions, so run it by hand from your own connection:
 
-The repository includes `.github/workflows/scholar-and-pages.yml`. It runs on human pushes to `main`, every Monday at 03:23 UTC, and on demand. Each run syncs the metrics, rebuilds the HTML, commits changed data and generated files, and deploys the result through GitHub Pages. The bot's follow-up commit skips fetching once, so it does not create a commit loop.
+```sh
+python3 scripts/sync_scholar.py            # fetch, save, and rebuild the site
+python3 scripts/sync_scholar.py --dry-run  # fetch and print only
+```
 
-### One-time GitHub setup
+A successful run prints `Scholar metrics updated` (or `unchanged`) with the values, sets the refreshed date to today, and rebuilds the pages. Any failure — a Scholar block, a CAPTCHA page, a missing or malformed metrics row, or a certificate problem — prints `SYNC FAILED` with the reason, changes nothing, and exits with status 1, so there is no need to cross-check the numbers. On a macOS python.org install, a certificate error is fixed once by running `Install Certificates.command` from the Python folder in `/Applications`.
 
-1. Push the repository, including `.github/workflows/scholar-and-pages.yml`, to the `main` branch.
-2. Open **Settings → Pages**. Under **Build and deployment → Source**, choose **GitHub Actions** and save. This workflow uses the official Pages artifact/deploy actions, so it does not use the old branch-source setting.
-3. Open **Settings → Actions → General**. Keep Actions enabled. Under **Workflow permissions**, allow the workflow to read and write repository contents; the workflow also declares `contents: write`, `pages: write`, and `id-token: write` for its own job.
-4. Open the **Actions** tab, choose **Sync Scholar and deploy Pages**, select **Run workflow** on `main`, and confirm the run completes. The deployed URL is shown in the job summary.
-5. In later weeks, check the workflow run if the date on the Publications page has not changed. The scheduled job uses UTC and GitHub may delay it during load. Public-repository schedules are disabled after 60 days without repository activity; re-enable the workflow from the Actions tab if that happens.
+## Deployment
 
-No Google credential is needed: the script reads the public profile identified by `LWB_NzwAAAAJ`. If Scholar temporarily blocks the runner, wait and run it again manually; the last successful values remain on the site.
+GitHub Pages serves the `main` branch from the repository root (**Settings → Pages → Source: Deploy from a branch**, `main`, `/ (root)`). To publish, rebuild if needed, then commit and push:
+
+```sh
+python3 scripts/sync_scholar.py   # optional: refresh metrics and rebuild
+git add -A && git commit -m "Update site" && git push
+```
 
 See [agents.md](agents.md) for the maintained content and design decisions. The current CV and approved page sources govern factual updates; preserve publication status and author order.
 

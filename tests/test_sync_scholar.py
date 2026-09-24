@@ -1,5 +1,7 @@
 """Regression checks for incomplete Scholar responses and safe updates."""
 import json
+import ssl
+import urllib.error
 from pathlib import Path
 import tempfile
 import unittest
@@ -55,6 +57,17 @@ class ScholarTests(unittest.TestCase):
             self.assertTrue(sync.write_metrics(path, metrics))
             self.assertEqual(json.loads(path.read_text())['note'], 'keep')
             self.assertFalse(sync.write_metrics(path, metrics))
+
+    def test_block_fails_fast_with_a_clear_reason(self):
+        blocked = urllib.error.HTTPError(sync.SCHOLAR_URL, 403, 'Forbidden', {}, None)
+        with patch('urllib.request.urlopen', side_effect=blocked) as opened, self.assertRaisesRegex(RuntimeError, 'HTTP 403'):
+            sync.fetch_profile('x')
+        self.assertEqual(opened.call_count, 1)
+
+    def test_certificate_error_names_the_fix(self):
+        error = urllib.error.URLError(ssl.SSLCertVerificationError('bad cert'))
+        with patch('urllib.request.urlopen', side_effect=error), self.assertRaisesRegex(RuntimeError, 'Install Certificates'):
+            sync.fetch_profile('x')
 
 
 if __name__ == '__main__':
