@@ -150,7 +150,7 @@ body { font-size: 1.1rem; }
 .theme-toggle, .nav-burger { border-radius: 8px; }
 .research-theme .theme-kicker { margin: 0 0 8px; color: var(--gold); font: 600 .82rem/1.4 var(--sans); letter-spacing: .1em; text-transform: uppercase; }
 .research-theme .theme-kicker::before { display:inline-grid; place-items:center; width:28px; height:28px; margin-right:10px; border-radius:8px; color:#fffdf7; font-size:.82rem; letter-spacing:0; vertical-align:-8px; }
-.theme-misinformation .theme-kicker::before { content:'!'; background:#a45c4e; }
+.theme-misinformation .theme-kicker::before { content:'!'; background:#765f83; }
 .theme-evaluation .theme-kicker::before { content:'≈'; background:#65708d; }
 .theme-bangla .theme-kicker::before { content:'অ'; background:#75885e; }
 .theme-accessibility .theme-kicker::before { content:'◌'; background:#a47728; }
@@ -310,7 +310,7 @@ h2, .chapter h2, .publication-group h2 { font-size: var(--text-section); line-he
 .paper-hero .eyebrow { margin-bottom: 14px; }
 .paper-hero .venue { color: var(--muted); margin-bottom: 6px; }
 .accepted-venue { display:flex; align-items:baseline; gap:16px; width:fit-content; max-width:100%; margin:12px 0 20px; padding:13px 20px 14px; border:1px solid #d9b56e; border-left:4px solid #c58d2c; border-radius:4px; background:#fff8df; color:var(--ink); font-family:var(--sans); line-height:1.4; }
-.accepted-label { color:#8f3217; font-size:var(--text-small); font-weight:700; letter-spacing:.12em; text-transform:uppercase; white-space:nowrap; }
+.accepted-label { color:#6f5a78; font-size:var(--text-small); font-weight:700; letter-spacing:.12em; text-transform:uppercase; white-space:nowrap; }
 .accepted-name { color:#15539b; font-size:clamp(1rem,2vw,1.35rem); font-weight:700; }
 .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0 0 26px; font: var(--text-small)/1.6 var(--sans); color: var(--muted); }
 .breadcrumb a { color: var(--green); text-decoration: none; }
@@ -436,9 +436,9 @@ h2, .chapter h2, .publication-group h2 { font-size: var(--text-section); line-he
   --btn-ink: #fffdf7;
   --kind-mail: #3f6b4f;
   --kind-project: #475a8c;
-  --kind-paper: #a63c2e;
-  --kind-arxiv: #8e2a50;
-  --kind-pdf: #a94c19;
+  --kind-paper: #6f5a78;
+  --kind-arxiv: #765f83;
+  --kind-pdf: #5b626b;
   --kind-code: #1f6470;
   --kind-dataset: #86620f;
   --kind-video: #6343a0;
@@ -570,11 +570,11 @@ button.btn.is-copied { --kind: var(--kind-mail); }
    is on screen, so readers always know where they are. Colours cycle by section. */
 :root {
   --header-h: 92px;
-  --sec-1: #3f6b4f; --sec-2: #2f5fb0; --sec-3: #a63c2e;
+  --sec-1: #3f6b4f; --sec-2: #2f5fb0; --sec-3: #6f5a78;
   --sec-4: #1f6470; --sec-5: #86620f; --sec-6: #6343a0;
 }
 html[data-theme="dark"] {
-  --sec-1: #9fcfae; --sec-2: #9dbcf0; --sec-3: #f0a18f;
+  --sec-1: #9fcfae; --sec-2: #9dbcf0; --sec-3: #c9add0;
   --sec-4: #8fd0d9; --sec-5: #e3c56f; --sec-6: #c3b0ee;
 }
 :is(main > .section, .chapter, .publication-group, .publications-layout #resources,
