@@ -21,7 +21,7 @@ Open [localhost:8765](http://127.0.0.1:8765). Stop the server with `Ctrl+C`.
 
 | File or directory | Purpose |
 | --- | --- |
-| `content/home.html`, `research.html`, `cv.html`, `personal.html` | Page content and templates |
+| `content/home.html`, `cv.html`, `personal.html` | Page content and templates |
 | `content/publications.json` | Publication records, author order, status, and resource links |
 | `content/scholar-metrics.json` | Google Scholar metrics and the date they were refreshed |
 | `content/teaching.json` | Teaching and supervision |

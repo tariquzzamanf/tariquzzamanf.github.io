@@ -325,9 +325,6 @@ for slug, title, description, body in pages:
     page_title = 'Md. Tariquzzaman · Junior Lecturer & NLP Researcher at IUT' if slug == 'index' else title + ' · Md. Tariquzzaman'
     (ROOT / (slug + '.html')).write_text(render(slug, page_title, description, canonical, body, current=slug, head_extra=schemas.get(slug, '')))
 
-# Preserve old Research URLs while consolidating research discovery in Publications.
-(ROOT / 'research.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=publications.html"><link rel="canonical" href="' + SITE + 'publications.html"><title>Research · Md. Tariquzzaman</title></head><body><p>Research is now organised through the <a href="publications.html">Publications page</a>.</p></body></html>')
-
 publication_routes = []
 # Previous/next follow the order of the Publications page.
 paper_order = [p for kind, *_ in groups for p in sorted((q for q in papers if q['type'] == kind), key=lambda q: int(q['year']), reverse=True)]
@@ -366,6 +363,6 @@ Allow: /
 
 Sitemap: {SITE}sitemap.xml
 ''')
-llms = '# Md. Tariquzzaman\n\nAcademic website: '+SITE+'\n\nResearch: misinformation and harmful content; LLM evaluation and bias; low-resource and Bangla NLP; accessibility and sign language.\n\n## Pages\n- [Research]('+SITE+'research.html)\n- [Publications]('+SITE+'publications.html)\n- [CV]('+SITE+'cv.html)\n\n## Publications\n' + ''.join(f'- [{p["title"]}]({SITE}publications/{p["id"]}/)\n' for p in papers)
+llms = '# Md. Tariquzzaman\n\nAcademic website: '+SITE+'\n\nResearch: misinformation and harmful content; LLM evaluation and bias; low-resource and Bangla NLP; accessibility and sign language.\n\n## Pages\n- [Publications]('+SITE+'publications.html)\n- [CV]('+SITE+'cv.html)\n\n## Publications\n' + ''.join(f'- [{p["title"]}]({SITE}publications/{p["id"]}/)\n' for p in papers)
 (ROOT / 'llms.txt').write_text(llms)
 print(f'Built {len(pages)} static pages, {len(papers)} publication pages, plus 404.html, sitemap.xml, robots.txt, and llms.txt.')

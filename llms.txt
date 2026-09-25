@@ -5,7 +5,6 @@ Academic website: https://mdtariquzzaman.github.io/
 Research: misinformation and harmful content; LLM evaluation and bias; low-resource and Bangla NLP; accessibility and sign language.
 
 ## Pages
-- [Research](https://mdtariquzzaman.github.io/research.html)
 - [Publications](https://mdtariquzzaman.github.io/publications.html)
 - [CV](https://mdtariquzzaman.github.io/cv.html)
 
