@@ -10,7 +10,6 @@ def read(name): return (ROOT / 'content' / name).read_text()
 
 papers = json.loads(read('publications.json'))
 news = json.loads(read('news.json'))
-terms = json.loads(read('teaching.json'))
 metrics = json.loads(read('scholar-metrics.json'))
 SITE = 'https://mdtariquzzaman.github.io/'
 ME = 'Md. Tariquzzaman'
@@ -67,11 +66,18 @@ def local_publication_url(p, prefix=''):
 def external_links(p, prefix=''):
     return ''.join(resource_button(label, value) for label, value in p.get('links', {}).items())
 
+def award_html(p):
+    if not p.get('award'): return ''
+    label = escape(p['award'])
+    if p.get('award_url'):
+        label = f'<a href="{escape(p["award_url"], quote=True)}">{label}{icon("external", "icon icon-trail")}</a>'
+    return f'<p class="award">{label}</p>'
+
 def publication(p, compact=False, label=None, prefix=''):
     authors = ', '.join('<strong>'+escape(a)+'</strong>' if a == ME else escape(a) for a in p['authors'])
     if compact and len(p['authors']) > 8:
         authors = 'Zhiwei Liu et al., including <strong>Md. Tariquzzaman</strong>'
-    award = f'<p class="award">{escape(p["award"])}</p>' if p.get('award') else ''
+    award = award_html(p)
     marker = escape(label) if label else escape(p['year'])
     status = f'<p class="pub-status">{escape(p["status"])}</p>' if p.get('status') else ''
     tags = '<div class="tags">'+''.join(f'<span class="tag">{escape(area)}</span>' for area in p.get('areas', []))+'</div>' if label else ''
@@ -82,21 +88,6 @@ def publication(p, compact=False, label=None, prefix=''):
 def news_list(items):
     return '<dl class="news">'+''.join(f'<div><dt>{escape(x["date"])}</dt><dd>{x["text"]}</dd></div>' for x in items)+'</dl>'
 
-def _courses(supervisory):
-    seen = []
-    for term in terms:
-        for course in term['courses']:
-            is_sup = '(Supervisor)' in course or '(Co-Supervisor)' in course
-            if is_sup == supervisory and course not in seen:
-                seen.append(course)
-    return seen
-
-def _group(heading, courses):
-    if not courses: return ''
-    return ('<article class="record"><h3>'+escape(heading)+'</h3><ul class="course-list">'
-            + ''.join('<li>'+escape(c)+'</li>' for c in courses) + '</ul></article>')
-
-teaching = _group('Courses', _courses(False)) + _group('Supervision', _courses(True))
 groups = [('conference', 'conference-papers', 'Conference papers', 'C'),
           ('journal', 'journal-articles', 'Journal articles', 'J'),
           ('workshop', 'workshop-papers', 'Workshop & shared-task papers', 'W'),
@@ -154,7 +145,7 @@ personal_topics = '<ul class="topic-grid" role="list">' + ''.join(
     f'<li><a href="personal.html#{c}"><h3>{TOPIC_LABELS[c]}</h3></a></li>' for c in personal_data) + '</ul>'
 pages = [('index', 'Home', 'Misinformation detection, LLM evaluation, low-resource Bangla NLP, and sign language accessibility research by Md. Tariquzzaman, Junior Lecturer at IUT.', read('home.html').replace('{{NEWS}}', news_html).replace('{{PERSONAL_TOPICS}}', personal_topics).replace('{{SELECTED}}', ''.join(publication(p, True) for p in papers[:2]))),
          ('publications', 'Publications', 'Publications, preprints, code, and datasets by Md. Tariquzzaman.', pub_body),
-         ('cv', 'CV', 'Education, academic appointments, teaching, and awards of Md. Tariquzzaman.', read('cv.html').replace('{{TEACHING}}', teaching)),
+         ('cv', 'CV', 'Education, research publications and experience, teaching experience, industry experience, and awards of Md. Tariquzzaman.', read('cv.html')),
          ('personal', 'Personal', 'Favorite anime, movies, books, and sports beyond the academic work of Md. Tariquzzaman.', personal_body)]
 
 PERSON = {'@type': 'Person', '@id': SITE + '#person', 'name': ME,
@@ -283,7 +274,7 @@ def publication_body(p, prefix='', prev=None, nxt=None):
     resources = '<div class="link-row paper-links publication-resources">' + ''.join(
         resource_button(k, v) for k, v in ordered) + '</div>'
 
-    award = f'<p class="award">{escape(p["award"])}</p>' if p.get('award') else ''
+    award = award_html(p)
     topics = '<div class="tags">'+''.join(f'<span class="tag">{escape(x)}</span>' for x in p.get('areas', []))+'</div>' if p.get('areas') else ''
     accepted_venue = '' if is_preprint(p) else (
         f'<p class="accepted-venue" role="note"><span class="accepted-label">Accepted</span>'

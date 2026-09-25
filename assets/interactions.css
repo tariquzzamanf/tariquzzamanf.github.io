@@ -439,6 +439,7 @@ h2, .chapter h2, .publication-group h2 { font-size: var(--text-section); line-he
   --kind-paper: #6f5a78;
   --kind-arxiv: #765f83;
   --kind-pdf: #5b626b;
+  --kind-cv: #785a25;
   --kind-code: #1f6470;
   --kind-dataset: #86620f;
   --kind-video: #6343a0;
@@ -447,6 +448,7 @@ h2, .chapter h2, .publication-group h2 { font-size: var(--text-section); line-he
   --kind-copy: #3f6b4f;
 }
 html[data-theme="dark"] {
+  --kind-cv: #8a6b31;
   --kind-github: #454b55;
 }
 .link-row, .paper-links { gap: 8px; }
@@ -454,7 +456,8 @@ html[data-theme="dark"] {
 .btn[data-kind="project"] { --kind: var(--kind-project); }
 .btn[data-kind="paper"] { --kind: var(--kind-paper); }
 .btn[data-kind="arxiv"] { --kind: var(--kind-arxiv); }
-.btn[data-kind="pdf"], .btn[data-kind="cv"] { --kind: var(--kind-pdf); }
+.btn[data-kind="pdf"] { --kind: var(--kind-pdf); }
+.btn[data-kind="cv"] { --kind: var(--kind-cv); }
 .btn[data-kind="code"] { --kind: var(--kind-code); }
 .btn[data-kind="dataset"] { --kind: var(--kind-dataset); }
 .btn[data-kind="video"] { --kind: var(--kind-video); }

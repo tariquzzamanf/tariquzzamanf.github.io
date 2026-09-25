@@ -94,6 +94,20 @@
       "url": "https://en.wikipedia.org/wiki/Interstellar_(film)"
     },
     {
+      "title": "Edge of Tomorrow",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/f9/Edge_of_Tomorrow_Poster.jpg",
+      "source": "https://en.wikipedia.org/wiki/Edge_of_Tomorrow",
+      "provider": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Edge_of_Tomorrow"
+    },
+    {
+      "title": "Coherence",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/Coherence_2013_theatrical_poster.jpg",
+      "source": "https://en.wikipedia.org/wiki/Coherence_(film)",
+      "provider": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Coherence_(film)"
+    },
+    {
       "title": "Avengers: Infinity War",
       "image": "https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg",
       "source": "https://en.wikipedia.org/wiki/Avengers%3A_Infinity_War",
@@ -108,13 +122,6 @@
       "url": "https://en.wikipedia.org/wiki/Spider-Man%3A_Into_the_Spider-Verse"
     },
     {
-      "title": "Coherence",
-      "image": "https://upload.wikimedia.org/wikipedia/en/9/9d/Coherence_2013_theatrical_poster.jpg",
-      "source": "https://en.wikipedia.org/wiki/Coherence_(film)",
-      "provider": "Wikipedia",
-      "url": "https://en.wikipedia.org/wiki/Coherence_(film)"
-    },
-    {
       "title": "Your Name",
       "image": "https://upload.wikimedia.org/wikipedia/en/0/0b/Your_Name_poster.png",
       "source": "https://en.wikipedia.org/wiki/Your_Name",
@@ -127,6 +134,13 @@
       "source": "https://en.wikipedia.org/wiki/Gone_Girl_(film)",
       "provider": "Wikipedia",
       "url": "https://en.wikipedia.org/wiki/Gone_Girl_(film)"
+    },
+    {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Eternal_Sunshine_of_the_Spotless_Mind.png",
+      "source": "https://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind",
+      "provider": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind"
     }
   ],
   "books": [
@@ -137,6 +151,22 @@
       "source": "https://openlibrary.org/works/OL1317211W",
       "provider": "Open Library",
       "url": "https://en.wikipedia.org/wiki/Meditations"
+    },
+    {
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "image": "https://covers.openlibrary.org/b/id/8763269-M.jpg",
+      "source": "https://openlibrary.org/books/OL27281494M/Deep_Work",
+      "provider": "Open Library",
+      "url": "https://en.wikipedia.org/wiki/Cal_Newport#Books"
+    },
+    {
+      "title": "Letters from a Stoic",
+      "author": "Seneca the Younger",
+      "image": "https://covers.openlibrary.org/b/id/103759-M.jpg",
+      "source": "https://openlibrary.org/works/OL102290W/Letters_from_a_Stoic",
+      "provider": "Open Library",
+      "url": "https://en.wikipedia.org/wiki/Epistulae_Morales_ad_Lucilium"
     }
   ],
   "sports": [
