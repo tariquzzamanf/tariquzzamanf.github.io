@@ -235,7 +235,7 @@
         "width": 1500,
         "height": 357,
         "alt": "Three video frames of a signer performing the Bengali sign for toothpaste, each annotated with numbered parameter descriptions such as hand in fist with index finger extended, palm faces inward, and mouth is open.",
-        "caption": "Figure 1. Parameter-based description of the Bengali sign for toothpaste. Numbers refer to the seven sign parameters below; these annotations illustrate the parameters and are not part of BdSLIG."
+        "caption": "Figure 1. Parameter-based description of the Bengali sign for toothpaste. Numbers refer to the seven sign parameters described in the paper; these annotations illustrate the parameters and are not part of BdSLIG."
       },
       "tldr": "Sign-language instruction generation writes step-by-step text that lets a hearing learner reproduce a sign. BdSLIG is the first dataset for this task in Bengali Sign Language, and Sign Parameter-Infused (SPI) prompting writes standard sign parameters into the prompt so vision-language models produce more structured, reproducible instructions.",
       "sections": [

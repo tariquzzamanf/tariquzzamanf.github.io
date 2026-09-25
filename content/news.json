@@ -1,15 +1,15 @@
 [
   {
     "date": "Mar 2026",
-    "text": "<a href=\"publications/scenario-bias/index.html\">Same Claim, Different Judgment</a> accepted to Findings of ACL 2026."
+    "text": "<a href=\"publications.html#scenario-bias\">Same Claim, Different Judgment</a> accepted to Findings of ACL 2026."
   },
   {
     "date": "Oct 2025",
-    "text": "<a href=\"publications/sign-parameters/index.html\">Prompting with Sign Parameters</a> accepted at the <a href=\"https://cv4a11y.github.io/ICCV2025/index.html\">CV4A11y</a> workshop at ICCV 2025."
+    "text": "<a href=\"publications.html#sign-parameters\">Prompting with Sign Parameters</a> accepted at the <a href=\"https://cv4a11y.github.io/ICCV2025/index.html\">CV4A11y</a> workshop at ICCV 2025."
   },
   {
     "date": "Dec 2024",
-    "text": "<a href=\"publications/bda/index.html\">BDA: Bangla Text Data Augmentation Framework</a> released on arXiv."
+    "text": "<a href=\"publications.html#bda\">BDA: Bangla Text Data Augmentation Framework</a> released on arXiv."
   },
   {
     "date": "Sep 2024",
@@ -21,6 +21,6 @@
   },
   {
     "date": "Dec 2023",
-    "text": "<a href=\"publications/informal-bangla/index.html\">A Novel Informal Bangla FastText Embedding</a> received the <a href=\"https://blp-workshop.github.io/2023/awards\">Best Shared Task Paper Award</a> at BLP @ EMNLP 2023."
+    "text": "<a href=\"publications.html#informal-bangla\">A Novel Informal Bangla FastText Embedding</a> received the <a href=\"https://blp-workshop.github.io/2023/awards\">Best Shared Task Paper Award</a> at BLP @ EMNLP 2023."
   }
 ]
