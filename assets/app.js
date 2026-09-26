@@ -11,15 +11,20 @@
   } catch (_) { /* Reading controls still work when storage is unavailable. */ }
 
   if (themeButton) {
+    const SUN = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.4M12 18.8v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.8 12h2.4M18.8 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>';
+    const MOON = '<svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.6 14.5A8.6 8.6 0 0 1 9.5 3.4a.7.7 0 0 0-.9-.9A10 10 0 1 0 21.5 15.4a.7.7 0 0 0-.9-.9Z"/></svg>';
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const effectiveDark = () => root.dataset.theme === 'dark' || (!root.dataset.theme && media.matches);
     const updateThemeLabel = () => {
-      const dark = root.dataset.theme === 'dark';
+      const dark = effectiveDark();
+      themeButton.innerHTML = dark ? SUN : MOON;
       themeButton.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
       themeButton.title = dark ? 'Switch to light theme' : 'Switch to dark theme';
-      themeButton.textContent = dark ? '☼' : '◐';
     };
+    media.addEventListener?.('change', () => { if (!root.dataset.theme) updateThemeLabel(); });
     updateThemeLabel();
     themeButton.addEventListener('click', () => {
-      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = effectiveDark() ? 'light' : 'dark';
       try { localStorage.setItem('tariq-theme', root.dataset.theme); } catch (_) {}
       updateThemeLabel();
     });
@@ -45,6 +50,29 @@
     nav.addEventListener('click', (event) => {
       if (event.target.closest('a')) closeMenu();
     });
+  }
+  // Subtle tap feedback on touch: brief press state for nav links, buttons,
+  // topic chips, and favorite cards, so taps feel responsive on phones/tablets.
+  // Skipped when reduced motion is preferred.
+  if (window.matchMedia('(hover: none)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const pressable = 'a.btn, button.btn, .site-header nav a, .page-contents a, .personal-topics a, .topic-grid a, .interest-grid > a';
+    let pressed = null;
+    const press = (target) => {
+      const el = target?.closest ? target.closest(pressable) : target?.parentElement?.closest?.(pressable);
+      const hit = el || (target?.nodeType === 3 ? target.parentElement?.closest?.(pressable) : null);
+      if (hit && hit !== pressed) {
+        release();
+        pressed = hit;
+        pressed.style.transform = 'scale(.97)';
+        pressed.style.transition = 'transform .15s ease';
+      }
+    };
+    const release = () => {
+      if (pressed) { pressed.style.transform = ''; pressed.style.transition = ''; pressed = null; }
+    };
+    document.addEventListener('touchstart', (e) => press(e.target), { passive: true });
+    document.addEventListener('touchend', release, { passive: true });
+    document.addEventListener('touchcancel', release, { passive: true });
   }
   const contents = document.querySelector('.page-contents');
   if (contents) {
