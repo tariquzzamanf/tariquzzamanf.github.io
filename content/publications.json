@@ -31,7 +31,7 @@
     ],
     "year": "2026",
     "venue": "Findings of ACL 2026",
-    "status": "",
+    "status": "Conference paper",
     "links": {
       "Paper": "https://aclanthology.org/2026.findings-acl.479/"
     },
@@ -195,7 +195,8 @@
         }
       ],
       "acknowledgements": "We thank Ming Shan Hee, LIM Jia Peng, and Ethan Bird for the Human-level Performance Measurement part. This work was supported by the computational shared facility at the University of Manchester and the scholar award from the Department of Computer Science at the University of Manchester. This research was supported by the NVIDIA Academic Grant Program using 32K A100 GPU-hours on Brev. This work has been partially supported by project MIS 5154714 of the National Recovery and Resilience Plan Greece 2.0 funded by the European Union under the Next Generation EU Program. The authors acknowledge The Fin AI community for its research support, feedback, and collaborative environment that contributed to this work."
-    }
+    },
+    "venue_url": "https://2026.aclweb.org/program/findings/"
   },
   {
     "id": "sign-parameters",
@@ -412,7 +413,8 @@
         "src": "https://drive.google.com/file/d/10QgGeiHcLzH5HIqXrYUBx6rw_9PpZMZk/preview",
         "title": "Presentation video for Prompting with Sign Parameters"
       }
-    }
+    },
+    "venue_url": "https://cv4a11y.github.io/ICCV2025/index.html"
   },
   {
     "id": "informal-bangla",
@@ -612,7 +614,8 @@
         "src": "https://aclanthology.org/2023.banglalp-1.26.mp4",
         "title": "Presentation video for the_linguists at BLP-2023 Task 1"
       }
-    }
+    },
+    "venue_url": "https://blp-workshop.github.io/2023/accepted"
   },
   {
     "id": "bda",

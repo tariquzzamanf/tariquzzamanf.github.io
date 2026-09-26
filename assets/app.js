@@ -187,6 +187,8 @@
   openFromHash();
 
   document.querySelectorAll('.copy-citation').forEach((button) => {
+    if (button.dataset.copyBound) return;
+    button.dataset.copyBound = 'true';
     button.addEventListener('click', async () => {
       const target = document.getElementById(button.dataset.copyTarget);
       if (!target) return;
@@ -194,10 +196,9 @@
       try {
         await navigator.clipboard.writeText(text);
         const label = button.querySelector('.copy-label') || button;
-        const original = label.textContent;
-        label.textContent = 'Copied';
+        label.textContent = 'Copied BibTeX';
         button.classList.add('is-copied');
-        window.setTimeout(() => { label.textContent = original; button.classList.remove('is-copied'); }, 1400);
+        window.setTimeout(() => { label.textContent = 'Copy BibTeX'; button.classList.remove('is-copied'); }, 1600);
       } catch (_) {
         target.focus();
       }

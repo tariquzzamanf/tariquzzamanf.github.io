@@ -18,3 +18,8 @@
 - Expects uniform action-button sizing within a group on phone: all buttons in the same row (e.g., Overview, Paper, Copy BibTeX, Code) should render at identical widths, stacking full-width if needed, rather than one button narrower than the rest. Confidence: 0.7
 - Prefers the site header/top bar to span the full viewport width end-to-end rather than looking clipped to the centered content column; header background and border should reach the display edges with inner content inset at screen-edge padding. Confidence: 0.75
 - Expects sizing changes to leave layout/position untouched unless asked: when asking to make elements bigger, keep them anchored where they were rather than also moving or re-aligning them. Confidence: 0.75
+- Expects every publication entry to display its type label consistently (e.g., Conference paper alongside Workshop paper and Preprint), so no group is missing a label that others have. Confidence: 0.7
+- Expects every accepted paper's venue badge to link to its official announcement or accepted-papers page, and wants this set for all upcoming papers at entry time. Confidence: 0.8
+- Wants recurring publication conventions codified in agents.md so future entries follow them without re-asking. Confidence: 0.75
+- Dislikes imbalanced left-heavy split buttons on phone: the primary action should dominate/fill the row with a compact fixed-width secondary chevron, reading as one balanced full-width pill rather than a half/half split. Confidence: 0.7
+- Expects copy actions to give explicit success feedback: button turns green and label changes to "Copied ..." (e.g. "Copied BibTeX") briefly before reverting. Confidence: 0.75
