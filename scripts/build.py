@@ -114,7 +114,7 @@ def publication(p, label):
     if venue_url:
         badge_name = f'<a href="{escape(venue_url, quote=True)}">{badge_name}{icon("external", "icon icon-trail")}</a>'
     venue = (f'<p class="venue">{escape(p["venue"])}</p>' if is_preprint(p) else
-             f'<p class="accepted-venue">{icon("badge-check")}<span class="accepted-label">Accepted</span><span class="accepted-name">{badge_name}</span></p>')
+             f'<p class="accepted-venue"><span class="accepted-head">{icon("badge-check")}<span class="accepted-label">Accepted</span></span><span class="accepted-name">{badge_name}</span></p>')
     links = {**p.get('links', {}), **p.get('page', {}).get('links', {})}
     paper = paper_url(p)
     title = f'<a href="{escape(paper, quote=True)}">{escape(p["title"])}</a>' if paper else escape(p['title'])
