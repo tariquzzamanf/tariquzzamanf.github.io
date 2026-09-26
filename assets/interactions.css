@@ -161,8 +161,7 @@ html{scroll-padding-top:calc(var(--header-h) + 64px)}
 .page-contents .eyebrow{display:none}
 .page-contents a{flex-shrink:0;padding:7px 12px;font-size:.8125rem;transition:background .22s var(--ease),color .22s var(--ease)}
 .chapter,.personal-panel,.publication-group,.publication-sections .publication{scroll-margin-top:calc(var(--header-h) + 64px)}
-.personal-layout{display:block}
-.personal-nav{position:static;flex-direction:row;flex-wrap:wrap;margin-bottom:4px}
+  .personal-layout{display:block}
 .pub-drawer-body{padding:16px}
 .figure-frame{min-height:180px;padding:10px}
 .carousel-dots{display:none}

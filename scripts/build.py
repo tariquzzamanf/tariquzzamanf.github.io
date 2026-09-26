@@ -172,10 +172,28 @@ for item in news:
             raise SystemExit(f'news.json calls preprint "{p["id"]}" accepted: {item["date"]}')
 news_html = news_list(sorted(news, key=lambda x: datetime.strptime(x['date'], '%b %Y'), reverse=True))
 contents = ''.join(f'<a href="#{anchor}">{escape(heading)}</a>' for _, anchor, heading, _ in groups)
+# Home's interest cards link to the four research-area anchors. Entries are grouped by type,
+# so each area anchor is placed before the first paper carrying it, in render order.
+AREA_ANCHORS = ['misinformation', 'evaluation', 'bangla', 'accessibility']
+AREA_ANCHOR_FOR = {'Misinformation': 'misinformation', 'LLM evaluation': 'evaluation',
+                   'Bangla NLP': 'bangla', 'Accessibility': 'accessibility'}
+ordered = [p for kind, _, _, _ in groups
+           for p in sorted((x for x in papers if x['type'] == kind), key=lambda x: int(x['year']), reverse=True)]
+first_anchor = {}
+for p in ordered:
+    for area in p.get('areas', []):
+        key = AREA_ANCHOR_FOR.get(area)
+        if key and key not in first_anchor:
+            first_anchor[key] = p['id']
+
+def area_anchors(p):
+    return ''.join(f'<span id="{key}" class="legacy-anchor"></span>'
+                   for key in AREA_ANCHORS if first_anchor.get(key) == p['id'])
+
 sections = ''
 for kind, anchor, heading, prefix in groups:
     entries = sorted((p for p in papers if p['type'] == kind), key=lambda p: int(p['year']), reverse=True)
-    listing = ''.join(publication(p, f'{prefix}{len(entries)-i}') for i, p in enumerate(entries))
+    listing = ''.join(area_anchors(p) + publication(p, f'{prefix}{len(entries)-i}') for i, p in enumerate(entries))
     if not entries: listing = '<p class="empty-publications">No journal articles listed yet.</p>'
     legacy_anchor = '<span id="peer-reviewed" class="legacy-anchor"></span>' if kind == 'conference' else ''
     sections += f'{legacy_anchor}<section class="publication-group" id="{anchor}" aria-labelledby="{anchor}-heading"><h2 id="{anchor}-heading">{escape(heading)} <span class="group-count">{len(entries)}</span></h2>{listing}</section>'
